@@ -1,0 +1,92 @@
+html,
+body,
+#root {
+    @apply content-center;
+    height: 100%;
+}
+
+#app {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background: #ffffff;
+}
+
+html.dark {
+    background: #181818;
+}
+
+body {
+    color: black;
+
+    height: 100%;
+}
+
+.dark body {
+    color: white;
+}
+
+#nprogress {
+    pointer-events: none;
+}
+
+#nprogress .bar {
+    background: #4592ea;
+}
+
+/* Designing for scroll-bar */
+::-webkit-scrollbar {
+    width: 6px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    border-radius: 20px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #afafaf;
+    border-radius: 60px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #d5d5d5;
+}
+
+
+@layer base {
+
+
+    #nprogress .bar {
+        @apply bg-sky-600 opacity-100;
+
+        position: fixed;
+        z-index: 1031;
+        top: 0;
+        left: 0;
+
+        width: 100%;
+        height: 4px;
+    }
+
+    .tooltip {
+        @apply invisible absolute;
+    }
+
+    .has-tooltip:hover .tooltip {
+        @apply visible z-50;
+    }
+
+    .btn {
+        @apply px-4 py-1 rounded inline-block
+        bg-teal-600 text-white cursor-pointer
+        hover:bg-teal-700
+        disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
+    }
+}
+

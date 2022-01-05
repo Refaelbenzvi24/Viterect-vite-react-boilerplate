@@ -1,0 +1,5 @@
+{
+	"dependencyDashboardAutoclose": true,
+	"extends": [":disableRateLimiting", "config:js-app"],
+	"labels": ["dependencies"]
+}

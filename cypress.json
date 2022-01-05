@@ -1,0 +1,8 @@
+{
+  "baseUrl": "http://localhost:3333",
+  "chromeWebSecurity": false,
+  "fileServerFolder": "dist",
+  "fixturesFolder": false,
+  "projectId": "etow1b",
+  "integrationFolder": "cypress/e2e"
+}

@@ -21,12 +21,13 @@ html.dark {
 
 body {
     color: black;
-
+    background: #ffffff;
     height: 100%;
 }
 
 .dark body {
     color: white;
+    background: #181818;
 }
 
 #nprogress {
@@ -60,8 +61,6 @@ body {
 
 
 @layer base {
-
-
     #nprogress .bar {
         @apply bg-sky-600 opacity-100;
 
@@ -72,14 +71,6 @@ body {
 
         width: 100%;
         height: 4px;
-    }
-
-    .tooltip {
-        @apply invisible absolute;
-    }
-
-    .has-tooltip:hover .tooltip {
-        @apply visible z-50;
     }
 
     .btn {

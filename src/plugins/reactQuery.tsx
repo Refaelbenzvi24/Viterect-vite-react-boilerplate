@@ -1,15 +1,15 @@
-import React from "react";
-import {ReactElementProps} from "../types";
-import {QueryClientProvider, QueryClient} from "react-query";
-import {ReactQueryDevtools} from "react-query/devtools";
+import React from 'react';
+import type { ReactElementProps as ReactElementProperties } from '../types';
+import { QueryClientProvider, QueryClient } from 'react-query';
+import { ReactQueryDevtools } from 'react-query/devtools';
 
-const queryClient = new QueryClient()
+const queryClient = new QueryClient();
 
-export default (props: ReactElementProps) => {
-    return (
-        <QueryClientProvider client={queryClient}>
-            {props.children}
-            <ReactQueryDevtools initialIsOpen={false} position={"top-right"}/>
-        </QueryClientProvider>
-    )
+export default function (properties: ReactElementProperties) {
+  return (
+    <QueryClientProvider client={queryClient}>
+      {properties.children}
+      <ReactQueryDevtools initialIsOpen={false} position="top-right" />
+    </QueryClientProvider>
+  );
 }

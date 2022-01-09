@@ -1,26 +1,27 @@
-import {QueryObserverBaseResult, QueryStatus} from "react-query";
-import React, {ReactElement} from "react";
-import CircularProgress from "./UI/Progress/CircularProgress"
+import type { QueryStatus } from 'react-query';
+import type { ReactElement } from 'react';
+import React from 'react';
+import ProgressSpinner from './UI/Progress/ProgressSpinner';
 
-interface QueryHandlerProps {
-    children: ReactElement,
-    status: QueryStatus
+interface QueryHandlerProperties {
+  children: ReactElement;
+  status: QueryStatus;
 }
 
-export default ({children, status}: QueryHandlerProps) => {
-    return (
-        <>
-            {status === 'loading' && (
-                <CircularProgress/>
-            )}
+export default function ({ children, status }: QueryHandlerProperties) {
+  return (
+    <>
+      {status === 'loading' && (
+      <ProgressSpinner />
+		  )}
 
-            {status === 'error' && (
-                <>Error occurred while getting the data!</>
-            )}
+      {status === 'error' && (
+      <>Error occurred while getting the data!</>
+		  )}
 
-            {status === 'success' && (
-                <>{children}</>
-            )}
-        </>
-    )
+      {status === 'success' && (
+      <>{children}</>
+		  )}
+    </>
+  );
 }

@@ -1,5 +1,4 @@
 function get(id: string): ReturnType<typeof cy.get> {
-	//TODO: check what is the cause of the error
 	return cy.findByTestId(id)
 }
 

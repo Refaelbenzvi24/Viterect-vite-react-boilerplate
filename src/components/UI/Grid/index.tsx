@@ -1,7 +1,4 @@
-import ContainerElement from "./Container";
-import RowElement from "./Row";
-import ColElement from "./Col";
+export { default as Container } from './Container';
 
-export const Container = ContainerElement
-export const Row = RowElement
-export const Col = ColElement
+export { default as Col } from './Col';
+export { default as Row } from './Row';

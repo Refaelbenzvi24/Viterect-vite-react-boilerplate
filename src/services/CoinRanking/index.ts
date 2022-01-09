@@ -1,16 +1,19 @@
-import CoinRanking from "./CoinRanking";
-import {useQuery} from "react-query";
+import CoinRankingApi from './CoinRanking';
+import { vars as variables } from '../../plugins/vars';
 
-const coinRankingApi = {
-    apiRootUrl: 'https://coinranking1.p.rapidapi.com',
-    apiCurrentVersion: '',
-    config: {
-        headers: {
-            'x-rapidapi-host': 'coinranking1.p.rapidapi.com',
-            'x-rapidapi-key': '3ba4937634msh328e7a06929f135p1ada5ajsnf1a28fd0fb50'
-        }
-    }
-}
+const COINRANKING_RAPIAPI_URL: string = variables.rapidApi.coinsRankingApi.url;
+const COINRANKING_RAPIAPI_HOST: string = variables.rapidApi.coinsRankingApi.host;
+const RAPIAPI_KEY: string = variables.rapidApi.apiKey;
 
+const coinRankingApiData = {
+  apiRootUrl: COINRANKING_RAPIAPI_URL,
+  apiCurrentVersion: '',
+  config: {
+    headers: {
+      'x-rapidapi-host': COINRANKING_RAPIAPI_HOST,
+      'x-rapidapi-key': RAPIAPI_KEY,
+    },
+  },
+};
 
-export const CoinRankingApi = new CoinRanking(coinRankingApi)
+export const coinRankingApi = new CoinRankingApi(coinRankingApiData);

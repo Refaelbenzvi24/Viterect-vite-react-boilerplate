@@ -1,17 +1,27 @@
-const defaultTheme = require('tailwindcss/defaultTheme')
+// const defaultTheme = require('tailwindcss/defaultTheme')
 
 module.exports = {
-    mode:      'jit',
+    mode:    'jit',
     content: ['./index.html', 'src/main.tsx', 'src/styles/index.css', 'src/**/*.{html,js,jsx,ts,tsx,css}'],
     // content: ['./index.html','src/**/*.{html,js,css,tsx,jsx}'],
     // important: true,
-    // theme:     {
-    //     screens: {
-    //         'sm': '576px',
-    //         'md': '768px',
-    //         'lg': '992px',
-    //         'xl': '1200px',
-    //     },
+    theme:  {
+        screens: {
+            'xs': '200px',
+            'sm': '576px',
+            'md': '768px',
+            'lg': '992px',
+            'xl': '1200px',
+        },
+    },
+    colors: {
+        extend: {
+            animation: {
+                bounce200: 'bounce 1s infinite 200ms',
+                bounce400: 'bounce 1s infinite 400ms',
+            },
+        },
+    },
     //
     //     colors:  {
     //         primary:   {

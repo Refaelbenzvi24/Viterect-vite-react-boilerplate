@@ -1,7 +1,5 @@
-export default () => {
-    return (
-        <>
-            <h1>h</h1>
-        </>
-    )
+export default function () {
+  return (
+    <h1>h</h1>
+  );
 }

@@ -1,35 +1,37 @@
-import ApiUrlService, {ApiUrlServiceProps} from "../../modules/ApiUrlService"
-import {QueryOptions, useQuery} from "react-query"
-import {AxiosRequestConfig} from "axios"
-import {UseQueryOptions} from "react-query/types/react/types";
+import type { ApiUrlServiceProps as ApiUrlServiceProperties } from '../../modules/ApiUrlService';
+import ApiUrlService from '../../modules/ApiUrlService';
+import { useQuery } from 'react-query';
+import type { AxiosRequestConfig } from 'axios';
+import type { UseQueryOptions } from 'react-query/types/react/types';
+import type { CoinEndpointType, CoinsEndpointType } from './types';
 
-interface CoinRankingProps extends ApiUrlServiceProps {
-    config: AxiosRequestConfig
+interface CoinRankingProperties extends ApiUrlServiceProperties {
+  config: AxiosRequestConfig;
 }
 
-const defaultQueryConfig: UseQueryOptions = {}
+const defaultQueryConfig: UseQueryOptions = {};
 
+export default class CoinRankingApi extends ApiUrlService {
+  config: object;
 
-export default class CoinRanking extends ApiUrlService {
-    config: object
+  constructor(coinRankingApi: CoinRankingProperties) {
+    super(coinRankingApi);
 
-    constructor(coinRankingApi: CoinRankingProps) {
-        super(coinRankingApi)
+    this.config = coinRankingApi.config;
+  }
 
-        this.config = coinRankingApi.config
-    }
+  coins(): CoinsEndpointType {
+    return {
+      endpoint: `${this.apiFullRootUrl}/coins`,
 
-    coins() {
-        return {
-            endpoint: this.apiFullRootUrl + '/coins',
-            get: (limit = 20, queryConfig: UseQueryOptions = defaultQueryConfig) => {
-                return useQuery('coins', () => {
-                    return http.get(this.coins().endpoint + `?limit=${limit}`, this.config)
-                }, queryConfig as {})
-            },
-            post: async () => {
-                // return await http.post(this.coins.endpoint)
-            }
-        }
-    }
+      list: (limit = 20, queryConfig: UseQueryOptions = defaultQueryConfig) => useQuery('coins', async () => http.get(`${this.coins().endpoint}?limit=${limit}`, this.config), queryConfig as {}),
+    };
+  }
+
+  coin(): CoinEndpointType {
+    return {
+      endpoint: `${this.apiFullRootUrl}/coin`,
+      get: (id: string, queryConfig: UseQueryOptions = defaultQueryConfig) => useQuery(`coin-${id}`, async () => http.get(`${this.coin().endpoint}/${id}`, this.config), queryConfig as {}),
+    };
+  }
 }

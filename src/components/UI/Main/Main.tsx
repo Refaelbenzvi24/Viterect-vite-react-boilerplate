@@ -1,27 +1,59 @@
-import {ReactElementProps} from "../../../types";
-import i18n from "../../../plugins/i18n";
-import {useContext} from "react";
-import {MainContext} from "./MainContext";
-import {defaultMainData} from "./MainContext";
+import type { ReactElementProps as ReactElementProperties } from '../../../types';
+import i18n from '../../../plugins/i18n';
+import React, { useContext, useEffect, useState } from 'react';
+import { MainContext, defaultMainData } from './MainContext';
+import windowVariables from '../../../hooks/WindowVars';
+import MainProvider from './MainProvider';
 
-const {sideBarWidth: dSideBarWidth} = defaultMainData
+export default function (properties: ReactElementProperties) {
+  const {
+    sideBarState: sideBar, sideBarOpts, overlayState, setOverlayState, overlays,
+  } = useContext(MainContext);
+  const [mainClasses, setMainClasses] = useState('');
+  const { windowWidth } = windowVariables();
 
-export default (props: ReactElementProps) => {
-    const {data, setData} = useContext(MainContext)
-    const {children, className} = props
-    const dir = i18n.dir()
-    let classes: string
+  const { children, className } = properties;
+  const { shrinkPoint } = sideBarOpts;
 
-    const {sideBar, sideBarWidth} = data
+  const dir = i18n.dir();
 
-    if (dir === 'ltr') {
-        classes = sideBar ? `ml-[${sideBarWidth || dSideBarWidth}px]` : ''
-    } else classes = sideBar ? `mr-[${sideBarWidth || dSideBarWidth}px]` : ''
+  useEffect(() => {
+    if (overlays.length > 0) {
+      setOverlayState(true);
+    } else if (overlays.length === 0) {
+      setOverlayState(false);
+    }
+  }, [overlays]);
 
+  const overlayToggle = () => {
+    if (overlays && overlays.length > 0) {
+      overlays.at(-1).onClick();
+    }
+  };
 
-    return (
-        <div {...props} id="main" className={`${classes} ${className}`}>
-            {children}
-        </div>
-    )
+  useEffect(() => {
+    if (shrinkPoint && sideBar && windowWidth > shrinkPoint) {
+      if (dir === 'ltr') {
+        setMainClasses(`ml-[${sideBarOpts.width}px]`);
+      } else {
+        setMainClasses(`mr-[${sideBarOpts.width}px]`);
+      }
+    } else {
+      setMainClasses('');
+    }
+  }, [sideBar, dir]);
+
+  return (
+    <MainProvider>
+      <div {...properties} id="main" className={`h-full ${mainClasses} ${className || ''}`}>
+        <div
+          id="overlay"
+          className={`opacity transition-opacity ease-out-in duration-400
+		                    ${overlayState ? 'fixed h-full w-full bg-dark-200 opacity-40 z-20' : 'opacity-0'}`}
+          onClick={overlayToggle}
+        />
+        {children}
+      </div>
+    </MainProvider>
+  );
 }

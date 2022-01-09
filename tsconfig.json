@@ -9,7 +9,7 @@
       "ESNext"
     ],
     "allowJs": false,
-    "skipLibCheck": false,
+    "skipLibCheck": true,
     "esModuleInterop": false,
     "allowSyntheticDefaultImports": true,
     "strict": true,
@@ -21,7 +21,6 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "types": [
-      "cypress",
       "vite/client",
       "vite-plugin-pages/client",
       "vite-plugin-pwa/client",

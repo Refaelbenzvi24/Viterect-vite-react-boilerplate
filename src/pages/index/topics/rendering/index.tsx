@@ -1,5 +1,5 @@
-export default () => {
-    return (
-        <p>d</p>
-    )
+export default function () {
+  return (
+    <p>d</p>
+  );
 }

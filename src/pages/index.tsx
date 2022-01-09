@@ -1,43 +1,23 @@
-import React, {ReactElement} from 'react'
-import {Link} from 'react-router-dom'
-import Plugins from 'plugins/index'
-import {RouteConfigComponentProps} from "../components/NestedRoute"
-import ThemeToggle from "../components/UI/Theme/ThemeToggle"
-import LanguageSelector from "../components/LanguageSelector"
-import NestedRoute from "../components/NestedRoute"
-import {useTranslation} from "react-i18next"
-import SideBar from "../components/SideBar";
-import Main from "../components/UI/Main/Main";
+import React from 'react';
+import Plugins from 'plugins/index';
+import type { RouteConfigComponentProps as RouteConfigComponentProperties } from '../components/NestedRoute';
+import NestedRoute from '../components/NestedRoute';
+import SideBar from '../components/SideBar';
+import Main from '../components/UI/Main/Main';
 
-export default ({route}: RouteConfigComponentProps) => {
-    Plugins()
-    const {t} = useTranslation()
+export default function ({ route }: RouteConfigComponentProperties) {
+  Plugins();
 
-    return (
-        <div className="mx-auto">
-            <SideBar/>
+  return (
+    <div className="h-full w-full mx-auto">
+      <SideBar />
 
-            {/*<ul>*/}
-            {/*    <li>*/}
-            {/*        <Link to="/">{t("home")}</Link>*/}
-            {/*    </li>*/}
-            {/*    <li>*/}
-            {/*        <Link to="/topics">{t("topics")}</Link>*/}
-            {/*    </li>*/}
-            {/*    <li>*/}
-            {/*        <Link to="/test">{t("test")}</Link>*/}
-            {/*    </li>*/}
-            {/*</ul>*/}
-
-            {/*<p>{t("nested view")}</p>*/}
-
-            <Main>
-                <NestedRoute route={route}/>
-            </Main>
-        </div>
-    )
+      <Main>
+        <NestedRoute route={route} />
+      </Main>
+    </div>
+  );
 }
-
 
 // import {Fragment} from 'react'
 // import {Disclosure, Menu, Transition} from '@headlessui/react'

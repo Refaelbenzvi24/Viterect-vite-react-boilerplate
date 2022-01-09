@@ -1,7 +1,5 @@
-const all: React.FC = () => {
-    return (
-        <p>...all route</p>
-    )
-}
+const all: React.FC = () => (
+  <p>...all route</p>
+);
 
-export default all
+export default all;

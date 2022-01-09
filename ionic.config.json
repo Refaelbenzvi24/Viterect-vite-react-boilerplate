@@ -1,5 +1,7 @@
 {
   "name": "vite-react-boilerplate",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "custom"
 }

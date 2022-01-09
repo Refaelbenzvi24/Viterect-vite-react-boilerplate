@@ -1,15 +1,16 @@
-import {createContext} from "react";
-import {MainContextType, MainProps} from "../../../types/main";
+import { createContext } from 'react';
+import type { MainContextType, MainDataType } from './types';
 
-export const defaultMainData = {
-    sideBar: true,
-    sideBarWidth: 260
-}
+export const defaultMainData: MainDataType = {
+  sideBarState: false,
+  sideBarOpts: {
+    width: 260,
+    shrinkPoint: 1300,
+  },
+  overlayState: false,
+  overlays: [],
+};
 
-export const getInitialMain = (): MainProps => {
-    // document.getElementById()
+export const getInitialMain: MainDataType = defaultMainData;
 
-    return defaultMainData
-}
-
-export const MainContext = createContext<MainContextType>({} as MainContextType)
+export const MainContext = createContext<MainContextType>({} as MainContextType);

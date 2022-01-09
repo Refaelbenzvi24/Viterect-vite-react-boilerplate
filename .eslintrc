@@ -22,14 +22,17 @@
     "airbnb/hooks",
     "plugin:react/jsx-runtime",
     "plugin:unicorn/all",
-    "plugin:react-prefer-function-component/recommended",
-    "prettier"
+    "plugin:react/recommended",
+    "plugin:react-prefer-function-component/recommended"
   ],
   //  "parserOptions": {
   //    "parser": "babel-eslint"
   //  },
 
   "rules": {
+    "@typescript-eslint/consistent-type-imports": "off",
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "func-names": "off",
     "no-dupe-else-if": "error",
     "no-promise-executor-return": "error",
     "no-unreachable-loop": "error",
@@ -96,8 +99,8 @@
           "vite-pages-theme-doc",
           "src/setupTests.ts",
           "src/testUtils.tsx",
-          "src/mocks/**",
-          "**/__tests__/*.{ts,tsx}"
+          "src/mocks/**"
+          //          "**/tests/*.{ts,tsx}"
         ]
       }
     ],
@@ -181,7 +184,7 @@
     {
       "files": [
         "*.ts?(x)",
-        "**/__tests__/*.{j,t}s?(x)",
+        "**/tests/*.{j,t}s?(x)",
         "**/tests/unit/**/*.spec.{j,t}s?(x)"
       ],
       "parserOptions": {

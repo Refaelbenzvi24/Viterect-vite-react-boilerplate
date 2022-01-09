@@ -1,33 +1,29 @@
-import React, {Component} from 'react'
-import {renderRoutes, RouteConfig} from 'react-router-config'
+import React from 'react';
+import type { RouteConfig } from 'react-router-config';
+import { renderRoutes } from 'react-router-config';
 
-export type RouteConfigComponentProps = { route: RouteConfig | undefined }
+export interface RouteConfigComponentProperties { route: RouteConfig | undefined }
 
-const NestedRoute = ({route}: RouteConfigComponentProps) => {
-    let child
+function NestedRoute({ route }: RouteConfigComponentProperties) {
+  let child;
 
-    if (route?.routes) {
-        child = route?.routes?.map(r => ({
-            ...r,
+  child = route?.routes ? route.routes.map((r) => ({
+    ...r,
 
-            path: `${route.path === '/' ? '' : route.path}${r.path}`,
-            exact: r.path === '/'
-        }))
-    } else {
-        child = route?.children?.map((r: any) => ({
-            ...r,
+    path: `${route.path === '/' ? '' : route.path}${r.path}`,
+    exact: r.path === '/',
+  })) : route?.children?.map((r: any) => ({
+    ...r,
 
-            path: `${route.path === '/' ? '' : route.path}${r.path}`,
-            exact: r.path === '/'
-        }))
-    }
+    path: `${route.path === '/' ? '' : route.path}${r.path}`,
+    exact: r.path === '/',
+  }));
 
-    return (
-        <>
-            {renderRoutes(child)}
-        </>
-    )
+  return (
+    <>
+      {renderRoutes(child)}
+    </>
+  );
 }
 
-
-export default NestedRoute
+export default NestedRoute;

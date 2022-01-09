@@ -1,31 +1,31 @@
-import React from 'react'
-import {ReactElement, useEffect, useState} from "react"
-import {LocalStorage} from "../../../modules/LocalStorage"
-import {ThemeContext, getInitialTheme} from "./ThemeContext"
-import {ThemeName, ThemeProviderOpts} from "../../../types/theme"
+import type { ReactElement } from 'react';
+import React, { useEffect, useState } from 'react';
 
+import { LocalStorage } from '../../../modules/LocalStorage';
+import { ThemeContext, getInitialTheme } from './ThemeContext';
+import type { ThemeName, ThemeProviderOpts as ThemeProviderOptions } from './types';
 
-export default ({initialTheme, children}: ThemeProviderOpts): ReactElement => {
-    const [theme, setTheme] = useState(getInitialTheme)
+export default function ({ initialTheme, children }: ThemeProviderOptions): ReactElement {
+  const [theme, setTheme] = useState(getInitialTheme);
 
-    const rawSetTheme = (theme: ThemeName) => {
-        //Updated rawSetTheme to theme above//
-        const root = window.document.documentElement
-        const isDark = theme === 'dark'
+  const rawSetTheme = (theme: ThemeName) => {
+    // Updated rawSetTheme to theme above//
+    const root = window.document.documentElement;
+    const isDark = theme === 'dark';
 
-        root.classList.remove(isDark ? 'light' : 'dark')
-        root.classList.add(theme)
+    root.classList.remove(isDark ? 'light' : 'dark');
+    root.classList.add(theme);
 
-        LocalStorage.setTheme(theme)
-    }
+    LocalStorage.setTheme(theme);
+  };
 
-    if (initialTheme) {
-        rawSetTheme(initialTheme)
-    }
+  if (initialTheme) {
+    rawSetTheme(initialTheme);
+  }
 
-    useEffect(() => {
-        rawSetTheme(theme)
-    }, [theme])
+  useEffect(() => {
+    rawSetTheme(theme);
+  }, [theme]);
 
-    return <ThemeContext.Provider value={{theme, setTheme}}>{children}</ThemeContext.Provider>
+  return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>;
 }

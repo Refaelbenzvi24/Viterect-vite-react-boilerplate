@@ -2,7 +2,7 @@
 // import '@ionic/react/css/core.css';
 
 // import 'virtual:windi.css'
-import 'virtual:windi-base.css'
+import 'virtual:windi-base.css';
 
 /* Basic CSS for apps built with Ionic */
 // import '@ionic/react/css/normalize.css';
@@ -10,7 +10,7 @@ import 'virtual:windi-base.css'
 // import '@ionic/react/css/typography.css';
 
 // windicss layers
-import 'virtual:windi-components.css'
+import 'virtual:windi-components.css';
 
 /* Optional CSS utils that can be commented out */
 // import '@ionic/react/css/padding.css';
@@ -20,13 +20,10 @@ import 'virtual:windi-components.css'
 // import '@ionic/react/css/flex-utils.css';
 // import '@ionic/react/css/display.css';
 
-
-import './main.css'
+import './main.css';
 
 // windicss utilities should be the last styles import
-import 'virtual:windi-utilities.css'
+import 'virtual:windi-utilities.css';
 
 // windicss devtools support (dev only)
-import 'virtual:windi-devtools'
-
-
+import 'virtual:windi-devtools';

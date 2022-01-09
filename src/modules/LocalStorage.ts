@@ -1,30 +1,30 @@
-import type {ThemeName} from '../types/theme'
-import type {Language} from '../plugins/i18n'
+import type { ThemeName } from '../components/UI/Theme/types';
+import type { Language } from '../plugins/i18n';
 
-export class LocalStorage {
+export const LocalStorage = {
 
-    static theme = 'theme'
-    static language = 'i18nextLng'
+  theme: 'theme',
+  language: 'i18nextLng',
 
-    static getTheme(): ThemeName {
-        const theme = localStorage.getItem(LocalStorage.theme)
-        return theme as ThemeName || "auto"
-    }
+  getTheme(): ThemeName {
+    const theme = localStorage.getItem(LocalStorage.theme);
+    return theme as ThemeName || 'auto';
+  },
 
-    static setTheme(theme: boolean | string): void {
-        localStorage.setItem(LocalStorage.theme, theme.toString())
-    }
+  setTheme(theme: boolean | string): void {
+    localStorage.setItem(LocalStorage.theme, theme.toString());
+  },
 
-    static removeTheme(): void {
-        localStorage.removeItem(LocalStorage.theme)
-    }
+  removeTheme(): void {
+    localStorage.removeItem(LocalStorage.theme);
+  },
 
-    static getLanguage(): Language {
-        const language = localStorage.getItem(LocalStorage.language)
-        return language as Language || "en"
-    }
+  getLanguage(): Language {
+    const language = localStorage.getItem(LocalStorage.language);
+    return language as Language || 'en';
+  },
 
-    static removeLanguage(): void {
-        localStorage.removeItem(LocalStorage.language)
-    }
-}
+  removeLanguage(): void {
+    localStorage.removeItem(LocalStorage.language);
+  },
+};

@@ -1,9 +1,7 @@
-import React from 'react'
+import type React from 'react';
 
-const index: React.FC = () => {
-    return (
-        <p>this is index/test.tsx</p>
-    )
-}
+const index: React.FC = () => (
+  <p>this is index/test.tsx</p>
+);
 
-export default index
+export default index;

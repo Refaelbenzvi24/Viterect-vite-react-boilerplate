@@ -1,20 +1,18 @@
-import React from 'react'
+import React from 'react';
 import {
-    BrowserRouter as Router,
-} from 'react-router-dom'
-import {Suspense} from 'react';
-import {renderRoutes} from 'react-router-config'
+  BrowserRouter as Router,
+} from 'react-router-dom';
 
-import routes from 'virtual:generated-pages-react'
+import { renderRoutes } from 'react-router-config';
 
-const Pages = (): JSX.Element => {
-    return renderRoutes(routes)
-}
+import routes from 'virtual:generated-pages-react';
 
-export default () => {
-    return (
-        <Router>
-            <Pages/>
-        </Router>
-    )
+const Pages = (): JSX.Element => renderRoutes(routes);
+
+export default function () {
+  return (
+    <Router>
+      <Pages />
+    </Router>
+  );
 }

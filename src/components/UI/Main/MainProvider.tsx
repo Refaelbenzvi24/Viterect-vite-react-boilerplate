@@ -1,34 +1,50 @@
-import {ReactElement, useEffect} from "react";
-import {getInitialMain, MainContext} from "./MainContext";
-import {MainProps, MainProviderOpts} from "../../../types/main";
-import WindowVars from "../../../mixins/WindowVars";
-import {defaultMainData} from "./MainContext";
+import type { ReactElement } from 'react';
+import { useEffect } from 'react';
+import { MainContext, defaultMainData } from './MainContext';
+import type { MainProviderOpts as MainProviderOptions } from './types';
 
-export default (props: MainProviderOpts): ReactElement => {
-    const [data, setData] = useState(getInitialMain)
-    // const {windowWidth, windowHeight} = WindowVars()
+export default function (properties: MainProviderOptions): ReactElement {
+  const { children } = properties;
 
-    const {children} = props
+  const [sideBarState, setSideBarState] = useState(defaultSideBarState);
+  const [overlays, setOverlays] = useState(defaultOverlays);
+  const [overlayState, setOverlayState] = useState(defaultOverlayState);
+  const [sideBarOptions, setSideBarOptions] = useState(defaultSideBarOptions);
 
-    const rawSetData = () => {
-        const sideBar = (!!document.getElementById('sideBar')) || data?.sideBar || defaultMainData.sideBar
-        const sideBarWidth = document.getElementById('sideBar')?.clientWidth || data?.sideBarWidth || defaultMainData.sideBar
+  const rawSetData = () => {
+    const width: number | undefined = document.querySelector('#sideBar')?.clientWidth || sideBarOptions.width || defaultWidth;
 
-        const transformedData = {
-            sideBar,
-            sideBarWidth
-        }
+    setSideBarState((!!document.querySelector('#sideBar')) || sideBarState || defaultSideBarState);
+    setSideBarOptions({ ...sideBarOptions, width });
+  };
 
-        setData(transformedData)
-    }
+  useEffect(() => {
+    rawSetData();
+  }, []);
 
-    useEffect(() => {
-        document.getElementById('sideBar')?.addEventListener('resize', ev => rawSetData())
-
-        return () => {
-            document.getElementById('sideBar')?.removeEventListener('resize', ev => rawSetData())
-        }
-    }, [])
-
-    return <MainContext.Provider value={{data, setData}}>{children}</MainContext.Provider>
+  return (
+    <MainContext.Provider value={
+		{
+		  sideBarState,
+		  setSideBarState,
+		  sideBarOpts: sideBarOptions,
+		  setSideBarOpts: setSideBarOptions,
+		  overlayState,
+		  setOverlayState,
+		  overlays,
+		  setOverlays,
+		}
+	}
+    >
+      {children}
+    </MainContext.Provider>
+  );
 }
+
+const {
+	      sideBarState: defaultSideBarState,
+	      sideBarOpts: defaultSideBarOptions,
+	      overlayState: defaultOverlayState,
+	      overlays: defaultOverlays,
+} = defaultMainData;
+const { width: defaultWidth } = defaultSideBarOptions;

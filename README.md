@@ -8,30 +8,27 @@
 - ![Alt text](https://api.iconify.design/logos:vitejs.svg) [Vite](https://github.com/vitejs/vite)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-reactjs.svg) [React](https://github.com/facebook/react)
 - ![Alt text](https://api.iconify.design/logos:esbuild.svg) [ESBuild](https://github.com/evanw/esbuild)
-- ![Alt text](https://api.iconify.design/file-icons:windi.svg) [Windi CSS](https://windicss.org/) - on-demand CSS
-  utilities
+- ![Alt text](.github/assets/file-icons_windi.svg) [Windi CSS](https://windicss.org/) - on-demand CSS utilities
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-apib2.svg) [axios](https://github.com/axios/axios)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-typescript-official.svg) [TypeScript](https://github.com/microsoft/TypeScript)
 - ![Alt text](https://api.iconify.design/vscode-icons:folder-type-route.svg) [File based routing](https://github.com/hannoeru/vite-plugin-pages)
 - ![Alt text](https://api.iconify.design/logos:pwa.svg) [PWA](https://github.com/antfu/vite-plugin-pwa)
-- 😃[Use icons from any icons sets](https://github.com/antfu/unplugin-icons) - 🔍[Browse icons](https://icones.js.org/)
+- 😃[Use icons from any icons sets](https://github.com/antfu/unplugin-icons) -
+  🔍[Browse icons here](https://icones.js.org/)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-markdown.svg) [Markdown support](https://github.com/brillout/vite-plugin-mdx)
 - 📥 [APIs auto importing](https://github.com/antfu/unplugin-auto-import)
 - 🦔 Critical CSS via [critters](https://github.com/GoogleChromeLabs/critters) - **check if only working with ssg**
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-testts.svg) Unit testing
   with ![Alt text](https://api.iconify.design/vscode-icons:file-type-jest.svg) [Jest](https://jestjs.io/), E2E Testing
   with ![Alt text](https://api.iconify.design/vscode-icons:file-type-cypress.svg) [Cypress](https://www.cypress.io/).
-- ![Alt text](https://api.iconify.design/simple-icons:i18next.svg) [i18n ready]()
+- ![Alt text](.github/assets/simple-icons_i18next.svg) [i18n ready]()
   with ![Alt text](https://api.iconify.design/vscode-icons:file-type-light-yaml.svg) YAML
 - State management:
-    - ![Alt text](https://api.iconify.design/flat-color-icons:document.svg) form state
-      with [Formik](https://formik.org/docs/overview),
-      and ![Alt text](https://api.iconify.design/logos:xstate.svg) [xState](https://xstate.js.org/) for more complex
-      ones.
-    - ![Alt text](https://api.iconify.design/flat-ui:user-interface.svg) UI State with  [Recoil](https://recoiljs.org/)
-    - Server cache states with [React Query](https://react-query.tanstack.com/overview)
-    - ![Alt text](https://api.iconify.design/simple-icons:immer.svg) [Immer](https://immerjs.github.io/immer/) for
-      mutable state.
+    - form state with ![Alt text](./.github/assets/formik.svg) [Formik](https://formik.org/docs/overview),
+      and ![Alt text](.github/assets/logos_xstate.svg) [xState](https://xstate.js.org/) for more complex ones.
+    - ![Alt text](.github/assets/recoil.svg) UI State with  [Recoil](https://recoiljs.org/)
+    - Server cache states with ![Alt text](.github/assets/emblem-light-628080660fddb35787ff6c77e97ca43e.svg)  [React Query](https://react-query.tanstack.com/overview)
+    - ![Alt text](.github/assets/simple-icons_immer.svg) [Immer](https://immerjs.github.io/immer/) for mutable state.
 - ![alt-text](https://api.iconify.design/icon-park:dark-mode.svg) Dark Mode - support toggle dark mode
 - Deploy to ![Alt text](https://api.iconify.design/logos:google-cloud.svg) [GCloud App Engine]()
   with ![Alt text](https://api.iconify.design/logos:github-octocat.svg) [GitHub Actions]()(CICD)

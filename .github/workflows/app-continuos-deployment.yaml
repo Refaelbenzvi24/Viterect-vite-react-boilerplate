@@ -1,0 +1,29 @@
+name: CD Workflow
+on:
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  deploy:
+    name: 🚀 Deploy to App Engine
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: setup
+        run: npm install --no-optional
+      - name: build
+        run: npm run build
+      - name: Deploy to App Engine
+        id: deploy
+        uses: google-github-actions/deploy-appengine@v0.2.0
+        with:
+          deliverables: app.yaml
+          project_id: ${{ secrets.PROJECT_GCP_ID }}
+          credentials: ${{ secrets.PROJECT_GCP_KEY }}
+          promote: false
+          version: v1
+      - name: Show Output
+        run: echo ${{ steps.deploy.outputs.url }}

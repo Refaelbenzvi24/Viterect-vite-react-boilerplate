@@ -4,11 +4,11 @@ import type { ReactElement } from 'react';
 import React from 'react';
 import i18n from '../../../plugins/i18n';
 
-export default function (properties: LinkProps): ReactElement {
+export default function (props: LinkProps): ReactElement {
   const dir = i18n.dir();
 
   return (
-    <Link {...properties}>
+    <Link {...props}>
       <div className="
             px-6
             block
@@ -29,7 +29,7 @@ export default function (properties: LinkProps): ReactElement {
         <div className={`${dir === 'ltr' ? 'hover:translate-x-2' : 'hover:(-translate-x-2)'
         }px-4 py-2 mt-2 transform transition-transform ease-in duration-200 opacity-100`}
         >
-          {properties.children}
+          {props.children}
         </div>
       </div>
     </Link>

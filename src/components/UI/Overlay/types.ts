@@ -11,6 +11,6 @@ export interface OverlayContextType {
   setOverlays: (data: OverlaysType) => void;
 }
 
-export interface OverlayProviderProperties {
+export interface OverlayProviderProps {
   children?: ReactElement;
 }

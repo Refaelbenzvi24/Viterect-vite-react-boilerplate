@@ -1,9 +1,9 @@
-import type { ReactElementProps as ReactElementProperties } from '../../../types';
+import type { ReactElementProps } from 'types';
 
-export default function (properties: ReactElementProperties) {
+export default function (props: ReactElementProps) {
   return (
-    <div {...properties} className={`flex mx-auto ${properties.className ? properties.className : ''}`}>
-      {properties.children}
+    <div {...props} className={`flex mx-auto ${props.className ? props.className : ''}`}>
+      {props.children}
     </div>
   );
 }

@@ -1,8 +1,12 @@
+import {ThemeName} from "../components/UI/Theme/types";
+
 const environmentFile = import.meta.env;
 
 export const vars = {
+	appName:  environmentFile.VITE_APP_NAME,
+	env:      environmentFile.VITE_ENV,
 	theme:    {
-		defaultTheme: environmentFile.DEFAULT_THEME,
+		defaultTheme: environmentFile.VITE_DEFAULT_THEME as ThemeName,
 	},
 	rapidApi: {
 		apiKey:          environmentFile.VITE_X_RAPIDAPI_KEY as string,

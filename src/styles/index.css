@@ -1,3 +1,4 @@
+
 html,
 body,
 #root {
@@ -60,24 +61,20 @@ body {
 }
 
 
-@layer base {
-    #nprogress .bar {
-        @apply bg-sky-600 opacity-100;
+#nprogress .bar {
+    position: fixed;
+    z-index: 1031;
+    top: 0;
+    left: 0;
 
-        position: fixed;
-        z-index: 1031;
-        top: 0;
-        left: 0;
-
-        width: 100%;
-        height: 4px;
-    }
-
-    .btn {
-        @apply px-4 py-1 rounded inline-block
-        bg-teal-600 text-white cursor-pointer
-        hover:bg-teal-700
-        disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;
-    }
+    width: 100%;
+    height: 4px;
 }
+
+/*.btn {*/
+/*    @apply px-4 py-1 rounded inline-block*/
+/*    bg-teal-600 text-white cursor-pointer*/
+/*    hover:bg-teal-700*/
+/*    disabled:cursor-default disabled:bg-gray-600 disabled:opacity-50;*/
+/*}*/
 

@@ -1,19 +1,19 @@
 // const defaultTheme = require('tailwindcss/defaultTheme')
 
+
 module.exports = {
-    mode:    'jit',
     content: ['./index.html', 'src/main.tsx', 'src/styles/index.css', 'src/**/*.{html,js,jsx,ts,tsx,css}'],
     // content: ['./index.html','src/**/*.{html,js,css,tsx,jsx}'],
-    // important: true,
-    theme:  {
-        screens: {
-            'xs': '200px',
-            'sm': '576px',
-            'md': '768px',
-            'lg': '992px',
-            'xl': '1200px',
-        },
-    },
+    important: true,
+    // theme:  {
+    //     screens: {
+    //         'xs': '200px',
+    //         'sm': '576px',
+    //         'md': '768px',
+    //         'lg': '992px',
+    //         'xl': '1200px',
+    //     },
+    // },
     colors: {
         extend: {
             animation: {

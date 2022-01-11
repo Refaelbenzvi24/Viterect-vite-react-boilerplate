@@ -1,23 +1,26 @@
-import type {ReactElementProps as ReactElementProperties} from '../../../types';
-import i18n from '../../../plugins/i18n';
+import type {ReactElementProps} from 'types';
+import i18n from 'plugins/i18n';
 import Col from '../Grid/Col';
 import IconButton from '../Buttons/IconButton';
-import React, {useContext, useEffect} from 'react';
+import React, {CSSProperties, useContext, useEffect} from 'react';
 import {defaultMainData, MainContext} from '../Main/MainContext';
 import windowVariables from '../../../hooks/WindowVars';
 import Overlay from '../Overlay/Overlay';
 
-interface SideBarProperties extends ReactElementProperties {
+interface SideBarProps extends ReactElementProps {
 	width?: number;
 	shrinkPoint?: number;
 	backgroundColor?: string;
 	darkBackgroundColor?: string;
 }
 
-const {sideBarOpts: defaultSideBarOptions}                   = defaultMainData;
-const {width: defaultWidth, shrinkPoint: defaultShrinkPoint} = defaultSideBarOptions;
 
-export default function (properties: SideBarProperties) {
+export default function (props: SideBarProps) {
+	const {sideBarOpts: defaultSideBarOptions}                   = defaultMainData;
+	const {width: defaultWidth, shrinkPoint: defaultShrinkPoint} = defaultSideBarOptions;
+	const defaultBackgroundColor                                 = 'bg-white';
+	const defaultDarkBackgroundColor                             = 'dark-500';
+	
 	const dir = i18n.dir();
 	const {
 		      children, width, className, shrinkPoint, backgroundColor, darkBackgroundColor,
@@ -26,7 +29,7 @@ export default function (properties: SideBarProperties) {
 		shrinkPoint:         defaultShrinkPoint,
 		backgroundColor:     defaultBackgroundColor,
 		darkBackgroundColor: defaultDarkBackgroundColor,
-		...properties,
+		...props,
 	};
 	
 	const {
@@ -69,26 +72,33 @@ export default function (properties: SideBarProperties) {
 		}
 	}, [windowWidth]);
 	
+	
+	const style: CSSProperties = {
+		width: `${width}px`,
+	}
+	
 	return (
 	  <div>
 		  <div
 			id="sideBar"
-			{...properties}
-			className={`fixed h-full overflow-x-hidden text-gray-700 bg-${backgroundColor} dark:bg-${darkBackgroundColor}
-		  w-[${width}px] ${state ? 'translate-x-0' : (dir === 'ltr' ? '-translate-x-full' : 'translate-x-full')} transform z-30 shadow-lg
+			{...props}
+			className={`fixed h-full overflow-x-hidden text-gray-700 bg-white dark:bg-dark-500
+		   ${state ? 'translate-x-0' : (dir === 'ltr' ? '-translate-x-full' : 'translate-x-full')} transform z-30 shadow-lg
 		  transition-transform ease-in-out duration-400 ${className || ''}}`}
-		  >
+			style={style}>
 			  <nav className="h-full">
 				  {children}
 			  </nav>
 		  </div>
 		  
 		  <Col
-			className={`self-center fixed mt-10  text-gray-700 ml-[${width}px] bg-${backgroundColor} dark:bg-${darkBackgroundColor}
-	                    transform transition-transform ease-in-out duration-400 z-30 shadow-lg
-                        ${dir === 'rtl' ? (state ? `-translate-x-[${width}px]` : 'translate-x-0') : (state ? 'translate-x-0' : `-translate-x-[${width}px]`)}`}
-		  >
-			  <IconButton
+			className={`self-center fixed mt-10  text-gray-700 bg-white dark:bg-dark-500
+	                    transform transition-transform ease-in-out duration-400 z-30 shadow-lg`}
+			style={{
+				marginLeft: `${width}px`,
+				transform:  dir === 'rtl' ? state ? `translate(-${width}px)` : "" : state ? "" : `translate(-${width}px)`
+			}}>
+			  < IconButton
 				className={`${state ? 'rotate-0' : 'rotate-180'} transform transition-transform ease-out-in duration-500`}
 				onClick={() => setOpenState(!state)}
 			  >
@@ -99,5 +109,3 @@ export default function (properties: SideBarProperties) {
 	);
 }
 
-const defaultBackgroundColor     = 'white';
-const defaultDarkBackgroundColor = 'dark-500';

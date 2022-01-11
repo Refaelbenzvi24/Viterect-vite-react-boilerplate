@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react';
 import type React from 'react';
 
-interface IconButtonProperties extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+interface IconButtonProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
   children: ReactNode;
 }
 
-export default function (properties: IconButtonProperties) {
+export default function (props: IconButtonProps) {
   return (
-    <div {...properties}>
+    <div {...props}>
       <div className="
 		    flex
             cursor-pointer
@@ -23,7 +23,7 @@ export default function (properties: IconButtonProperties) {
             active:opacity-70
             "
       >
-        {properties.children}
+        {props.children}
       </div>
     </div>
   );

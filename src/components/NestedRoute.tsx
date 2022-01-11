@@ -2,9 +2,9 @@ import React from 'react';
 import type { RouteConfig } from 'react-router-config';
 import { renderRoutes } from 'react-router-config';
 
-export interface RouteConfigComponentProperties { route: RouteConfig | undefined }
+export interface RouteConfigComponentProps { route: RouteConfig | undefined }
 
-function NestedRoute({ route }: RouteConfigComponentProperties) {
+function NestedRoute({ route }: RouteConfigComponentProps) {
   let child;
 
   child = route?.routes ? route.routes.map((r) => ({

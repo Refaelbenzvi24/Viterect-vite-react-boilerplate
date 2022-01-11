@@ -3,12 +3,12 @@ import type { ReactElement } from 'react';
 import React from 'react';
 import ProgressSpinner from './UI/Progress/ProgressSpinner';
 
-interface QueryHandlerProperties {
+interface QueryHandlerProps {
   children: ReactElement;
   status: QueryStatus;
 }
 
-export default function ({ children, status }: QueryHandlerProperties) {
+export default function ({ children, status }: QueryHandlerProps) {
   return (
     <>
       {status === 'loading' && (

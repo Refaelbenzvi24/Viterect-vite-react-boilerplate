@@ -19,12 +19,16 @@ import Inspect from 'vite-plugin-inspect'
 import TsconfigPaths from 'vite-tsconfig-paths'
 // import LinkAttributes from 'markdown-it-link-attributes'
 import replace from '@rollup/plugin-replace'
+import LinkAttributes from 'markdown-it-link-attributes'
+import Prism from 'markdown-it-prism'
+import {remarkMdxCodeMeta} from 'remark-mdx-code-meta';
 
-const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
+const markdownWrapperClasses = 'prose prose-sm m-auto text-left '
+
 
 // TODO: generate favicons
 const pwaOptions: Partial<VitePWAOptions> = {
-	mode:          'development',
+	mode:          (process.env.VITE_ENV || 'production')?.toString() as 'production' | 'development',
 	base:          '/',
 	includeAssets: ['favicon.svg'],
 	manifest:      {
@@ -166,25 +170,30 @@ export default defineConfig(({mode}) => ({
 			autoInstall: true,
 		}),
 		
-		WindiCSS({
-			safelist: markdownWrapperClasses,
-		}),
+		WindiCSS(),
 		
 		// https://github.com/antfu/vite-plugin-md
 		Markdown({
 			wrapperClasses: markdownWrapperClasses,
 			headEnabled:    true,
 			// TODO:
-			// markdownItSetup(md) {
-			//     // https://prismjs.com/
-			//     md.use(Prism)
-			//     md.use(LinkAttributes, {
-			//         pattern: /^https?:\/\//,
-			//         attrs: {
-			//             target: '_blank',
-			//             rel: 'noopener',
-			//         },
-			//     })
+			jsx:            'true',
+			remarkPlugins:  [
+				remarkMdxCodeMeta
+			],
+			markdownItUses: [
+				Prism,
+			],
+			// markdownItSetup(mdx) {
+			// 	// https://prismjs.com/
+			// 	mdx.use(Prism)
+			// 	mdx.use(LinkAttributes, {
+			// 		pattern: /^https?:\/\//,
+			// 		attrs:   {
+			// 			target: '_blank',
+			// 			rel:    'noopener',
+			// 		},
+			// 	})
 			// },
 		}),
 		
@@ -231,12 +240,13 @@ export default defineConfig(({mode}) => ({
 		
 		TsconfigPaths(),
 	],
+	
 	preview: {
 		open: false,
-		port: 8080,
+		port: 7000,
 		hmr:  {
 			protocol: 'ws',
-			port:     8080
+			port:     7000
 		},
 	},
 	

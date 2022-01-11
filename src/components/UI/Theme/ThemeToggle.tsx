@@ -3,9 +3,9 @@ import { ThemeContext } from './ThemeContext';
 import type { ThemeName } from './types';
 import Tooltip from '../Tooltip';
 import IconButton from '../Buttons/IconButton';
-import type { ReactElementProps as ReactElementProperties } from '../../../types';
+import type { ReactElementProps} from 'types';
 
-export default function (properties: ReactElementProperties) {
+export default function (props: ReactElementProps) {
   const { theme, setTheme } = useContext(ThemeContext);
   const { t } = useTranslation();
 
@@ -14,7 +14,7 @@ export default function (properties: ReactElementProperties) {
   };
 
   return (
-    <div {...properties}>
+    <div {...props}>
       <Tooltip className="bottom-[40px] left-[-80%]" tooltip={t('Theme')}>
         <IconButton onClick={themeToggle}>
           <Icon theme={theme} />
@@ -24,7 +24,7 @@ export default function (properties: ReactElementProperties) {
   );
 }
 
-interface IconProperties { theme: ThemeName }
-function Icon({ theme }: IconProperties) {
+interface IconProps { theme: ThemeName }
+function Icon({ theme }: IconProps) {
   return theme === 'light' ? <IconCarbonLight /> : <IconCarbonMoon />;
 }

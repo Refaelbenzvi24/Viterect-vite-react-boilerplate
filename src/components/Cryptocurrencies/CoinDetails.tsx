@@ -7,8 +7,8 @@ import Select from '../UI/Form/Select';
 
 type time = '1y' | '3h' | '3m' | '3y' | '5y' | '7d' | '24h' | '30d';
 
-export default function (properties: CoinGetResult) {
-  const { coin } = properties;
+export default function (props: CoinGetResult) {
+  const { coin } = props;
 
   const [timePeriod, setTimePeriod] = useState<time>('7d');
 

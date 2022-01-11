@@ -1,13 +1,13 @@
 import React from 'react';
-import type { ReactElementProps as ReactElementProperties } from '../../../types';
+import type { ReactElementProps } from 'types';
 
-export default function (properties: ReactElementProperties) {
+export default function (props: ReactElementProps) {
   return (
     <span
-      {...properties}
-      className={`text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400 ${properties.className}`}
+      {...props}
+      className={`text-sm pt-2 pb-0 px-4 font-bold block w-full whitespace-nowrap bg-transparent text-blueGray-400 ${props.className}`}
     >
-      {properties.children}
+      {props.children}
     </span>
   );
 }

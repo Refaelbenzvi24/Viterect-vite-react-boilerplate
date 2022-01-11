@@ -1,9 +1,9 @@
-import type { ReactElementProps as ReactElementProperties } from '../../../types';
+import type { ReactElementProps } from '../../../types';
 
-export default function (properties: ReactElementProperties) {
+export default function (props: ReactElementProps) {
   return (
-    <div {...properties} className={`flex flex-row ${properties.className ? properties.className : ''}`}>
-      {properties.children}
+    <div {...props} className={`flex flex-row ${props.className ? props.className : ''}`}>
+      {props.children}
     </div>
   );
 }

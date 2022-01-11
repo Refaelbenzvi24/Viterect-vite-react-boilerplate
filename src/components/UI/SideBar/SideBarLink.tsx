@@ -1,10 +1,10 @@
 import Overlay from '../Overlay/Overlay';
-import type { ReactElementProps as ReactElementProperties } from '../../../types';
+import type { ReactElementProps } from '../../../types';
 import { defaultMainData, MainContext } from '../Main/MainContext';
 import windowVariables from '../../../hooks/WindowVars';
 
-export default function (properties: ReactElementProperties) {
-  const { children } = properties;
+export default function (props: ReactElementProps) {
+  const { children } = props;
 
   const { removeOverlay } = Overlay();
   const { sideBarState, sideBarOpts, setSideBarState } = useContext(MainContext);

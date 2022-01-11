@@ -26,11 +26,7 @@
       "vite-plugin-pwa/client",
       "unplugin-icons/types/react"
     ],
-    "paths": {
-      "~/*": [
-        "src/*"
-      ]
-    },
+    "paths": {"~/*": ["src/*"]},
     "useUnknownInCatchVariables": true
   },
   "exclude": [

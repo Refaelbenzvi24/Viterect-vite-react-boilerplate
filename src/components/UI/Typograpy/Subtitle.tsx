@@ -1,9 +1,9 @@
-import type { ReactElementProps as ReactElementProperties } from '../../../types';
+import type { ReactElementProps} from '../../../types';
 
-export default function (properties: ReactElementProperties) {
+export default function (props: ReactElementProps) {
   return (
-    <span {...properties} className={`text-gray-500 dark:text-true-gray-300 ${properties.className}`}>
-      {properties.children}
+    <span {...props} className={`text-gray-500 dark:text-true-gray-300 ${props.className}`}>
+      {props.children}
     </span>
   );
 }

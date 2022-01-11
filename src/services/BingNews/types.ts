@@ -4,10 +4,10 @@ import type { UseQueryOptions } from 'react-query/types/react/types';
 export interface NewsEndpointType {
   endpoint: string;
   urlParams: string;
-  get: (parameters?: NewsGetProperties, queryConfig?: UseQueryOptions) => UseQueryResult<ApiResult<NewsGetResult>>;
+  get: (parameters?: NewsGetProps, queryConfig?: UseQueryOptions) => UseQueryResult<ApiResult<NewsGetResult>>
 }
 
-export interface NewsGetProperties {
+export interface NewsGetProps {
   count?: number;
   search?: string;
 }

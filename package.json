@@ -1,7 +1,7 @@
 {
-  "name": "vite-react-boilerplate",
+  "name": "viterect",
   "version": "1.0.0",
-  "description": "vite react tailwind electron boilerplate",
+  "description": "vite react windicss electron boilerplate",
   "main": "./dist/main.tsx",
   "author": "Refael Ben Zvi",
   "license": "MIT",
@@ -32,7 +32,7 @@
     "dev:electron": "run-p build:electron:dev electron .",
     "dev:electron:vite": "run-p dev dev:electron",
     "extract-translations": "i18next --fail-on-warnings",
-    "prepare": "husky install",
+    "prepare:husky": "husky install",
     "preview-https": "serve dist",
     "preview": "vite preview",
     "run-build": "cross-env DEBUG=vite-plugin-pwa:* BASE_URL=/ SOURCE_MAP=true vite build",

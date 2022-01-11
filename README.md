@@ -2,8 +2,6 @@
 
 ## Features
 
-### ```add icons```
-
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-light-pnpm.svg) [pnpm](https://pnpm.io/)
 - ![Alt text](https://api.iconify.design/logos:vitejs.svg) [Vite](https://github.com/vitejs/vite)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-reactjs.svg) [React](https://github.com/facebook/react)

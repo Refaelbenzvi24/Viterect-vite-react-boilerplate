@@ -8,10 +8,10 @@ import windowVariables from '../../../hooks/WindowVars';
 import Overlay from '../Overlay/Overlay';
 
 interface SideBarProps extends ReactElementProps {
-    width?: number;
-    shrinkPoint?: number;
-    backgroundColor?: string;
-    darkBackgroundColor?: string;
+    width?: number
+    shrinkPoint?: number
+    backgroundColor?: string
+    darkBackgroundColor?: string
 }
 
 

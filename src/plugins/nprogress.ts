@@ -1,22 +1,15 @@
-import NProgress from 'nprogress';
 import {useEffect} from 'react';
-import {useHistory} from 'react-router-dom';
-
-/**
- * A progress bar for pages/route change
- */
-
+import {useLocation} from "react-router";
+import NProgress from 'nprogress';
 
 export default (): void => {
-	const history = useHistory();
-	
-	useEffect(() => {
-		history.listen(() => {
-			NProgress.start();
-		});
-		
-		return history.listen(() => {
-			NProgress.done();
-		});
-	}, [history]);
+		const location = useLocation()
+
+		useEffect(() => {
+				NProgress.done();
+
+				return () => {
+						NProgress.start();
+				}
+		}, [location])
 };

@@ -1,18 +1,18 @@
 import React from 'react';
 import {
-	BrowserRouter as Router,
+    useRoutes,
 } from 'react-router-dom';
 
-import {renderRoutes} from 'react-router-config';
 
-import routes from 'virtual:generated-pages-react';
+// @ts-ignore
+import routes from '~react-pages';
 
-const Pages = (): JSX.Element => renderRoutes(routes);
+function Pages() {
+    return useRoutes(routes)
+}
 
 export default () => {
-	return (
-	  <Router>
-		  <Pages/>
-	  </Router>
-	)
+    return (
+            <Pages/>
+    )
 }

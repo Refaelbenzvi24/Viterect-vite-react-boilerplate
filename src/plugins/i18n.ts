@@ -41,7 +41,7 @@ i18n
 
 export const i18nInstall = () => {
 	const {i18n} = useTranslation()
-	
+
 	useEffect(() => {
 		window.document.dir = i18n.dir(LocalStorage.getLanguage())
 	}, [])

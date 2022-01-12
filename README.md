@@ -13,7 +13,7 @@
 - ![Alt text](https://api.iconify.design/logos:pwa.svg) [PWA](https://github.com/antfu/vite-plugin-pwa)
 - 😃[Use icons from any icons sets](https://github.com/antfu/unplugin-icons) -
   🔍[Browse icons here](https://icones.js.org/)
-- ![Alt text](https://api.iconify.design/vscode-icons:file-type-markdown.svg) [Markdown support](https://github.com/brillout/vite-plugin-mdx)
+- ![Alt text](https://api.iconify.design/vscode-icons:file-type-markdown.svg) [Markdown support](https://github.com/Leonewu/vite-plugin-react-md)
 - 📥 [APIs auto importing](https://github.com/antfu/unplugin-auto-import)
 - 🦔 Critical CSS via [critters](https://github.com/GoogleChromeLabs/critters) - **check if only working with ssg**
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-testts.svg) Unit testing
@@ -43,4 +43,3 @@
 - `pnpm format` - format all files with Prettier.
 - `pnpm lint` - runs TypeScript, ESLint and Stylelint.
 - `pnpm validate` - runs `lint`, `test:ci` and `test:e2e:ci`.
-

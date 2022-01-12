@@ -1,8 +1,5 @@
 export const onRouteGenerate = (routes: any[]) => {
-		delete routes[0].index
-		routes[0].path = '/'
-
-
+		
 		return routes
 };
 
@@ -15,6 +12,8 @@ export const extendRoute = (route: any, parent: any) => {
 
 		if (route.index === true) {
 				// Index is unauthenticated.
+				delete route.index
+				route.path = '/'
 				return route;
 		}
 

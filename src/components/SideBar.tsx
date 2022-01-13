@@ -26,9 +26,8 @@ export default function () {
                                     <Link to="/" className="py-4 px-4 flex flex-row items-center">
                                         {/* <img src={logo} className={"max-w-[50px]"} alt="LOGO"/> */}
 
-                                        <p
-                                                className="px-3 text-2xl font-semibold tracking-widest text-gray-900 dark:text-white uppercase rounded-lg focus:outline-none focus:shadow-outline"
-                                        >
+                                        <p className="px-3 text-2xl font-semibold tracking-widest text-gray-900 dark:text-white
+                                                    uppercase rounded-lg focus:outline-none focus:shadow-outline">
                                             {t('App Name')}
                                         </p>
                                     </Link>

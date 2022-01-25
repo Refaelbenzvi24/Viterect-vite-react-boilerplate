@@ -12,10 +12,12 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - name: pnpm install
+        run: npm install -g pnpm
       - name: setup
-        run: npm install --no-optional
+        run: pnpm install --no-optional
       - name: build
-        run: npm run build:vite
+        run: pnpm run build:vite
       - name: Deploy to App Engine
         id: deploy
         uses: google-github-actions/deploy-appengine@v0.2.0

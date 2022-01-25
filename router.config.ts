@@ -1,5 +1,5 @@
 export const onRouteGenerate = (routes: any[]) => {
-		
+
 		return routes
 };
 
@@ -17,9 +17,9 @@ export const extendRoute = (route: any, parent: any) => {
 				return route;
 		}
 
-		// Augment the route with meta that indicates that the route requires authentication.
+		// Augment the route with meta that indicates that the route requires authentication - uncomment bellow if you want to include auth meta.
 		return {
 				...route,
-				meta: {auth: true},
+				// meta: {auth: true},
 		}
 }

@@ -11,7 +11,7 @@ import Markdown from 'vite-plugin-react-md'
 import Inspect from 'vite-plugin-inspect'
 import TsconfigPaths from 'vite-tsconfig-paths'
 import replace from '@rollup/plugin-replace'
-import {extendRoute, onRouteGenerate} from "./router.config";
+import {extendRoute, onRouteGenerate} from "./router.config"
 import highlightJs from 'highlight.js'
 
 

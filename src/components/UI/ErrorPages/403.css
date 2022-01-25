@@ -1,0 +1,47 @@
+@import url("https://fonts.googleapis.com/css?family=Bungee");
+
+.error-403 {
+    background: radial-gradient(rgba(47, 54, 64, 1) 23%, rgba(24, 27, 32, 1) 100%);
+    color: white;
+    font-family: "Bungee", cursive;
+    text-align: center;
+}
+
+.error-403 a {
+    color: #2aa7cc;
+    text-decoration: none;
+}
+
+.error-403 a:hover {
+    color: white;
+}
+
+.error-403 svg {
+    width: 50vw;
+}
+
+.lightblue {
+    fill: #444;
+}
+
+.eye {
+    cx: calc(115px + 30px * var(--mouse-x));
+    cy: calc(50px + 30px * var(--mouse-y));
+}
+
+#eye-wrap {
+    overflow: hidden;
+}
+.error-text {
+    font-size: 120px;
+}
+
+.alarm {
+    animation: alarmOn 0.5s infinite;
+}
+
+@keyframes alarmOn {
+    to {
+        fill: darkred;
+    }
+}

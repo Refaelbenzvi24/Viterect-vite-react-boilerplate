@@ -1,88 +1,44 @@
-import {ISourceOptions} from "tsparticles";
-import astronaut from '~/assets/astronaut.svg';
-import planet from "~/assets/planet.svg";
-import Particles from "react-tsparticles";
-import {vars} from "plugins/vars";
-import {Link} from "react-router-dom";
-
-import '../styles/404.css'
+import Tab from "../components/UI/Tabs/Tab";
+import Tabs from "../components/UI/Tabs/Tabs";
+import Error404 from "../components/UI/ErrorPages/404"
+import Error403 from "../components/UI/ErrorPages/403"
+import Error404ServerSide from "../components/UI/ErrorPages/404ServerSide"
 
 export default () => {
-
-    const appName = (vars.appName || 'VITERECT').toString().toUpperCase()
+    const [tab, setTab] = useState('404')
 
     return (
-            <div className="permission_denied">
-                <Particles id="tsparticles" options={particles}/>
-                <div className="denied__wrapper">
-                    <h1>404</h1>
-                    <h3>
-                        LOST IN <span>SPACE</span> {appName}?
-                        Hmm, looks like that page doesn't
-                        exist.</h3>
-                    <img id="astronaut" src={astronaut} alt=""/>
-                    <img id="planet" src={planet} alt=""/>
-                    <Link to="/">
-                        <button className="denied__link">Go Home</button>
-                    </Link>
+            <div>
+                <div className={"flex justify-center pt-5"}>
+                    <Tabs>
+                        <Tab onClick={() => setTab('404')}>
+                            404
+                        </Tab>
+                        <Tab onClick={() => setTab('403')}>
+                            403
+                        </Tab>
+                        <Tab onClick={() => setTab('404ServerSide')}>
+                            404 Server Side
+                        </Tab>
+                    </Tabs>
                 </div>
+
+                <div className="absolute w-full h-full top-0">
+                    <Pages tab={tab}/>
+                </div>
+
             </div>
     )
 }
 
-const particles: ISourceOptions = {
-    fpsLimit: 60,
-    particles: {
-        number: {
-            value: 160,
-            density: {
-                enable: true,
-                area: 800
-            }
-        },
-        color: {
-            value: "#ffffff"
-        },
-        shape: {
-            type: "circle"
-        },
-        opacity: {
-            value: 1,
-            random: {
-                enable: true,
-                minimumValue: 0.1
-            },
-            animation: {
-                enable: true,
-                speed: 1,
-                minimumValue: 0,
-                sync: false
-            }
-        },
-        size: {
-            value: 3,
-            random: {
-                enable: true,
-                minimumValue: 1
-            }
-        },
-        move: {
-            enable: true,
-            speed: 0.17,
-            direction: "none",
-            random: true,
-            straight: false,
-            outModes: {
-                default: "out"
-            },
-        }
-    },
-    interactivity: {
-        detectsOn: "canvas",
-        events: {
-            resize: false
-        }
-    },
-    detectRetina: true
-};
-
+const Pages = ({tab}: { tab: string }) => {
+    if (tab === '404') {
+        return <Error404/>
+    } else if (tab === '403') {
+        return <Error403/>
+    } else if (tab === '404ServerSide') {
+        return <Error404ServerSide/>
+    } else {
+        return <></>
+    }
+}

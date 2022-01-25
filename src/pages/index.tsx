@@ -1,5 +1,4 @@
 import React from 'react'
-import Plugins from 'plugins/index'
 import {Outlet} from "react-router";
 import SideBar from '../components/SideBar'
 import Main from '../components/UI/Main/Main'

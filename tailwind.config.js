@@ -111,6 +111,5 @@ module.exports = {
     // },
     // variants:     [],
     // experimental: {optimizeUniversalDefaults: true},
-    plugins: []
 }
 

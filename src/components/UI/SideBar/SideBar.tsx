@@ -57,18 +57,16 @@ export default function (props: SideBarProps) {
                 removeOverlay();
             }
         }
-    };
+    }
 
     useEffect(() => {
         setSideBarOpts({shrinkPoint, width});
     }, [shrinkPoint, width]);
-
     useEffect(() => {
         if (shrinkPoint && windowWidth > shrinkPoint) {
-            setOpenState(true);
-            // removeOverlay()
-        } else if (shrinkPoint && windowWidth < shrinkPoint && state) {
-            setOpenState(false);
+            setOpenState(true)
+        } else if (shrinkPoint && windowWidth < shrinkPoint) {
+            setOpenState(false)
         }
     }, [windowWidth]);
 

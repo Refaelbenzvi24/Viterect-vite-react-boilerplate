@@ -1,10 +1,9 @@
-import type {CSSProperties, ReactNode} from 'react';
-import type React from 'react';
+import type {CSSProperties, ReactNode, HTMLAttributes, DetailedHTMLProps} from 'react';
 
 export interface ReactComponentProps {
-	children: ReactNode
+		children: ReactNode
 }
 
-export type ReactElementProps = React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+export type ReactElementProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-export type StyleObject = Record<string, CSSProperties>;
+export type StyleObject = Record<string, CSSProperties>

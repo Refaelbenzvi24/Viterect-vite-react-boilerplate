@@ -1,0 +1,366 @@
+{
+  "_type": "News",
+  "webSearchUrl": "https://www.bing.com/news/search?q=top+stories&form=TNSA02",
+  "value": [
+    {
+      "_type": "NewsArticle",
+      "name": "Weiterhin deutliche Mehrheit für allgemeine Impfpflicht",
+      "url": "https://www.msn.com/de-de/nachrichten/politik/weiterhin-deutliche-mehrheit-f%C3%BCr-allgemeine-impfpflicht/ar-AAT32S1",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.qhM91Hi7OIeM7r2dohV0OS&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Die Zustimmung in der Bevölkerung zu einer allgemeinen Impfpflicht gegen das Coronavirus in Deutschland sinkt leicht. Es ist aber immer noch eine deutliche Mehrheit dafür.Nach einer Umfrage des",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "dpa",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.FPGiCjSpNWuR3YuGCSVHjA"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-23T09:24:47.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Österreichs Chefdiplomat will Gas aus Russland-Sanktionen ausklammern",
+      "url": "https://www.msn.com/de-de/nachrichten/politik/%C3%B6sterreichs-chefdiplomat-will-gas-aus-russland-sanktionen-ausklammern/ar-AAT3x86",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.HF5YKZ6dG1htwjj5Z_uKYi&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "  Zwischenruf aus Wien: In der Ukraine-Krise sollten russische Erdgaslieferungen aus Sicht des österreichischen Außenministers Alexander Schallenberg nicht mit EU-Sanktionen belegt werden. Auch die",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "WELT",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.VgKhVqBW0UdrpbRTR1Q2sg&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-23T10:30:00.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Italien: Berlusconis große Enttäuschung, 48 Stunden vor der Wahl",
+      "url": "https://www.msn.com/de-de/nachrichten/politik/italien-berlusconis-gro%C3%9Fe-entt%C3%A4uschung-48-stunden-vor-der-wahl/ar-AAT3dNa",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.Wt_62RVWOYWDs72NLW4iHC&pid=News",
+          "width": 600,
+          "height": 315
+        },
+        "isLicensed": true
+      },
+      "description": "Silvio Berlusconi gibt auf. Italiens Präsidentenwahl, die an diesem Montag beginnt, ist auch wenige Stunden vor dem ersten Durchgang ein offenes Rennen. Als Favoriten gelten nun Mario Draghi und der",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "SZ.de",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.ljVx36peutQJEGpk199slg&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-23T09:59:00.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "London wirft Russland Einflussnahme in der Ukraine vor",
+      "url": "https://www.msn.com/de-de/nachrichten/politik/london-wirft-russland-einflussnahme-in-der-ukraine-vor/ar-AAT2URK",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.3_JyjjOo-Nw473BM1FU8zi&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Mit einer beispiellosen Warnung hat die britische Regierung dem Kreml unterstellt, Moskau wolle massiv politischen Einfluss in der Ukraine nehmen.«Uns liegen Informationen vor, die darauf hindeuten,",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "dpa",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.FPGiCjSpNWuR3YuGCSVHjA"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-23T09:33:05.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Marine-Chef Kay-Achim Schönbach muss nach Ukraine-Eklat gehen",
+      "url": "https://www.msn.com/de-de/nachrichten/politik/marine-chef-kay-achim-sch%C3%B6nbach-muss-nach-ukraine-eklat-gehen/ar-AAT3k2f",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.q6127iuREgZQyeKWZbszQy&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Bei einem Besuch in Indien irritierte Marinechef Schönbach mit Äußerungen zum Ukrainekonflikt. Nun muss er nach SPIEGEL-Informationen den Hut nehmen.Der Inspekteur der Deutschen Marine, Kay-Achim",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "DER SPIEGEL",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.PTCfYBkUL7Sg7ShY9hCZrA&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-22T20:01:00.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Vier Impfschäden durch Corona-Impfung bayernweit anerkannt",
+      "url": "https://www.msn.com/de-de/gesundheit/medizinisch/vier-impfsch%C3%A4den-durch-corona-impfung-bayernweit-anerkannt/ar-AAT3jXz",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.11HP6XdM5Fh-deGWbLJMVy&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Mehr als ein Jahr nach Impfstart gegen das Coronavirus ist ein dauerhafter impfbedingter Gesundheitsschaden bisher bei vier Menschen in Bayern anerkannt worden. Drei weitere Anträge seien abgelehnt,",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "dpa",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.FPGiCjSpNWuR3YuGCSVHjA"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-23T07:37:47.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Coronapandemie: Expertenrat warnt vor steigenden Inzidenzen",
+      "url": "https://www.msn.com/de-de/finanzen/top-stories/coronapandemie-expertenrat-warnt-vor-steigenden-inzidenzen/ar-AAT2Sdj",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.gI6YNeiCCEtGqQGuEYhSWS&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Der Corona-Expertenrat rechnet angesichts der rasanten Entwicklung bei den Neuinfektionen mit einer drastischen Zunahme der Krankenhausaufnahmen – und ruft dazu auf, verschärfte Schutzmaßnahmen zu",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "DER SPIEGEL",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.PTCfYBkUL7Sg7ShY9hCZrA&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-22T22:51:44.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Chaos um Corona-Kontakte: Berlins Schüler werden nicht in Quarantäne geschickt",
+      "url": "https://www.msn.com/de-de/nachrichten/other/chaos-um-corona-kontakte-berlins-sch%C3%BCler-werden-nicht-in-quarant%C3%A4ne-geschickt/ar-AAT2FjY",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.41pr4OxRu8SsBBWuK_rbFC&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Berlins Amtsärzte haben neue Quarantäne-Regeln für Kinder in Schulen und Kitas festgelegt. Demnach gilt: Für Kinder und Schüler, die in Kitas oder Schulen Kontakt mit einer coronainfizierten Person",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "Berliner Zeitung",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.VgUFJDpGBuggotjvfkb2Ag&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-22T20:21:06.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Corona-News am Sonntag: Jacinda Ardern verschärft Coronaregeln in Neuseeland – und sagt eigene Hochzeit ab",
+      "url": "https://www.msn.com/de-de/nachrichten/welt/corona-news-am-sonntag-jacinda-ardern-versch%C3%A4rft-coronaregeln-in-neuseeland-und-sagt-eigene-hochzeit-ab/ar-AAT3aO0",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.SlhAc9DDRDMndLlsQ3NwMi&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Jacinda Ardern wollte »Ja« sagen, doch daraus wird vorerst erst nichts: Die neuseeländische Premierministerin bläst ihre Hochzeit wegen Omikron ab. Und die Sieben-Tage-Inzidenz überschreitet",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "DER SPIEGEL",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.PTCfYBkUL7Sg7ShY9hCZrA&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-23T05:41:15.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Omikron in China: Kommunisten in der Erfolgsfalle",
+      "url": "https://www.msn.com/de-de/finanzen/top-stories/omikron-in-china-kommunisten-in-der-erfolgsfalle/ar-AAT2B8S",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.zL2vwG7mrph-qquaFLN1Pi&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Chinas strikte Corona-Maßnahmen wirkten, die Wirtschaft wuchs in der Pandemie. Nun hat Omikron das Land erreicht und viele fürchten die Folgen.            Die Meldung des chinesischen",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "ZEIT ONLINE",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.sBSsROz0g_gaMj7cLjOGSA&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-22T19:08:03.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Australian Open: Alexander Zverev unterliegt Denis Shapovalov",
+      "url": "https://www.msn.com/de-de/sport/tennis/australian-open-alexander-zverev-unterliegt-denis-shapovalov/ar-AAT3jY6",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.SC0VzphXWygnssztwaD6Ty&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "Ohne Novak Djoković schien Alexander Zverevs Chance auf den ersten Grand-Slam-Titel groß. Dann kam Denis Shapovalov. Im Viertelfinale der Australian Open fordert der Kanadier nun Rafael Nadal heraus",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "DER SPIEGEL",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.PTCfYBkUL7Sg7ShY9hCZrA&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-23T07:26:22.0000000Z"
+    },
+    {
+      "_type": "NewsArticle",
+      "name": "Expertenrat fordert Pläne für Inzidenzen „von mehreren Tausend regional“",
+      "url": "https://www.msn.com/de-de/nachrichten/panorama/expertenrat-fordert-pl%C3%A4ne-f%C3%BCr-inzidenzen-von-mehreren-tausend-regional/ar-AAT31E6",
+      "image": {
+        "_type": "ImageObject",
+        "thumbnail": {
+          "_type": "ImageObject",
+          "contentUrl": "https://www.bing.com/th?id=OVFT.7dB-hO2sOjtYIp2sM5oLZS&pid=News",
+          "width": 1200,
+          "height": 630
+        },
+        "isLicensed": true
+      },
+      "description": "  Der Expertenrat der Bundesregierung fordert wegen der rasanten Ausbreitung der Corona-Variante Omikron Vorbereitungen für mögliche weitere Schritte. „Das hochdynamische Infektionsgeschehen",
+      "provider": [
+        {
+          "_type": "Organization",
+          "name": "WELT",
+          "image": {
+            "_type": "ImageObject",
+            "thumbnail": {
+              "_type": "ImageObject",
+              "contentUrl": "https://www.bing.com/th?id=ODF.VgKhVqBW0UdrpbRTR1Q2sg&pid=news"
+            }
+          }
+        }
+      ],
+      "datePublished": "2022-01-23T03:48:32.0000000Z"
+    }
+  ]
+}

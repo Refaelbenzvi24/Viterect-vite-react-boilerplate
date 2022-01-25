@@ -16,7 +16,7 @@
 }
 
 .permission_denied {
-    background: #24344c !important;
+    background: radial-gradient(rgba(47, 54, 64, 1) 23%, rgba(24, 27, 32, 1) 100%) !important;
 }
 
 .permission_denied a {
@@ -176,7 +176,7 @@
 }
 
 .permission_denied {
-    background: #24344c !important;
+    background: radial-gradient(rgba(47, 54, 64, 1) 23%, rgba(24, 27, 32, 1) 100%);
 }
 
 .permission_denied a {

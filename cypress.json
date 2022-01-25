@@ -2,6 +2,7 @@
   "baseUrl": "http://localhost:8080/",
   "fileServerFolder": "dist",
   "fixturesFolder": false,
-  "projectId": "etow1b",
-  "integrationFolder": "cypress/e2e"
+  "projectId": "rtddw4",
+  "integrationFolder": "cypress/e2e",
+  "video": false
 }

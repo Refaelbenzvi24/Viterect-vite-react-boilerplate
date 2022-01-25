@@ -8,5 +8,5 @@ export default function (props: ReactElementProps) {
         <ImpulseSpinner size={75} backColor="#626262" frontColor="#536473" />
       </div>
     </div>
-  );
+  )
 }

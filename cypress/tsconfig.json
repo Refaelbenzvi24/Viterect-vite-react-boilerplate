@@ -1,3 +1,3 @@
 {
-  "paths": { "jest": ["./types/jest"] }
+  "paths": { "cypress": ["./types/cypress"] }
 }

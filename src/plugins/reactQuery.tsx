@@ -2,21 +2,22 @@ import React from 'react';
 import type {ReactElementProps} from 'types';
 import {QueryClientProvider, QueryClient} from 'react-query';
 import {ReactQueryDevtools} from 'react-query/devtools';
-import {vars} from "plugins/vars";
 
-const queryClient = new QueryClient();
+const MAX_RETRIES = 2
+const queryClient = new QueryClient({
+    defaultOptions: {
+        queries: {
+            staleTime: Number.POSITIVE_INFINITY,
+            retry:     MAX_RETRIES
+        }
+    }
+})
 
 export default function (props: ReactElementProps) {
-	return (
-	  <QueryClientProvider client={queryClient}>
-		  {props.children}
-		  <ReactQueryDevtools/>
-	  </QueryClientProvider>
-	);
-}
-
-const ReactQueryDevTools = () => {
-	if (vars.env === 'development')
-		return <ReactQueryDevtools initialIsOpen={false} position="top-right"/>
-	else return <></>
+    return (
+            <QueryClientProvider client={queryClient}>
+                {props.children}
+                <ReactQueryDevtools/>
+            </QueryClientProvider>
+    );
 }

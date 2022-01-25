@@ -12,7 +12,5 @@ function Pages() {
 }
 
 export default () => {
-    return (
-            <Pages/>
-    )
+    return <Pages/>
 }

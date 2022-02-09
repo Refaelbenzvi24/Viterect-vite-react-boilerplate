@@ -1,5 +1,4 @@
-import React from 'react';
-import type {ReactElementProps} from 'types';
+import React, {ReactElement} from 'react';
 import {QueryClientProvider, QueryClient} from 'react-query';
 import {ReactQueryDevtools} from 'react-query/devtools';
 
@@ -13,7 +12,12 @@ const queryClient = new QueryClient({
     }
 })
 
-export default function (props: ReactElementProps) {
+interface ReactQueryProps {
+    children: ReactElement
+    client?: QueryClient
+}
+
+export default function (props: ReactQueryProps) {
     return (
             <QueryClientProvider client={queryClient}>
                 {props.children}

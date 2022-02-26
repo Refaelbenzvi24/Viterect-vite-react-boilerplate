@@ -17,7 +17,7 @@
 		"dev": "cross-env NODE_ENV=development vite",
 		"dev:test": "cross-env NODE_ENV=test vite --mode test",
 		"extract-translations": "i18next --fail-on-warnings",
-		"prepare": "husky install",
+		"prepare:husky": "husky install",
 		"lint": "pnpm lint:tsc && pnpm lint:eslint && pnpm lint:style",
 		"lint:eslint": "eslint --cache --ignore-path .gitignore --ext .ts,.tsx src",
 		"lint:tsc": "tsc",

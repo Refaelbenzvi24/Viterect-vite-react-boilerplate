@@ -84,7 +84,7 @@ And, enjoy :)
   coverage.
 - `extract-translations` - extract translations from source files using `i18next`. configuration file for this is
   on `i18next-parser.config.js`. The generated files will be on the `public/locales` folder.
-- `pnpm prepare` - install husky.
+- `pnpm prepare:husky` - install husky.
 - `pnpm lint` - runs TypeScript and ESLint.
 - `pnpm lint:eslint` - runs ESLint.
 - `pnpm lint:tsc` - runs TypeScript.

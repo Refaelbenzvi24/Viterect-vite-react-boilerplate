@@ -8,7 +8,7 @@ import { LocalStorage } from 'modules/LocalStorage'
 
 export type Language = 'en' | 'he';
 
-await i18n
+i18n
 	.use(Backend)
 	.use(LanguageDetector)
 	.use(initReactI18next)
@@ -37,6 +37,10 @@ await i18n
 				cache:       'default',
 			},
 		},
+	})
+	.then()
+	.catch((error) => {
+		throw error
 	})
 
 export const i18nInstall = () => {

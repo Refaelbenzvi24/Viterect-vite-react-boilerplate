@@ -191,6 +191,7 @@
 		"react/jsx-no-useless-fragment": "error",
 		"react-hooks/exhaustive-deps": "off",
 		"react-hooks/rules-of-hooks": "off",
+		"unicorn/prefer-top-level-await": "off",
 		"unicorn/no-object-as-default-parameter": "off",
 		"unicorn/no-static-only-class": "off",
 		"unicorn/no-array-for-each": "off",

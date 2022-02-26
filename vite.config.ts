@@ -52,7 +52,6 @@ const replaceOptions = {
 	preventAssignment: true
 }
 const claims         = process.env.CLAIMS === 'true'
-const reload         = process.env.RELOAD_SW === 'true'
 
 if (process.env.SW === 'true') {
 	pwaOptions.strategies                                         = 'injectManifest'
@@ -62,11 +61,6 @@ if (process.env.SW === 'true') {
 
 if (claims) {
 	pwaOptions.registerType = 'autoUpdate'
-}
-
-if (reload) {
-	// @ts-ignore
-	replaceOptions.__RELOAD_SW__ = 'true'
 }
 
 export default defineConfig(({ mode }) => ({
@@ -151,8 +145,6 @@ export default defineConfig(({ mode }) => ({
 			}
 		}),
 
-		// https://github.com/antfu/vite-plugin-pwa
-		VitePWA(pwaOptions),
 
 		replace(replaceOptions),
 
@@ -165,6 +157,33 @@ export default defineConfig(({ mode }) => ({
 		// https://github.com/aleclarson/vite-tsconfig-paths
 		TsconfigPaths(),
 
+		// https://github.com/antfu/vite-plugin-pwa
+		VitePWA({
+			registerType: 'autoUpdate',
+			includeAssets: [
+				'favicon.png',
+				'robots.txt',
+				'apple-touch-icon.png',
+				'icons/*.svg',
+				'fonts/*.woff2'
+			],
+			manifest: {
+				theme_color: '#BD34FE',
+				icons: [
+					{
+						src: '/android-chrome-192x192.png',
+						sizes: '192x192',
+						type: 'image/png',
+						purpose: 'any maskable'
+					},
+					{
+						src: '/android-chrome-512x512.png',
+						sizes: '512x512',
+						type: 'image/png'
+					}
+				]
+			}
+		}),
 		mode === 'test' &&
 		istanbul({
 			include: ['src/**/*.{ts,tsx}']

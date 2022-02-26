@@ -8,7 +8,7 @@
 	"scripts": {
 		"start": "pnpm run build & pnpm run serve",
 		"start:test": "pnpm run build:test & pnpm run serve:test",
-		"build": "cross-env NODE_ENV=production SOURCE_MAP=true CLAIMS=true SW=true RELOAD_SW=false vite build",
+		"build": "cross-env NODE_ENV=production SOURCE_MAP=true CLAIMS=true SW=true vite build",
 		"build:test": "cross-env NODE_ENV=production SOURCE_MAP=true CLAIMS=true SW=true RELOAD_SW=false vite build --mode test",
 		"serve": "serve dist",
 		"serve:test": "serve tests/dist -p 8080",
@@ -19,7 +19,7 @@
 		"extract-translations": "i18next --fail-on-warnings",
 		"prepare": "husky install",
 		"lint": "pnpm lint:tsc && pnpm lint:eslint && pnpm lint:style",
-		"lint:eslint": "eslint --fix --cache --ignore-path .gitignore --ext .ts,.tsx src",
+		"lint:eslint": "eslint --cache --ignore-path .gitignore --ext .ts,.tsx src",
 		"lint:tsc": "tsc",
 		"test": "jest",
 		"test:watch": "jest --watch",

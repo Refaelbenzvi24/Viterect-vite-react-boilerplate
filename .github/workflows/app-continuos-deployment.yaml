@@ -17,7 +17,7 @@ jobs:
       - name: setup
         run: pnpm install --no-optional
       - name: build
-        run: pnpm run build:vite
+        run: pnpm run build
       - name: Deploy to App Engine
         id: deploy
         uses: google-github-actions/deploy-appengine@v0.2.0

@@ -19,7 +19,7 @@
 		"extract-translations": "i18next --fail-on-warnings",
 		"prepare:husky": "husky install",
 		"lint": "pnpm lint:tsc && pnpm lint:eslint",
-		"lint:eslint": "eslint --cache --ignore-path .gitignore --ext .ts,.tsx src",
+		"lint:eslint": "eslint --fix --cache --ignore-path .gitignore --ext .ts,.tsx src",
 		"lint:tsc": "tsc",
 		"test": "jest",
 		"test:watch": "jest --watch",

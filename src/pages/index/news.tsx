@@ -1,29 +1,33 @@
-import QueryHandler from '../../components/QueryHandler';
-import { bingNewsApi } from '../../services/BingNews';
-import { Row, Col } from '../../components/UI/Grid';
-import News from '../../components/HomePage/News';
+import QueryHandler from '../../components/ReactQuery/QueryHandler'
+import bingNewsApi from '../../services/BingNews'
+import { Row, Col } from '../../components/UI/Grid'
+import News from '../../components/HomePage/News'
 
-export default function () {
-  const { data, status } = bingNewsApi.news().get();
-  const result = data?.data;
 
-  return (
-    <QueryHandler status={status}>
-      <Row>
+export default () => {
+	const {
+		      data,
+		      status,
+	      } = bingNewsApi.news()
+		.get()
 
-        <Col className="w-full">
+	return (
+		<QueryHandler status={status}>
+			<Row>
 
-          <Row className="w-full">
+				<Col className="w-full">
 
-            <Col className="w-full px-4">
-              <News value={result?.value} />
-            </Col>
+					<Row className="w-full">
 
-          </Row>
+						<Col className="w-full px-4">
+							<News value={data?.data.value}/>
+						</Col>
 
-        </Col>
+					</Row>
 
-      </Row>
-    </QueryHandler>
-  );
+				</Col>
+
+			</Row>
+		</QueryHandler>
+	)
 }

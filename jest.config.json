@@ -1,27 +1,27 @@
 {
-  "bail": true,
-  "clearMocks": true,
-  "collectCoverage": true,
-  "collectCoverageFrom": ["<rootDir>/src/**/*.{ts,tsx}"],
-  "coverageDirectory": "coverage/jest",
-  "coveragePathIgnorePatterns": [
-    "<rootDir>/node_modules/",
-    "<rootDir>/src/main.tsx"
-  ],
-  "coverageReporters": ["lcov", "text-summary"],
-  "coverageThreshold": {
-    "global": {
-      "branches": 100,
-      "functions": 100,
-      "lines": 100,
-      "statements": 100
-    }
-  },
-  "moduleDirectories": ["node_modules", "src"],
-  "testEnvironment": "jsdom",
-  "testMatch": ["<rootDir>/tests/**/*.{ts,tsx}"],
-  "watchPlugins": [
-    "jest-watch-typeahead/filename",
-    "jest-watch-typeahead/testname"
-  ]
+	"bail": true,
+	"clearMocks": true,
+	"collectCoverage": true,
+	"collectCoverageFrom": ["<rootDir>/src/**/*.{ts,tsx}"],
+	"coverageDirectory": "coverage/jest",
+	"coveragePathIgnorePatterns": [
+		"<rootDir>/node_modules/",
+		"<rootDir>/src/main.tsx"
+	],
+	"coverageReporters": ["lcov", "text-summary"],
+	"coverageThreshold": {
+		"global": {
+			"branches": 100,
+			"functions": 100,
+			"lines": 100,
+			"statements": 100
+		}
+	},
+	"moduleDirectories": ["node_modules", "src"],
+	"testEnvironment": "jsdom",
+	"testMatch": ["<rootDir>/tests/**/*.{ts,tsx}"],
+	"watchPlugins": [
+		"jest-watch-typeahead/filename",
+		"jest-watch-typeahead/testname"
+	]
 }

@@ -1,19 +1,20 @@
-import CoinRankingApi from './CoinRanking';
-import { vars as variables } from '../../plugins/vars';
+import CoinRankingApi from './CoinRanking'
+import { Vars } from '../../modules/vars'
 
-const COINRANKING_RAPIAPI_URL: string = variables.rapidApi.coinsRankingApi.url;
-const COINRANKING_RAPIAPI_HOST: string = variables.rapidApi.coinsRankingApi.host;
-const RAPIAPI_KEY: string = variables.rapidApi.apiKey;
+
+const COINRANKING_RAPIAPI_URL: string  = Vars.rapidApi.coinsRanking.url
+const COINRANKING_RAPIAPI_HOST: string = Vars.rapidApi.coinsRanking.host
+const RAPIAPI_KEY: string              = Vars.rapidApi.apiKey
 
 const coinRankingApiData = {
-  apiRootUrl: COINRANKING_RAPIAPI_URL,
-  apiCurrentVersion: '',
-  config: {
-    headers: {
-      'x-rapidapi-host': COINRANKING_RAPIAPI_HOST,
-      'x-rapidapi-key': RAPIAPI_KEY,
-    },
-  },
-};
+	apiRootUrl:        COINRANKING_RAPIAPI_URL,
+	apiCurrentVersion: '',
+	config:            {
+		headers: {
+			'x-rapidapi-host': COINRANKING_RAPIAPI_HOST,
+			'x-rapidapi-key':  RAPIAPI_KEY,
+		},
+	},
+}
 
-export const coinRankingApi = new CoinRankingApi(coinRankingApiData);
+export default new CoinRankingApi(coinRankingApiData)

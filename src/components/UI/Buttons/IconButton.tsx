@@ -1,14 +1,14 @@
-import type { ReactNode } from 'react';
-import type React from 'react';
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react'
 
-interface IconButtonProps extends React.DetailedHTMLProps<React.HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
-  children: ReactNode;
+
+interface IconButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+	children: ReactNode;
 }
 
-export default function (props: IconButtonProps) {
-  return (
-    <div {...props}>
-      <div className="
+export default (props: IconButtonProps) => {
+	return (
+		<div {...props}>
+			<div className="
 		    flex
             cursor-pointer
             text-xl
@@ -22,9 +22,9 @@ export default function (props: IconButtonProps) {
             hover:opacity-100
             active:opacity-70
             "
-      >
-        {props.children}
-      </div>
-    </div>
-  );
+			>
+				{props.children}
+			</div>
+		</div>
+	)
 }

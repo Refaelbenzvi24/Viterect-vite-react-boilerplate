@@ -10,13 +10,7 @@ declare global {
   const IconMdiBellOutline: typeof import('~icons/mdi/bell-outline.jsx')['default']
   const IconMdiLogout: typeof import('~icons/mdi/logout.jsx')['default']
   const IconMdiSettings: typeof import('~icons/mdi/settings.jsx')['default']
-  const useCallback: typeof import('react')['useCallback']
-  const useContext: typeof import('react')['useContext']
-  const useEffect: typeof import('react')['useEffect']
-  const useMemo: typeof import('react')['useMemo']
-  const useReducer: typeof import('react')['useReducer']
-  const useRef: typeof import('react')['useRef']
-  const useState: typeof import('react')['useState']
+  const initReactI18next: typeof import('react-i18next')['initReactI18next']
   const useTranslation: typeof import('react-i18next')['useTranslation']
 }
 export {}

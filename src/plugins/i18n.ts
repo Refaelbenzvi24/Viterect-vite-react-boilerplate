@@ -1,49 +1,62 @@
-import i18n from 'i18next';
-import {initReactI18next} from 'react-i18next';
-import {useEffect} from "react";
-import LanguageDetector from 'i18next-browser-languagedetector';
-import Backend from 'i18next-http-backend';
-import moment from 'moment';
-import {LocalStorage} from "modules/LocalStorage";
+import i18n from 'i18next'
+import { useEffect } from 'react'
+import LanguageDetector from 'i18next-browser-languagedetector'
+import Backend from 'i18next-http-backend'
+import moment from 'moment'
+import { LocalStorage } from 'modules/LocalStorage'
+
 
 export type Language = 'en' | 'he';
 
-i18n
-  .use(Backend)
-  .use(LanguageDetector)
-  .use(initReactI18next)
-  .init({
-	  fallbackLng:       'en',
-	  returnEmptyString: false,
-	  keySeparator:      '.',
-	  interpolation:     {
-		  escapeValue: false,
-		  format:      (value, format) => {
-			  if (value instanceof Date) {
-				  return moment(value).format(format);
-			  }
-			  return value;
-		  },
-	  },
-	  react:             {
-		  useSuspense: true,
-	  },
-	  backend:           {
-		  loadPath:       '/locales/{{lng}}/{{ns}}.yaml',
-		  requestOptions: {
-			  mode:        'cors',
-			  credentials: 'same-origin',
-			  cache:       'default'
-		  }
-	  },
-  })
-  .then()
+await i18n
+	.use(Backend)
+	.use(LanguageDetector)
+	.use(initReactI18next)
+	.init({
+		fallbackLng:       'en',
+		returnEmptyString: false,
+		keySeparator:      '.',
+		interpolation:     {
+			escapeValue: false,
+			format:      (value, format): string => {
+				if (value instanceof Date) {
+					return moment(value)
+						.format(format)
+				}
+				return value as string
+			},
+		},
+		react:             {
+			useSuspense: true,
+		},
+		backend:           {
+			loadPath:       '/locales/{{lng}}/{{ns}}.yaml',
+			requestOptions: {
+				mode:        'cors',
+				credentials: 'same-origin',
+				cache:       'default',
+			},
+		},
+	})
 
 export const i18nInstall = () => {
-	const {i18n} = useTranslation()
+	const { i18n } = useTranslation()
 
 	useEffect(() => {
-		window.document.dir = i18n.dir(LocalStorage.getLanguage())
+		const language = LocalStorage.getLanguage()
+
+		if (language.includes('-')) {
+			LocalStorage.setLanguage('en')
+			i18n.changeLanguage('en')
+				.then(() => {
+					document.dir = i18n.dir('en')
+				})
+				.catch((error) => {
+					throw error
+				})
+		}
+
+		window.document.dir = i18n.dir(language)
 	}, [])
 }
 
@@ -56,5 +69,3 @@ export const i18nInstall = () => {
 // left-to-right mark: ‎ or ‎ (U+200E)
 //
 // right-to-left mark: ‏ or ‏ (U+200F)
-
-export {default} from 'i18next';

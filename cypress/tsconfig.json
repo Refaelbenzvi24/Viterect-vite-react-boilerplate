@@ -1,3 +1,5 @@
 {
-  "paths": { "cypress": ["./types/cypress"] }
+	"paths": {
+		"cypress": ["./types/cypress"]
+	}
 }

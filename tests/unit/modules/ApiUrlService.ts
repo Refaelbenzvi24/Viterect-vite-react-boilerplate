@@ -1,4 +1,5 @@
-import ApiUrlService, {ApiUrlServiceProps} from '../../../src/modules/ApiUrlService'
+import ApiUrlService, { ApiUrlServiceProps } from '../../../src/modules/ApiUrlService'
+
 
 describe('ApiUrlService', () => {
 	let stub: ApiUrlService
@@ -12,7 +13,7 @@ describe('ApiUrlService', () => {
 
 	beforeEach(() => {
 		stub            = new ApiUrlService(stubData)
-		urlParamsObject = {count: 20, search: ''}
+		urlParamsObject = { count: 20, search: '' }
 		urlParamsString = stub.buildUrlParams(urlParamsObject)
 	})
 

@@ -142,7 +142,6 @@ export default defineConfig({
 
 	build: {
 		sourcemap:     process.env.SOURCE_MAP === 'true',
-		outDir:        ENV === 'test' ? './tests/dist' : './dist',
 		rollupOptions: {
 			output: {
 				manualChunks: (id) => {
@@ -167,6 +166,10 @@ export default defineConfig({
 		}
 	},
 
+	preview: {
+		open: false,
+		port: 4000
+	},
 
 	server: {
 		open: false, // open in browser on server start

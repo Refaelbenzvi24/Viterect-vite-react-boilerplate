@@ -8,13 +8,7 @@ import { LocalStorage } from 'modules/LocalStorage'
 
 export type Language = 'en' | 'he';
 
-let language: Language
-
-if ((navigator.language).toString().includes('-')) {
-	language = (navigator.language).toString().split('-')[0] as Language
-} else {
-	language = (navigator.language).toString() as Language
-}
+const language = (navigator.language).toString().includes('-') ? (navigator.language).toString().split('-')[0] as Language : (navigator.language).toString() as Language
 
 i18n
 	.use(Backend)

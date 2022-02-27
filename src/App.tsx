@@ -1,6 +1,5 @@
 import {
 	useRoutes,
-	useNavigate,
 } from 'react-router-dom'
 import routes from '~react-pages'
 
@@ -9,7 +8,6 @@ import { RecoilRoot } from 'recoil'
 import MainProvider from './components/UI/Main/MainProvider'
 import ThemeProvider from './components/UI/Theme/ThemeProvider'
 import Plugins from './plugins'
-import { useEffect } from 'react'
 import * as React from 'react'
 
 

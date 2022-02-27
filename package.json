@@ -27,7 +27,7 @@
     "test:ci": "jest --ci",
     "test:e2e": "cypress open",
     "test:e2e:headless": "cypress run",
-    "test:e2e:ci": "vite build --mode test && start-server-and-test serve:test http://localhost:8080 'cypress run --record'",
+    "test:e2e:ci": "vite build --mode test && start-server-and-test serve:test http://localhost:4000 'cypress run --record'",
     "coverage:jest": "start ./coverage/jest/lcov-report/index.html",
     "coverage:cypress": "start ./coverage/cypress/lcov-report/index.html",
     "validate": "pnpm lint && pnpm test:ci && pnpm test:e2e:headless"

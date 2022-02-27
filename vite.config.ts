@@ -6,64 +6,18 @@ import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import AutoImport from 'unplugin-auto-import/vite'
 import WindiCSS from 'vite-plugin-windicss'
-import { ManifestOptions, VitePWA, VitePWAOptions } from 'vite-plugin-pwa'
+import { VitePWA } from 'vite-plugin-pwa'
 import Markdown from 'vite-plugin-react-md'
 import Inspect from 'vite-plugin-inspect'
 import TsconfigPaths from 'vite-tsconfig-paths'
-import replace from '@rollup/plugin-replace'
 import istanbul from 'rollup-plugin-istanbul'
 import { extendRoute, onRouteGenerate } from './router.config'
 import highlightJs from 'highlight.js'
 
 
-const ENV = (process.env.NODE_ENV || 'production')?.toString() as 'production' | 'development'
+const ENV = process.env.VITE_ENV
 
-const pwaOptions: Partial<VitePWAOptions> = {
-	mode:          ENV,
-	base:          '/',
-	includeAssets: ['favicon.svg'],
-	manifest:      {
-		name:        'PWA Router',
-		short_name:  'PWA Router',
-		theme_color: '#ffffff',
-		icons:       [
-			{
-				src:   'favicon-192x192.png', // <== don't add slash, for testing
-				sizes: '192x192',
-				type:  'image/png',
-			},
-			{
-				src:   '/favicon-512x512.png', // <== don't remove slash, for testing
-				sizes: '512x512',
-				type:  'image/png',
-			},
-			{
-				src:     'favicon-512x512.png', // <== don't add slash, for testing
-				sizes:   '512x512',
-				type:    'image/png',
-				purpose: 'any maskable',
-			},
-		],
-	},
-}
-
-const replaceOptions = {
-	__DATE__:          new Date().toISOString(),
-	preventAssignment: true
-}
-const claims         = process.env.CLAIMS === 'true'
-
-if (process.env.SW === 'true') {
-	pwaOptions.strategies                                         = 'injectManifest'
-	;(pwaOptions.manifest as Partial<ManifestOptions>).name       = 'PWA Inject Manifest'
-	;(pwaOptions.manifest as Partial<ManifestOptions>).short_name = 'PWA Inject'
-}
-
-if (claims) {
-	pwaOptions.registerType = 'autoUpdate'
-}
-
-export default defineConfig(({ mode }) => ({
+export default defineConfig({
 	resolve: {
 		alias: {
 			'~/': `${path.resolve(__dirname, 'src')}/`,
@@ -145,8 +99,31 @@ export default defineConfig(({ mode }) => ({
 			}
 		}),
 
-
-		replace(replaceOptions),
+		// https://github.com/antfu/vite-plugin-pwa
+		VitePWA({
+			registerType:  'autoUpdate',
+			includeAssets: [
+				'favicon.svg',
+				'locales/**/*.yaml',
+				'apple-touch-icon.png'
+			],
+			manifest:      {
+				theme_color: '#ffffff',
+				icons:       [
+					{
+						src:     '/android-chrome-192x192.png',
+						sizes:   '192x192',
+						type:    'image/png',
+						purpose: 'any maskable'
+					},
+					{
+						src:   '/android-chrome-512x512.png',
+						sizes: '512x512',
+						type:  'image/png'
+					}
+				],
+			},
+		}),
 
 		// https://github.com/antfu/vite-plugin-inspect
 		Inspect({ enabled: false, }),
@@ -157,34 +134,7 @@ export default defineConfig(({ mode }) => ({
 		// https://github.com/aleclarson/vite-tsconfig-paths
 		TsconfigPaths(),
 
-		// https://github.com/antfu/vite-plugin-pwa
-		VitePWA({
-			registerType: 'autoUpdate',
-			includeAssets: [
-				'favicon.png',
-				'robots.txt',
-				'apple-touch-icon.png',
-				'icons/*.svg',
-				'fonts/*.woff2'
-			],
-			manifest: {
-				theme_color: '#BD34FE',
-				icons: [
-					{
-						src: '/android-chrome-192x192.png',
-						sizes: '192x192',
-						type: 'image/png',
-						purpose: 'any maskable'
-					},
-					{
-						src: '/android-chrome-512x512.png',
-						sizes: '512x512',
-						type: 'image/png'
-					}
-				]
-			}
-		}),
-		mode === 'test' &&
+		ENV === 'test' &&
 		istanbul({
 			include: ['src/**/*.{ts,tsx}']
 		})
@@ -192,7 +142,7 @@ export default defineConfig(({ mode }) => ({
 
 	build: {
 		sourcemap:     process.env.SOURCE_MAP === 'true',
-		outDir:        mode === 'test' ? './tests/dist' : './dist',
+		outDir:        ENV === 'test' ? './tests/dist' : './dist',
 		rollupOptions: {
 			output: {
 				manualChunks: (id) => {
@@ -217,6 +167,7 @@ export default defineConfig(({ mode }) => ({
 		}
 	},
 
+
 	server: {
 		open: false, // open in browser on server start
 		port: 8080,
@@ -228,4 +179,4 @@ export default defineConfig(({ mode }) => ({
 			strict: false,
 		},
 	},
-}))
+})

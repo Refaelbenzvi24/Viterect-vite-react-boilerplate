@@ -18,14 +18,6 @@ function Pages(): React.ReactElement | null {
 }
 
 export default () => {
-	// remove those lines
-	const navigate = useNavigate()
-
-	useEffect(() => {
-		navigate('/about')
-	}, [])
-	//
-
 	Plugins()
 
 	return (

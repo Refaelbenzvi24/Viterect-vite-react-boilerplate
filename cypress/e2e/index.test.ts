@@ -1,6 +1,10 @@
+import "cypress-localstorage-commands"
+
+
 describe('ViterectStarter', () => {
 	beforeEach(() => {
 		cy.viewport('macbook-16')
+		cy.setLocalStorage('theme', 'light')
 		cy.visit('/')
 	})
 
@@ -49,12 +53,6 @@ describe('ViterectStarter', () => {
 	it('should navigate to the 404 page', () => {
 		cy.get('#404-button')
 			.click()
-		cy.contains('404')
-		cy.visit('/someNonExistingPage')
-		cy.contains('404')
-		cy.visit('/404')
-		cy.contains('404')
-		cy.visit('/someOtherNonExistingPage')
 		cy.contains('404')
 	})
 

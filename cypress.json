@@ -1,6 +1,7 @@
 {
-	"baseUrl": "http://localhost:8080/",
-	"fileServerFolder": "dist",
+	"baseUrl": "http://localhost:4000/",
+	"fileServerFolder": "tests/dist",
+	"execTimeout": 100000,
 	"fixturesFolder": false,
 	"projectId": "rtddw4",
 	"integrationFolder": "cypress/e2e",

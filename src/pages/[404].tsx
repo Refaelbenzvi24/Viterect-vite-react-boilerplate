@@ -10,11 +10,11 @@ import Subtitle from '../components/UI/Typograpy/Subtitle'
 
 
 const creditItems: Record<string, { creditName: string; creditLink: string }> = {
-	404:             {
+	'404':             {
 		creditName: 'helloChad',
 		creditLink: 'https://codepen.io/hellochad',
 	},
-	403:             {
+	'403':             {
 		creditName: 'marianab',
 		creditLink: 'https://codepen.io/marianab',
 	},

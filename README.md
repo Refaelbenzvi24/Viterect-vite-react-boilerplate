@@ -60,7 +60,6 @@ pnpm i # If you don't have pnpm installed, run: npm install -g pnpm
 When you use this template, try follow the checklist to update your info properly
 
 - [ ] Modify or delete the `LICENSE` file.
-- [ ] Go to `App.tsx` and remove the navigation lines - the lines between the comments.
 - [ ] Change `VITE_APP_NAME` in the `.env` file.
 - [ ] Change the favicon in `public`
 - [ ] If you don't plan to use GitHub Actions, delete the .github directory.

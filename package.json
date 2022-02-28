@@ -90,7 +90,6 @@
 		"babel-preset-vite": "^1.0.4",
 		"chance": "^1.1.8",
 		"commitizen": "^4.2.4",
-		"critters": "^0.0.15",
 		"cross-env": "^7.0.3",
 		"css-mediaquery": "^0.1.2",
 		"cssnano": "^5.0.15",

@@ -20,7 +20,6 @@
   🔍[Browse icons here](https://icones.js.org/)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-markdown.svg) [Markdown support](https://github.com/Leonewu/vite-plugin-react-md)
 - 📥 [APIs auto importing](https://github.com/antfu/unplugin-auto-import)
-- 🦔 Critical CSS via [critters](https://github.com/GoogleChromeLabs/critters) - **check if only working with ssg**
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-testts.svg) Unit testing
   with ![Alt text](https://api.iconify.design/vscode-icons:file-type-jest.svg) [Jest](https://jestjs.io/), E2E Testing
   with ![Alt text](https://api.iconify.design/vscode-icons:file-type-cypress.svg) [Cypress](https://www.cypress.io/).

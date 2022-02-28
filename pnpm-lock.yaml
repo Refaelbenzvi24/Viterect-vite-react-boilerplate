@@ -37,7 +37,6 @@ specifiers:
   chance: ^1.1.8
   clsx: ^1.1.1
   commitizen: ^4.2.4
-  critters: ^0.0.15
   cross-env: ^7.0.3
   css-mediaquery: ^0.1.2
   cssnano: ^5.0.15
@@ -174,7 +173,6 @@ devDependencies:
   babel-preset-vite: 1.0.4
   chance: 1.1.8
   commitizen: 4.2.4
-  critters: 0.0.15
   cross-env: 7.0.3
   css-mediaquery: 0.1.2
   cssnano: 5.0.17_postcss@8.4.7
@@ -4657,17 +4655,6 @@ packages:
     resolution: {integrity: sha512-dcKFX3jn0MpIaXjisoRvexIJVEKzaq7z2rZKxf+MSr9TkdmHmsU4m2lcLojrj/FHl8mk5VxMmYA+ftRkP/3oKQ==}
     dev: true
     optional: true
-
-  /critters/0.0.15:
-    resolution: {integrity: sha512-AE7hkXb3eZUbEvS1SKZa+OU4o2kUOXtzVeE/2E/mjU/0mV1wpBT1HfUCWVRS4zwvkBNJ0AQYsVjAoFm+kIhfdw==}
-    dependencies:
-      chalk: 4.1.2
-      css-select: 4.2.1
-      parse5: 6.0.1
-      parse5-htmlparser2-tree-adapter: 6.0.1
-      postcss: 8.4.7
-      pretty-bytes: 5.6.0
-    dev: true
 
   /cross-env/7.0.3:
     resolution: {integrity: sha512-+/HKd6EgcQCJGh2PSjZuUitQBQynKor4wrFbRg4DtAgS1aWO+gU52xpH7M9ScGgXSYmAVS9bIJ8EzuaGw0oNAw==}

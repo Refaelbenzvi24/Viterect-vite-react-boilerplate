@@ -5,11 +5,7 @@ import News from '../../components/HomePage/News'
 
 
 export default () => {
-	const {
-		      data,
-		      status,
-	      } = bingNewsApi.news()
-		.get()
+	const { data, status, } = bingNewsApi.news().get()
 
 	return (
 		<QueryHandler status={status}>
@@ -20,7 +16,7 @@ export default () => {
 					<Row className="w-full">
 
 						<Col className="w-full px-4">
-							<News value={data?.data.value}/>
+							<News value={data?.data?.value}/>
 						</Col>
 
 					</Row>

@@ -3,8 +3,7 @@
  * Example: "hello world" => "hello-world"
  * @param id
  */
-export const convertToElId = (id: string): string => id.replace(/[^\dA-Za-z]/g, '-')
-	.toLowerCase()
+export const convertToElId = (id: string): string => id.replace(/[^\dA-Za-z]/g, '-').toLowerCase()
 
 
 export default {}

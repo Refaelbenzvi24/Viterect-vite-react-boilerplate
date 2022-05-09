@@ -152,9 +152,6 @@ export default defineConfig({
 						if (id.includes("recoil")) {
 							return "vendor_recoil"
 						}
-						if (id.includes("i18next")) {
-							return "vendor_i18next"
-						}
 						if (id.includes("react")) {
 							return "vendor_react"
 						}

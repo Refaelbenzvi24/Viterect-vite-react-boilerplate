@@ -18,12 +18,15 @@ export default class BingNewsApi extends ApiUrlService {
 
 	news(): NewsEndpointType {
 		return {
+
 			urlParams: this.buildUrlParams({
 				safeSearch: 'off',
 				textFormat: 'Raw',
 			}),
-			endpoint:  '/news',
-			get:       (params: NewsGetProps = { count: 20 }, queryConfig = defaultQueryConfig) => {
+
+			endpoint: '/news',
+
+			get: (params: NewsGetProps = { count: 20 }, queryConfig = defaultQueryConfig) => {
 				const url        = this.apiFullRootUrl + this.news().endpoint + this.buildUrlParams(params as QueryDataProps, this.news().urlParams)
 				const { config } = this
 

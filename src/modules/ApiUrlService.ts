@@ -39,12 +39,11 @@ export default class ApiUrlService {
 
 	private static encodeQueryData(data: QueryDataProps) {
 		const returnValue: string[] = []
-		Object.keys(data)
-			.forEach((key) => {
-				if (data[key]) {
-					returnValue.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
-				}
-			})
+		Object.keys(data).forEach((key) => {
+			if (data[key]) {
+				returnValue.push(`${encodeURIComponent(key)}=${encodeURIComponent(data[key])}`)
+			}
+		})
 		return returnValue.join('&')
 	}
 }

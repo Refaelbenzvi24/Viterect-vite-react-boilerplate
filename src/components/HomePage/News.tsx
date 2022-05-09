@@ -6,6 +6,7 @@ import Subtitle from '../UI/Typograpy/Subtitle'
 
 
 export default ({ value }: NewsGetResult) => {
+
 	return (
 		<Row
 			dir="ltr"

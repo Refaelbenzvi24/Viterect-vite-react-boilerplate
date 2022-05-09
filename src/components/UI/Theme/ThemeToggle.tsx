@@ -7,7 +7,7 @@ import type { ReactElementProps } from 'types'
 
 export default (props: ReactElementProps) => {
 	const { theme, setTheme } = useContext(ThemeContext)
-	const { t }                = useTranslation()
+	const { t }               = useTranslation()
 
 	const themeToggle = () => {
 		setTheme(theme === 'dark' ? 'light' : 'dark')

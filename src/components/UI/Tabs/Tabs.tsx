@@ -6,11 +6,11 @@ import { ReactComponentProps } from '../../../types'
 
 export default (props: ReactComponentProps) => {
 	const [tabsIndex, setTabsIndex] = useState<number | null>(1)
-	const [style, setStyle]     = useState<CSSProperties>({})
-	const tabsRef               = useRef<HTMLDivElement>(null)
+	const [style, setStyle]         = useState<CSSProperties>({})
+	const tabsRef                   = useRef<HTMLDivElement>(null)
 	let tabs: NodeListOf<HTMLElement>
-	const { i18n }              = useTranslation()
-	const dir                   = props.dir ?? i18n.dir()
+	const { i18n }                  = useTranslation()
+	const dir                       = props.dir ?? i18n.dir()
 
 	useEffect(() => {
 		if (tabsIndex && props.children && tabsRef.current) {

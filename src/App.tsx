@@ -5,10 +5,9 @@ import routes from '~react-pages'
 
 import ReloadPrompt from './components/ReloadPrompt'
 import { RecoilRoot } from 'recoil'
-import MainProvider from './components/UI/Main/MainProvider'
-import ThemeProvider from './components/UI/Theme/ThemeProvider'
 import Plugins from './plugins'
 import * as React from 'react'
+import Providers from "./context"
 
 
 function Pages(): React.ReactElement | null {
@@ -19,13 +18,11 @@ export default () => {
 	Plugins()
 
 	return (
-		<ThemeProvider>
-			<MainProvider>
-				<RecoilRoot>
-					<ReloadPrompt/>
-					<Pages/>
-				</RecoilRoot>
-			</MainProvider>
-		</ThemeProvider>
+		<Providers>
+			<RecoilRoot>
+				<ReloadPrompt/>
+				<Pages/>
+			</RecoilRoot>
+		</Providers>
 	)
 }

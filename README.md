@@ -1,4 +1,4 @@
-# Documentation
+ג# Documentation
 
 [![Viterect](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/rtddw4&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/rtddw4/runs)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
@@ -45,7 +45,7 @@
 or
 
 clone the repo `git clone git@github.com:Refaelbenzvi24/Viterect.git my-viterect-app`
-\ `npx degit refaelbenzvi24/viterect my-viterect-app`
+\ `npx degit refaelbenzvi24/viterect my-viterect-app`ג
 
 then
 

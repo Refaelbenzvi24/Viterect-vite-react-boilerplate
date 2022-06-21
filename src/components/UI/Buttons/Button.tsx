@@ -9,9 +9,10 @@ const style = 'rounded-lg dark:bg-transparent dark:hover:bg-gray-600 dark:focus:
 	+ 'focus:text-gray-900 hover:bg-gray-200 focus:bg-gray-200 focus:outline-none focus:shadow-outline'
 
 
-export default (props: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
+const Button = (props: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
 	const { children, className } = props
 
 	return <button {...props} className={style + clsx(className)} type="button">{children}</button>
 }
 
+export default Button

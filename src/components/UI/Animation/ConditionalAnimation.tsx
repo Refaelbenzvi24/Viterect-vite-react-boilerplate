@@ -8,7 +8,7 @@ interface ConditionalAnimationProps extends ReactElementProps {
 	timeout: number;
 }
 
-export default (props: ConditionalAnimationProps): JSX.Element => {
+const ConditionalAnimation = (props: ConditionalAnimationProps): JSX.Element => {
 	const [render, setRender] = useState(false)
 
 	const { condition, timeout, children } = props
@@ -27,3 +27,5 @@ export default (props: ConditionalAnimationProps): JSX.Element => {
 
 	return render ? children : <div/>
 }
+
+export default ConditionalAnimation

@@ -1,12 +1,12 @@
-import type {Language} from 'plugins/i18n'
+import type { Language } from 'plugins/i18n'
 import IconButton from './UI/Buttons/IconButton'
 import Tooltip from './UI/Tooltip/Tooltip'
-import type {ReactElementProps} from 'types'
-import {LocalStorage} from "../modules/LocalStorage";
+import type { ReactElementProps } from 'types'
+import { LocalStorage } from "../modules/LocalStorage"
 
 
-export default (props: ReactElementProps) => {
-	const {t, i18n} = useTranslation()
+const LanguageSelector = (props: ReactElementProps) => {
+	const { t, i18n } = useTranslation()
 
 	const changeLanguage = async (language: Language): Promise<void> => {
 		await i18n.changeLanguage(language)
@@ -28,3 +28,5 @@ export default (props: ReactElementProps) => {
 		</div>
 	)
 }
+
+export default LanguageSelector

@@ -5,7 +5,7 @@ interface IconButtonProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElemen
 	children: ReactNode;
 }
 
-export default (props: IconButtonProps) => {
+const IconButton = (props: IconButtonProps) => {
 	return (
 		<div {...props}>
 			<div className="
@@ -28,3 +28,5 @@ export default (props: IconButtonProps) => {
 		</div>
 	)
 }
+
+export default IconButton

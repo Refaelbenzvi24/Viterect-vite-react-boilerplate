@@ -8,7 +8,7 @@ interface CryptoStatsProps {
 	stats: CoinStats | undefined;
 }
 
-export default ({ stats }: CryptoStatsProps) => {
+const CryptoStats = ({ stats }: CryptoStatsProps) => {
 	const { t } = useTranslation()
 
 	const dictionary: { [key: string]: string } = {
@@ -36,3 +36,5 @@ export default ({ stats }: CryptoStatsProps) => {
 		</Row>
 	)
 }
+
+export default CryptoStats

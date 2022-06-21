@@ -8,8 +8,8 @@ import { transform } from 'windicss/helpers'
 const markdownWrapperClasses = ['prose prose-sm', 'm-auto', 'text-left']
 
 export default defineConfig({
-	darkMode: 'class',
-	content:  ['./index.html', 'src/**/*.{html,js,css,tsx}'],
+	darkMode: 'class', // or 'media' or 'class'
+	purge:    ["./src/**/*.{js,jsx,ts,tsx}", "./public/index.html"],
 	// https://windicss.org/posts/v30.html#attributify-mode
 	attributify: true,
 

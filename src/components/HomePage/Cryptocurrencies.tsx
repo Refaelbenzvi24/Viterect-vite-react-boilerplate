@@ -8,7 +8,7 @@ import type { Coin } from 'services/CoinRanking/types'
 import clsx from "clsx"
 
 
-export default ({ coins }: { coins: Coin[] | undefined }) => {
+const Cryptocurrencies = ({ coins }: { coins: Coin[] | undefined }) => {
 	const { t } = useTranslation()
 	const dir   = i18n.dir()
 
@@ -75,3 +75,5 @@ export default ({ coins }: { coins: Coin[] | undefined }) => {
 		</Row>
 	)
 }
+
+export default Cryptocurrencies

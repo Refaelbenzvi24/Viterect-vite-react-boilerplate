@@ -1,7 +1,7 @@
 import './CubicProgress.css'
 
 
-export default () => {
+const CubicProgress = () => {
 	return (
 		<div className="sk-cube-grid">
 			<div className="sk-cube sk-cube1"/>
@@ -16,3 +16,5 @@ export default () => {
 		</div>
 	)
 }
+
+export default CubicProgress

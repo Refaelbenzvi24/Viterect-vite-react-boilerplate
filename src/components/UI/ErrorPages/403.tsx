@@ -8,7 +8,7 @@ import clsx from 'clsx'
 import particles from "./Particles"
 
 
-export default (props: ReactElementProps) => {
+const Error403Page = (props: ReactElementProps) => {
 	const eyef = useRef(null)
 	const {
 		      windowHeight,
@@ -85,3 +85,5 @@ export default (props: ReactElementProps) => {
 		</div>
 	)
 }
+
+export default Error403Page

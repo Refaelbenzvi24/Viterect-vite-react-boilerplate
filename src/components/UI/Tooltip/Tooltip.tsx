@@ -11,7 +11,7 @@ interface TooltipProps extends ReactElementProps {
 	tooltip: TFunctionResult | number | string;
 }
 
-export default (props: TooltipProps) => {
+const Tooltip = (props: TooltipProps) => {
 	return (
 		<div className="flex w-fit">
 			<div {...props} className="has-tooltip relative">
@@ -25,3 +25,5 @@ export default (props: TooltipProps) => {
 		</div>
 	)
 }
+
+export default Tooltip

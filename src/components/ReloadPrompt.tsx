@@ -2,7 +2,7 @@ import { useRegisterSW } from 'virtual:pwa-register/react'
 import Button from './UI/Buttons/Button'
 
 
-export default () => {
+const ReloadPrompt = () => {
 	const {
 		      offlineReady: [offlineReady, setOfflineReady],
 		      needRefresh:  [needRefresh, setNeedRefresh],
@@ -49,3 +49,5 @@ export default () => {
 		</div>
 	)
 }
+
+export default ReloadPrompt

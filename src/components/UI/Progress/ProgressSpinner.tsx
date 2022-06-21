@@ -3,7 +3,7 @@ import type { ReactElementProps } from '../../../types'
 import clsx from "clsx"
 
 
-export default (props: ReactElementProps) => {
+const ProgressSpinner = (props: ReactElementProps) => {
 	return (
 		<div className="relative h-full">
 			<div {...props} className={`absolute top-[50%] left-[50%] ${clsx(props.className)}`}>
@@ -12,3 +12,5 @@ export default (props: ReactElementProps) => {
 		</div>
 	)
 }
+
+export default ProgressSpinner

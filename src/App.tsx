@@ -8,13 +8,15 @@ import { RecoilRoot } from 'recoil'
 import Plugins from './plugins'
 import * as React from 'react'
 import Providers from "./context"
+import { useEffect } from "react"
+import { createTheme, ThemeProvider } from "@mui/material"
 
 
 function Pages(): React.ReactElement | null {
 	return useRoutes(routes)
 }
 
-export default () => {
+const App = () => {
 	Plugins()
 
 	return (
@@ -26,3 +28,5 @@ export default () => {
 		</Providers>
 	)
 }
+
+export default App

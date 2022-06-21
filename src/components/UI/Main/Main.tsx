@@ -9,7 +9,7 @@ import MainProvider from './MainProvider'
 import clsx from 'clsx'
 
 
-export default (props: ReactElementProps) => {
+const Main = (props: ReactElementProps) => {
 	const {
 		      sideBarState: sideBar,
 		      sideBarOpts,
@@ -70,3 +70,5 @@ export default (props: ReactElementProps) => {
 		</MainProvider>
 	)
 }
+
+export default Main

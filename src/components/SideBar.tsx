@@ -11,9 +11,10 @@ import Row from './UI/Grid/Row'
 import Col from './UI/Grid/Col'
 import SideBarLink from './UI/SideBar/SideBarLink'
 import FavIcon from '/favicon.svg'
+import { Button, Card, MenuItem, Select, TextField } from "@mui/material"
 
 
-export default () => {
+const sideBar = () => {
 	const { t } = useTranslation()
 
 	return (
@@ -27,8 +28,7 @@ export default () => {
 									<img src={FavIcon} className="max-w-[50px]" alt="LOGO"/>
 
 									<p className="px-3 text-2xl font-semibold tracking-widest text-gray-900 dark:text-white
-													uppercase rounded-lg focus:outline-none focus:shadow-outline"
-									>
+													uppercase rounded-lg focus:outline-none focus:shadow-outline">
 										{t('App Name')}
 									</p>
 								</Link>
@@ -90,3 +90,5 @@ export default () => {
 		</div>
 	)
 }
+
+export default sideBar

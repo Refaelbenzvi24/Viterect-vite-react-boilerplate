@@ -4,7 +4,7 @@ import {
 import { ReactComponentProps } from '../../../types'
 
 
-export default (props: ReactComponentProps) => {
+const Tabs = (props: ReactComponentProps) => {
 	const [tabsIndex, setTabsIndex] = useState<number | null>(1)
 	const [style, setStyle]         = useState<CSSProperties>({})
 	const tabsRef                   = useRef<HTMLDivElement>(null)
@@ -62,3 +62,5 @@ export default (props: ReactComponentProps) => {
 		</div>
 	)
 }
+
+export default Tabs

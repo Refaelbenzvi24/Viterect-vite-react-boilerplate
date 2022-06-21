@@ -5,7 +5,7 @@ import moment from 'moment'
 import Subtitle from '../UI/Typograpy/Subtitle'
 
 
-export default ({ value }: NewsGetResult) => {
+const News = ({ value }: NewsGetResult) => {
 
 	return (
 		<Row
@@ -72,3 +72,5 @@ export default ({ value }: NewsGetResult) => {
 		</Row>
 	)
 }
+
+export default News

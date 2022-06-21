@@ -10,7 +10,7 @@ interface NumberTooltipProps {
 	id: string;
 }
 
-export default (props: NumberTooltipProps): JSX.Element => {
+const NumberTooltip = (props: NumberTooltipProps): JSX.Element => {
 	const dir = i18n.dir()
 
 	const {
@@ -44,3 +44,5 @@ export default (props: NumberTooltipProps): JSX.Element => {
 		</h2>
 	)
 }
+
+export default NumberTooltip

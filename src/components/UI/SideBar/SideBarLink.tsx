@@ -8,7 +8,7 @@ import windowVariables from '../../../hooks/WindowVars'
 const { sideBarOpts: defaultSideBarOptions } = defaultMainData
 const { shrinkPoint: defaultShrinkPoint }    = defaultSideBarOptions
 
-export default (props: ReactElementProps) => {
+const SideBarLink = (props: ReactElementProps) => {
 	const { children, ...restProps } = props
 
 	const { removeOverlay }                              = Overlay()
@@ -33,3 +33,5 @@ export default (props: ReactElementProps) => {
 		</div>
 	)
 }
+
+export default SideBarLink

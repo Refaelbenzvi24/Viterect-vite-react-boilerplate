@@ -16,13 +16,19 @@ const rawSetTheme = (theme: ThemeName) => {
 	LocalStorage.setTheme(theme)
 }
 
-export default ({ children }: ThemeProviderOptions): ReactElement => {
-	const [theme, setTheme] = useState<ThemeName>(getInitialTheme)
+const ThemeProvider = ({ children }: ThemeProviderOptions): ReactElement => {
+	const [theme, setTheme] = useState<ThemeName>(getInitialTheme())
 
 	useEffect(() => {
 		rawSetTheme(theme)
 	}, [theme])
 
 	// eslint-disable-next-line react/jsx-no-constructed-context-values -- should be re-rendered every time that values are changed - affects children theme
-	return <ThemeContext.Provider value={{ theme, setTheme }}>{children}</ThemeContext.Provider>
+	return (
+		<ThemeContext.Provider value={{ theme, setTheme }}>
+				{children}
+		</ThemeContext.Provider>
+	)
 }
+
+export default ThemeProvider

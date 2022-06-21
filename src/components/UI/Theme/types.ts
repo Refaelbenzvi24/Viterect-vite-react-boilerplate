@@ -1,7 +1,7 @@
 import type { ReactElement } from 'react'
 
 
-export type ThemeName = 'auto' | 'dark' | 'light';
+export type ThemeName = 'dark' | 'light';
 
 export interface ThemeProviderOptions {
 	children: ReactElement;

@@ -5,7 +5,7 @@ import IconButton from '../Buttons/IconButton'
 import type { ReactElementProps } from 'types'
 
 
-export default (props: ReactElementProps) => {
+const ThemeToggle = (props: ReactElementProps) => {
 	const { theme, setTheme } = useContext(ThemeContext)
 	const { t }               = useTranslation()
 
@@ -23,3 +23,5 @@ export default (props: ReactElementProps) => {
 		</div>
 	)
 }
+
+export default ThemeToggle

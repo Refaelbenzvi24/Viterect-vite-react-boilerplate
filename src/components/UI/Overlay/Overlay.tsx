@@ -7,7 +7,7 @@ const defaultOverlay = {
 	onClick: () => null,
 }
 
-export default () => {
+const Overlay = () => {
 	const { overlays, setOverlays } = useContext(MainContext)
 
 	const addOverlay = (overlay: OverlayType = defaultOverlay) => {
@@ -22,3 +22,5 @@ export default () => {
 
 	return { addOverlay, removeOverlay }
 };
+
+export default Overlay

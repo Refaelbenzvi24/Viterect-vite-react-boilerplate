@@ -19,7 +19,7 @@ const root = createRoot(document.querySelector('#root') as Element)
 // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 root.render(
 	<ReactQuery>
-		<Router>'
+		<Router>
 			<Suspense fallback={<ProgressSpinner/>}>
 				<App/>
 			</Suspense>

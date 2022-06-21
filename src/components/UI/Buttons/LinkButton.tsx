@@ -5,7 +5,7 @@ import i18n from 'i18next'
 import clsx from 'clsx'
 
 
-export default (props: LinkProps): ReactElement => {
+const LinkButton = (props: LinkProps): ReactElement => {
 	const dir = i18n.dir()
 
 	return (
@@ -40,3 +40,5 @@ export default (props: LinkProps): ReactElement => {
 		</Link>
 	)
 }
+
+export default LinkButton

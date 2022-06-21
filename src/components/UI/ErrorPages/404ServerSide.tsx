@@ -6,7 +6,7 @@ import clsx from 'clsx'
 import particles from "./Particles"
 
 
-export default (props: ReactElementProps) => {
+const ServerError403Page = (props: ReactElementProps) => {
 	const [visorContext, setVisorContext] = useState<CanvasRenderingContext2D>()
 
 	const drawVisor = () => {
@@ -93,3 +93,5 @@ export default (props: ReactElementProps) => {
 		</div>
 	)
 }
+
+export default ServerError403Page

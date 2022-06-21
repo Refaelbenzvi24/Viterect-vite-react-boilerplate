@@ -3,7 +3,7 @@ import React, { FC } from 'react'
 import { ReactComponentProps } from "../types"
 
 
-export default (...components: FC[]) => {
+const CombinedComponents = (...components: FC[]) => {
 	return components.reduce(
 		(AccumulatedComponents, CurrentComponent) => {
 			return ({ children }: ReactComponentProps) => {
@@ -18,3 +18,5 @@ export default (...components: FC[]) => {
 		}, ({ children }: ReactComponentProps) => <>{children}</>,
 	)
 }
+
+export default CombinedComponents

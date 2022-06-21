@@ -2,7 +2,7 @@ import type { ReactElementProps } from 'types'
 import clsx from "clsx"
 
 
-export default (props: ReactElementProps) => {
+const Card = (props: ReactElementProps) => {
 	return (
 		<div
 			{...props}
@@ -13,3 +13,5 @@ export default (props: ReactElementProps) => {
 		</div>
 	)
 }
+
+export default Card

@@ -7,7 +7,7 @@ interface CardLinkButtonProps {
 	to: string
 }
 
-export default ({ children, to }: CardLinkButtonProps) => {
+const CardLinkButton = ({ children, to }: CardLinkButtonProps) => {
 	return (
 		<Link
 			to={to}
@@ -20,3 +20,5 @@ export default ({ children, to }: CardLinkButtonProps) => {
 		</Link>
 	)
 }
+
+export default CardLinkButton

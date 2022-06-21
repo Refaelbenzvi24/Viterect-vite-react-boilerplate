@@ -14,7 +14,7 @@ function Pages(): React.ReactElement | null {
 	return useRoutes(routes)
 }
 
-export default () => {
+const App = () => {
 	Plugins()
 
 	return (
@@ -26,3 +26,5 @@ export default () => {
 		</Providers>
 	)
 }
+
+export default App

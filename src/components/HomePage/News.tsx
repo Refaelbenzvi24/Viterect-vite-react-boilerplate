@@ -17,7 +17,7 @@ export default ({ value }: NewsGetResult) => {
                         sm:grid-cols-2
                         xs:grid-cols-1">
 			{
-				value?.map((newsItem) => (
+				value && value.map((newsItem) => (
 					<Col className="p-2 grid justify-items-stretch" key={newsItem.name}>
 						<Card className="min-h-100 max-h-100 p-0 justify-self-center relative">
 							<a className="absolute w-full" href={newsItem.url}>

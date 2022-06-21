@@ -1,8 +1,14 @@
-ג# Documentation
+# Documentation
 
 [![Viterect](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/rtddw4&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/rtddw4/runs)
 [![Commitizen friendly](https://img.shields.io/badge/commitizen-friendly-brightgreen.svg)](http://commitizen.github.io/cz-cli/)
 [![license](https://img.shields.io/badge/license-MIT-green.svg)]()
+
+## Description
+
+This is a boilerplate/template I built from scratch with a lot of usefull tools configured and ready to use. <br/>
+So if you wanna start a new project and don't want to waste time on configuration and figure out how to set it all up, <br/>
+just clone and start to code! 😉
 
 ## Features
 
@@ -26,12 +32,12 @@
 - ![Alt text](.github/assets/simple-icons_i18next.svg) [i18n ready]()
   with ![Alt text](https://api.iconify.design/vscode-icons:file-type-light-yaml.svg) YAML
 - State management:
-    - form state with ![Alt text](./.github/assets/formik.svg) [Formik](https://formik.org/docs/overview),
-      and ![Alt text](.github/assets/logos_xstate.svg) [xState](https://xstate.js.org/) for more complex ones.
-    - ![Alt text](.github/assets/recoil.svg) UI State with  [Recoil](https://recoiljs.org/)
-    - Server cache states
-      with ![Alt text](.github/assets/emblem-light-628080660fddb35787ff6c77e97ca43e.svg)  [React Query](https://react-query.tanstack.com/overview)
-    - ![Alt text](.github/assets/simple-icons_immer.svg) [Immer](https://immerjs.github.io/immer/) for mutable state.
+  - form state with ![Alt text](./.github/assets/formik.svg) [Formik](https://formik.org/docs/overview),
+    and ![Alt text](.github/assets/logos_xstate.svg) [xState](https://xstate.js.org/) for more complex ones.
+  - ![Alt text](.github/assets/recoil.svg) UI State with  [Recoil](https://recoiljs.org/)
+  - Server cache states
+    with ![Alt text](.github/assets/emblem-light-628080660fddb35787ff6c77e97ca43e.svg)  [React Query](https://react-query.tanstack.com/overview)
+  - ![Alt text](.github/assets/simple-icons_immer.svg) [Immer](https://immerjs.github.io/immer/) for mutable state.
 - ![alt-text](https://api.iconify.design/icon-park:dark-mode.svg) Dark Mode - support toggle dark mode
 - Deploy to ![Alt text](https://api.iconify.design/logos:google-cloud.svg) [GCloud App Engine]()
   with ![Alt text](https://api.iconify.design/logos:github-octocat.svg) [GitHub Actions]()(CICD)

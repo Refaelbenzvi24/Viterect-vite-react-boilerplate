@@ -4,9 +4,6 @@ import type { CoinStats } from 'services/CoinRanking/types'
 import { convertToElId } from 'modules/Util'
 import NumberTooltip from "../UI/Tooltip/NumberTooltip"
 
-
-type Dictionary = Record<string, string>;
-
 interface CryptoStatsProps {
 	stats: CoinStats | undefined;
 }
@@ -14,7 +11,7 @@ interface CryptoStatsProps {
 export default ({ stats }: CryptoStatsProps) => {
 	const { t } = useTranslation()
 
-	const dictionary: Dictionary = {
+	const dictionary: { [key: string]: string } = {
 		total:          t('Total Cryptocurrencies'),
 		totalExchanges: t('Total Exchanges'),
 		totalMarketCap: t('Total Market Cap'),
@@ -32,8 +29,7 @@ export default ({ stats }: CryptoStatsProps) => {
 								{dictionary[key]}
 							</Subtitle>
 							<NumberTooltip id={dictionary[key]}
-							               number={stats ? stats[key as keyof CoinStats] : 0}
-							/>
+							               number={stats ? stats[key as keyof CoinStats] : 0}/>
 						</Col>
 					))
 			}

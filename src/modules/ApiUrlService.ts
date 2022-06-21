@@ -4,7 +4,7 @@ export interface ApiUrlServiceProps {
 	apiFullUrlRootUrl?: string;
 }
 
-export type QueryDataProps = Record<string, string | number | boolean>
+export type QueryDataProps = { [key: string]: string | number | boolean }
 
 export default class ApiUrlService {
 	apiRootUrl: string

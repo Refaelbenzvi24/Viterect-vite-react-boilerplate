@@ -10,4 +10,4 @@ export interface ReactComponentProps {
 
 export type ReactElementProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
-export type StyleObject = { [key: string]: CSSProperties }
+export type StyleObject = Record<string, CSSProperties>;

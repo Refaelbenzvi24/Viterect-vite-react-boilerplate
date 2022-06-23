@@ -10,6 +10,7 @@ export interface EnvFileProps {
 	VITE_COINRANKING_RAPIDAPI_URL: string;
 	VITE_COINRANKING_RAPIDAPI_HOST: string;
 	VITE_BING_NEWS_RAPIDAPI_HOST: string;
+	VITE_DEFAULT_LANG: string
 }
 
 export class Vars {
@@ -33,11 +34,14 @@ export class Vars {
 		};
 	}
 
+	static defaultLang: string
+
 	static setupVars(envVars: EnvFileProps) {
-		Vars.appName  = envVars.VITE_APP_NAME
-		Vars.env      = envVars.VITE_ENV
-		Vars.theme    = { defaultTheme: envVars.VITE_DEFAULT_THEME as ThemeName }
-		Vars.rapidApi = {
+		Vars.appName     = envVars.VITE_APP_NAME
+		Vars.env         = envVars.VITE_ENV
+		Vars.theme       = { defaultTheme: envVars.VITE_DEFAULT_THEME as ThemeName }
+		Vars.defaultLang = envVars.VITE_DEFAULT_LANG
+		Vars.rapidApi    = {
 			apiKey:       envVars.VITE_X_RAPIDAPI_KEY,
 			bingNews:     {
 				url:  envVars.VITE_BING_NEWS_RAPIDAPI_URL,

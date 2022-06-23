@@ -1,22 +1,24 @@
 import i18n from 'i18next'
-import {useEffect} from 'react'
+import { useEffect } from 'react'
 import LanguageDetector from 'i18next-browser-languagedetector'
 import Backend from 'i18next-http-backend'
 import moment from 'moment'
-import {LocalStorage} from 'modules/LocalStorage'
+import { LocalStorage } from 'modules/LocalStorage'
+import { Vars } from "../modules/vars"
 
 
 export type Language = 'en' | 'he';
 
-const language = () => {
+const getLanguage = () => {
 	const lang = LocalStorage.getLanguage()
 
-	if (lang && !lang.includes('-'))
-		return lang
+	if (lang && !lang.includes('-')) return lang
 
-	return (navigator.language).toString()
-		.includes('-') ? (navigator.language).toString()
-		.split('-')[0] as Language : (navigator.language).toString() as Language
+	if ((navigator.language).toString().includes('-')) return (navigator.language).toString().split('-')[0] as Language
+
+	if (!(navigator.language).toString().includes('-')) return (navigator.language).toString() as Language
+
+	return Vars.defaultLang
 }
 
 
@@ -26,13 +28,13 @@ const language = () => {
 		.use(LanguageDetector)
 		.use(initReactI18next)
 		.init({
-			lng: language(),
-			fallbackLng: 'en',
+			lng:               getLanguage(),
+			fallbackLng:       'en',
 			returnEmptyString: false,
-			keySeparator: '.',
-			interpolation: {
+			keySeparator:      '.',
+			interpolation:     {
 				escapeValue: false,
-				format: (value, format): string => {
+				format:      (value, format): string => {
 					if (value instanceof Date) {
 						return moment(value)
 							.format(format)
@@ -40,38 +42,32 @@ const language = () => {
 					return value as string
 				},
 			},
-			react: {
+			react:             {
 				useSuspense: true,
 			},
-			backend: {
-				loadPath: '/locales/{{lng}}/{{ns}}.yaml',
+			backend:           {
+				loadPath:       '/locales/{{lng}}/{{ns}}.yaml',
 				requestOptions: {
-					mode: 'cors',
+					mode:        'cors',
 					credentials: 'same-origin',
-					cache: 'default',
+					cache:       'default',
 				},
 			},
 		})
 })()
 
 export const i18nInstall = () => {
-	const {i18n} = useTranslation()
+	const { i18n } = useTranslation()
+
+	const setLanguage = () => {
+		const language        = getLanguage();
+
+		(async () => i18n.changeLanguage(language))()
+		window.document.dir = i18n.dir(language)
+	}
 
 	useEffect(() => {
-		const language = LocalStorage.getLanguage()
-
-		if (language.includes('-')) {
-			LocalStorage.setLanguage('en')
-			i18n.changeLanguage('en')
-				.then(() => {
-					document.dir = i18n.dir('en')
-				})
-				.catch((error) => {
-					throw error
-				})
-		}
-
-		window.document.dir = i18n.dir(language)
+		setLanguage()
 	}, [])
 }
 

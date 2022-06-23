@@ -1,14 +1,19 @@
 import { ImpulseSpinner } from 'react-spinners-kit'
-import type { ReactElementProps } from '../../../types'
-import clsx from "clsx"
+import { Grid } from "@mui/material"
 
 
-export default (props: ReactElementProps) => {
+const ProgressSpinner = () => {
 	return (
-		<div className="relative h-full">
-			<div {...props} className={`absolute top-[50%] left-[50%] ${clsx(props.className)}`}>
-				<ImpulseSpinner size={75} backColor="#626262" frontColor="#536473"/>
-			</div>
-		</div>
+		<Grid
+			container
+			direction="row"
+			justifyContent="center"
+			alignItems="center"
+			sx={{ height: "100%" }}
+		>
+			<ImpulseSpinner size={75} backColor="#626262" frontColor="#536473"/>
+		</Grid>
 	)
 }
+
+export default ProgressSpinner

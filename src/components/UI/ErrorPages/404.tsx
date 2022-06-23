@@ -9,7 +9,7 @@ import clsx from 'clsx'
 import particles from "./Particles"
 
 
-export default (props: ReactElementProps) => {
+const Error404Page = (props: ReactElementProps) => {
 	const appName = (Vars.appName || 'VITERECT').toString()
 		.toUpperCase()
 
@@ -37,3 +37,5 @@ export default (props: ReactElementProps) => {
 		</div>
 	)
 }
+
+export default Error404Page

@@ -119,13 +119,13 @@
 }
 
 .prose hr {
-	border-color: #e7e5e4;
+	visibility: hidden;
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
 
 .dark .prose hr {
-	color: #e7e5e4;
+	visibility: hidden;
 }
 
 .hljs {

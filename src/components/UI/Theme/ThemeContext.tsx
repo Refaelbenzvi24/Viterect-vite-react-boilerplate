@@ -1,14 +1,14 @@
 import { createContext } from 'react'
 import { LocalStorage } from '../../../modules/LocalStorage'
-import type { ThemeContextType } from './types'
+import type { ThemeContextType, ThemeName } from './types'
 import { Vars } from '../../../modules/vars'
 
 
-export const getInitialTheme = () => {
+export const getInitialTheme = (): ThemeName => {
 	const { defaultTheme } = Vars.theme
 
 	const storedTheme = LocalStorage.getTheme()
-	if (storedTheme && storedTheme !== 'auto') {
+	if (storedTheme && (storedTheme === 'dark' || storedTheme === 'light')) {
 		return storedTheme
 	}
 

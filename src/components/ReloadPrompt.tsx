@@ -1,8 +1,8 @@
 import { useRegisterSW } from 'virtual:pwa-register/react'
-import Button from './UI/Buttons/Button'
+import { Alert, Button, Snackbar } from "@mui/material"
 
 
-export default () => {
+const ReloadPrompt = () => {
 	const {
 		      offlineReady: [offlineReady, setOfflineReady],
 		      needRefresh:  [needRefresh, setNeedRefresh],
@@ -21,31 +21,27 @@ export default () => {
 
 	return (
 		<div className="ReloadPrompt-container">
-			{(offlineReady || needRefresh)
-				&& (
-					<div className="fixed w-full h-full">
-						<div className="absolute w-full h-full">
-							<div
-								className="alert shadow-lg alert bg-white dark:bg-dark-200 opacity-90 absolute w-100 h-20 right-0 bottom-0 mb-5 mr-7">
-								<div>
-									{
-										offlineReady ? <span>App ready to work offline</span>
-											: <span>New content available, click on reload button to update.</span>
-									}
-								</div>
-
-								{needRefresh && (
-									<Button onClick={async () => updateServiceWorker(true)}>
-										Reload
-									</Button>
-								)}
-								<Button onClick={() => close()}>
-									Close
-								</Button>
-							</div>
-						</div>
-					</div>
-				)}
+			<Snackbar
+				open={offlineReady || needRefresh}
+				autoHideDuration={6000}
+				onClose={close}>
+				<Alert severity="info">
+					{
+						offlineReady ? <span>App ready to work offline</span>
+							: <span>New content available, click on reload button to update.</span>
+					}
+					{needRefresh && (
+						<Button onClick={async () => updateServiceWorker(true)}>
+							Reload
+						</Button>
+					)}
+					<Button onClick={() => close()}>
+						Close
+					</Button>
+				</Alert>
+			</Snackbar>
 		</div>
 	)
 }
+
+export default ReloadPrompt

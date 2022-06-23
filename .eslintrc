@@ -91,6 +91,7 @@
 		"arrow-body-style": "off",
 		"no-tabs": "off",
 		"no-mixed-spaces-and-tabs": "off",
+		"@typescript-eslint/no-floating-promises": "off",
 		"@typescript-eslint/restrict-template-expressions": "off",
 		"@typescript-eslint/explicit-member-accessibility": "off",
 		"@typescript-eslint/no-extraneous-class": "off",
@@ -137,6 +138,8 @@
 				]
 			}
 		],
+		"react/hook-use-state": "off",
+		"react/require-default-props": "off",
 		"react/jsx-no-undef": "off",
 		"react/no-did-update-set-state": "off",
 		"react/jsx-props-no-spreading": "off",
@@ -186,7 +189,7 @@
 			}
 		],
 		"react/jsx-closing-bracket-location": "off",
-		"react/jsx-no-constructed-context-values": "error",
+		"react/jsx-no-constructed-context-values": "off",
 		"react/jsx-no-script-url": "error",
 		"react/jsx-no-useless-fragment": "error",
 		"react-hooks/exhaustive-deps": "off",

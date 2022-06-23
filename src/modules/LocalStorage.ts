@@ -1,23 +1,22 @@
-import type {ThemeName} from '../components/UI/Theme/types'
-import type {Language} from '../plugins/i18n'
+import type { ThemeName } from '../components/UI/Theme/types'
+import type { Language } from '../plugins/i18n'
 
 
 export class LocalStorage {
 	static THEME = 'theme'
+
 	static LANGUAGE = 'i18nextLng'
 
-	static getTheme(): ThemeName | undefined {
-		const theme = localStorage.getItem(LocalStorage.THEME)
-		return theme as ThemeName | undefined
+	static getTheme(): string | null {
+		return localStorage.getItem(LocalStorage.THEME)
 	}
 
-	static setTheme(theme: boolean | string): void {
+	static setTheme(theme: ThemeName): void {
 		localStorage.setItem(LocalStorage.THEME, theme.toString())
 	}
 
-	static getLanguage(): Language {
-		const language = localStorage.getItem(LocalStorage.LANGUAGE)
-		return language as Language
+	static getLanguage(): string | null {
+		return localStorage.getItem(LocalStorage.LANGUAGE)
 	}
 
 	static setLanguage(language: Language): void {

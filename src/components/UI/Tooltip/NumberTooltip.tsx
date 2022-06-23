@@ -1,46 +1,50 @@
-import i18n from "i18next"
-import Tooltip from "./Tooltip"
-import { convertToElId } from "../../../modules/Util"
 import NumberFormat from "react-number-format"
 import millify from "millify"
+import { Tooltip, Typography } from "@mui/material"
 
 
 interface NumberTooltipProps {
 	number: number;
-	id: string;
+	tooltipPlacement?:
+	| 'bottom-end'
+	| 'bottom-start'
+	| 'bottom'
+	| 'left-end'
+	| 'left-start'
+	| 'left'
+	| 'right-end'
+	| 'right-start'
+	| 'right'
+	| 'top-end'
+	| 'top-start'
+	| 'top'
 }
 
-export default (props: NumberTooltipProps): JSX.Element => {
-	const dir = i18n.dir()
-
-	const {
-		      number,
-		      id,
-	      } = props
+const NumberTooltip = (props: NumberTooltipProps): JSX.Element => {
+	const { number, tooltipPlacement } = props
 
 	if (number && number > 1000) {
 		return (
-			<Tooltip
-				className={`top-[5px] ${dir === 'ltr' ? 'left-[110%]' : 'right-[110%]'}`}
-				id={convertToElId(`${id}-tooltip`)}
-				tooltip={(
+			<Tooltip placement={tooltipPlacement}
+				title={(
 					<NumberFormat
 						value={number}
 						displayType="text"
 						thousandSeparator
 					/>
-				)}
-			>
-				<h2 className="text-4xl w-fit cursor-default" id={convertToElId(`${id}-number`)}>
+				)}>
+				<Typography variant="h4" sx={{ width: "fit-content" }}>
 					{millify(number)}
-				</h2>
+				</Typography>
 			</Tooltip>
 		)
 	}
 
 	return (
-		<h2 className="text-4xl w-fit">
+		<Typography variant="h4">
 			{millify(number)}
-		</h2>
+		</Typography>
 	)
 }
+
+export default NumberTooltip

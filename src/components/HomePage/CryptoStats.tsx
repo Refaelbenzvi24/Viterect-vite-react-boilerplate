@@ -1,17 +1,20 @@
-import { Col, Row } from '../UI/Grid'
-import Subtitle from '../UI/Typograpy/Subtitle'
 import type { CoinStats } from 'services/CoinRanking/types'
-import { convertToElId } from 'modules/Util'
 import NumberTooltip from "../UI/Tooltip/NumberTooltip"
+import { Grid, Stack, Typography } from "@mui/material"
+import { useTheme } from "@mui/material/styles"
+import useStyle from "../../hooks/useStyle"
+
 
 interface CryptoStatsProps {
 	stats: CoinStats | undefined;
 }
 
-export default ({ stats }: CryptoStatsProps) => {
+const CryptoStats = ({ stats }: CryptoStatsProps) => {
+	const theme = useTheme()
+	const style = useStyle(theme)
 	const { t } = useTranslation()
 
-	const dictionary: { [key: string]: string } = {
+	const dictionary: Record<string, string> = {
 		total:          t('Total Cryptocurrencies'),
 		totalExchanges: t('Total Exchanges'),
 		totalMarketCap: t('Total Market Cap'),
@@ -19,20 +22,33 @@ export default ({ stats }: CryptoStatsProps) => {
 		totalMarkets:   t('Total Markets'),
 	}
 
+
 	return (
-		<Row className="pt-5 px-2 grid grid-flow-row justify-between grid-cols-2 w-full">
+		<Grid container>
 			{
 				Object.keys(dictionary)
 					.map((key) => (
-						<Col className="pt-4" key={convertToElId(`${dictionary[key]}-title`)}>
-							<Subtitle id={convertToElId(`${dictionary[key]}-title`)}>
-								{dictionary[key]}
-							</Subtitle>
-							<NumberTooltip id={dictionary[key]}
-							               number={stats ? stats[key as keyof CoinStats] : 0}/>
-						</Col>
+						<Grid xs={6}
+						      item
+						      sx={{ p: 1 }}
+						      key={dictionary[key]}>
+
+							<Stack className="pt-4" direction="column">
+
+								<Typography variant="subtitle1"
+								            sx={style.typography.subtitle1}>
+									{dictionary[key]}
+								</Typography>
+
+								<NumberTooltip tooltipPlacement="right"
+								               number={stats ? stats[key as keyof CoinStats] : 0}/>
+
+							</Stack>
+						</Grid>
 					))
 			}
-		</Row>
+		</Grid>
 	)
 }
+
+export default CryptoStats

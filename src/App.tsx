@@ -2,27 +2,28 @@ import {
 	useRoutes,
 } from 'react-router-dom'
 import routes from '~react-pages'
-
 import ReloadPrompt from './components/ReloadPrompt'
 import { RecoilRoot } from 'recoil'
 import Plugins from './plugins'
 import * as React from 'react'
-import Providers from "./context"
+import ThemeProvider from "./components/UI/Theme/ThemeProvider"
 
 
 function Pages(): React.ReactElement | null {
 	return useRoutes(routes)
 }
 
-export default () => {
+const App = () => {
 	Plugins()
 
 	return (
-		<Providers>
+		<ThemeProvider>
 			<RecoilRoot>
 				<ReloadPrompt/>
 				<Pages/>
 			</RecoilRoot>
-		</Providers>
+		</ThemeProvider>
 	)
 }
+
+export default App

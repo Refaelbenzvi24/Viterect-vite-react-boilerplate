@@ -15,7 +15,7 @@ describe('ViterectStarter', () => {
 	it('should change language', () => {
 		cy.contains('Global Crypto Stats')
 		cy.get('#language-toggle-button')
-			.click()
+			.click({force: true})
 		cy.contains('סטטיסטיקה')
 	})
 
@@ -24,7 +24,7 @@ describe('ViterectStarter', () => {
 			.should('have.css', 'background-color')
 			.and('eq', 'rgb(255, 255, 255)')
 		cy.get('#theme-toggle-button')
-			.click()
+			.click({force: true})
 		cy.get('body')
 			.should('have.css', 'background-color')
 			.and('eq', 'rgb(24, 24, 24)')
@@ -32,33 +32,26 @@ describe('ViterectStarter', () => {
 
 	it('should navigate to the crypto page', () => {
 		cy.get('#crypto-button')
-			.click()
+			.click({force: true})
 		cy.location('pathname')
 			.should('eq', `/cryptocurrencies`)
 	})
 
-	it('should navigate to the news page', () => {
-		cy.get('#news-button')
-			.click()
-		cy.location('pathname')
-			.should('eq', `/news`)
-	})
-
 	it('should navigate to the about page', () => {
 		cy.get('#about-button')
-			.click()
+			.click({force: true})
 		cy.contains('About')
 	})
 
 	it('should navigate to the 404 page', () => {
 		cy.get('#404-button')
-			.click()
+			.click({force: true})
 		cy.contains('404')
 	})
 
 	it('should navigate to the home page', () => {
 		cy.get('#home-button')
-			.click()
+			.click({force: true})
 		cy.contains('Global Crypto Stats')
 	})
 })

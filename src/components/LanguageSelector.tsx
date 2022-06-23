@@ -1,12 +1,12 @@
-import type {Language} from 'plugins/i18n'
-import IconButton from './UI/Buttons/IconButton'
-import Tooltip from './UI/Tooltip/Tooltip'
-import type {ReactElementProps} from 'types'
-import {LocalStorage} from "../modules/LocalStorage";
+import type { Language } from 'plugins/i18n'
+import type { ReactElementProps } from 'types'
+import { LocalStorage } from "../modules/LocalStorage"
+import { IconButton, Tooltip } from "@mui/material"
 
 
-export default (props: ReactElementProps) => {
-	const {t, i18n} = useTranslation()
+const LanguageSelector = (props: { iconSize: string } & ReactElementProps) => {
+	const { iconSize } = props
+	const { t, i18n }  = useTranslation()
 
 	const changeLanguage = async (language: Language): Promise<void> => {
 		await i18n.changeLanguage(language)
@@ -18,13 +18,15 @@ export default (props: ReactElementProps) => {
 		await changeLanguage(i18n.language === 'en' ? 'he' : 'en')
 	}
 
+	const tooltipTitle = t('Language')
+
 	return (
-		<div {...props}>
-			<Tooltip className="bottom-[200%] left-[-80%]" tooltip={t('Language')}>
-				<IconButton className="block" id="language-toggle-button" onClick={languageToggle}>
-					<IconCarbonLanguage/>
-				</IconButton>
-			</Tooltip>
-		</div>
+		<Tooltip title={tooltipTitle} placement="top">
+			<IconButton id="language-toggle-button" style={{ fontSize: iconSize }} onClick={languageToggle}>
+				<IconCarbonLanguage/>
+			</IconButton>
+		</Tooltip>
 	)
 }
+
+export default LanguageSelector

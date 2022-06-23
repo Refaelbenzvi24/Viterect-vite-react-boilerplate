@@ -8,7 +8,7 @@ interface QueryHandlerProps {
 	status: QueryStatus;
 }
 
-export default ({ children, status }: QueryHandlerProps) => {
+const QueryHandler = ({ children, status }: QueryHandlerProps) => {
 	return (
 		<>
 			{status === 'loading' && (
@@ -25,3 +25,5 @@ export default ({ children, status }: QueryHandlerProps) => {
 		</>
 	)
 }
+
+export default QueryHandler

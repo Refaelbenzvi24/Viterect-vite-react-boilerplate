@@ -1,11 +1,11 @@
 import { useContext } from 'react'
 import { ThemeContext } from './ThemeContext'
-import Tooltip from '../Tooltip/Tooltip'
-import IconButton from '../Buttons/IconButton'
 import type { ReactElementProps } from 'types'
+import { IconButton, Tooltip } from "@mui/material"
 
 
-export default (props: ReactElementProps) => {
+const ThemeToggle = (props: { iconSize: string } & ReactElementProps) => {
+	const { iconSize }        = props
 	const { theme, setTheme } = useContext(ThemeContext)
 	const { t }               = useTranslation()
 
@@ -13,13 +13,15 @@ export default (props: ReactElementProps) => {
 		setTheme(theme === 'dark' ? 'light' : 'dark')
 	}
 
+	const tooltipTitle = t('Theme')
+
 	return (
-		<div {...props}>
-			<Tooltip className="bottom-[40px] left-[-80%]" tooltip={t('Theme')}>
-				<IconButton id="theme-toggle-button" onClick={themeToggle}>
-					{theme === 'light' ? <IconCarbonLight/> : <IconCarbonMoon/>}
-				</IconButton>
-			</Tooltip>
-		</div>
+		<Tooltip title={tooltipTitle} placement="top">
+			<IconButton id="theme-toggle-button" style={{ fontSize: iconSize }} onClick={themeToggle}>
+				{theme === 'light' ? <IconCarbonLight/> : <IconCarbonMoon/>}
+			</IconButton>
+		</Tooltip>
 	)
 }
+
+export default ThemeToggle

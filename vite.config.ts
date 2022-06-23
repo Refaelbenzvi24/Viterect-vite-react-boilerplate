@@ -5,7 +5,6 @@ import Pages from 'vite-plugin-pages'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import AutoImport from 'unplugin-auto-import/vite'
-import WindiCSS from 'vite-plugin-windicss'
 import { VitePWA } from 'vite-plugin-pwa'
 import Markdown from 'vite-plugin-react-md'
 import Inspect from 'vite-plugin-inspect'
@@ -26,9 +25,7 @@ export default defineConfig({
 
 	plugins: [
 		// https://github.com/vitejs/vite/tree/main/packages/plugin-react#vitejsplugin-react-
-		React({
-			fastRefresh: process.env.NODE_ENV !== 'test'
-		}),
+		React(),
 
 		// https://github.com/hannoeru/vite-plugin-pages
 		Pages({
@@ -75,9 +72,6 @@ export default defineConfig({
 			compiler:    'jsx',
 			autoInstall: true,
 		}),
-
-		// https://github.com/windicss/windicss
-		WindiCSS(),
 
 		// https://github.com/Leonewu/vite-plugin-react-md
 		Markdown({
@@ -165,7 +159,7 @@ export default defineConfig({
 
 	preview: {
 		open: false,
-		port: 4000
+		port: 4000,
 	},
 
 	server: {

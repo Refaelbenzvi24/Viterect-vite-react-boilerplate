@@ -1,7 +1,7 @@
 html,
 body,
 #root {
-	@apply content-center;
+	align-content: center;
 	height: 100%;
 }
 
@@ -43,7 +43,7 @@ body {
 }
 
 #nprogress .bar {
-	z-index: 1031;
+	z-index: 2000;
 	background: #4592ea;
 }
 

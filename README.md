@@ -51,7 +51,7 @@ just clone and start to code! 😉
 or
 
 clone the repo `git clone git@github.com:Refaelbenzvi24/Viterect.git my-viterect-app`
-\ `npx degit refaelbenzvi24/viterect my-viterect-app`ג
+\ `npx degit refaelbenzvi24/viterect my-viterect-app`
 
 then
 

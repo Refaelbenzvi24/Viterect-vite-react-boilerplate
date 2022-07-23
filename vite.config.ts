@@ -142,25 +142,6 @@ export default defineConfig({
 
 	build: {
 		sourcemap:     process.env.SOURCE_MAP === 'true',
-		rollupOptions: {
-			output: {
-				manualChunks: (id) => {
-					if (id.includes("node_modules")) {
-						if (id.includes("tsparticles")) {
-							return "vendor_tsparticles"
-						}
-						if (id.includes("recoil")) {
-							return "vendor_recoil"
-						}
-						if (id.includes("react")) {
-							return "vendor_react"
-						}
-
-						return "vendor" // all other package goes here
-					}
-				},
-			}
-		}
 	},
 
 	preview: {

@@ -11,10 +11,8 @@ import ReactQuery from './components/ReactQuery/reactQuery'
 import ProgressSpinner from './components/UI/Progress/ProgressSpinner'
 
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 const root = createRoot(document.querySelector('#root') as Element)
 
-// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
 root.render(
 	<ReactQuery>
 		<Router>

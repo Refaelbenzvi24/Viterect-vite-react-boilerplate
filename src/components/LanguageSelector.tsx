@@ -1,13 +1,11 @@
 import type { Language } from 'plugins/i18n'
-import IconButton from './UI/Buttons/IconButton'
-import Tooltip from './UI/Tooltip/Tooltip'
-import type { ReactDivProps } from 'types'
+import IconButton, { IconButtonProps } from './UI/Buttons/IconButton'
 import { LocalStorage } from "../modules/LocalStorage"
-import { ButtonHTMLAttributes, DetailedHTMLProps, useEffect } from "react"
+import {  useEffect } from "react"
 import { useMain } from "../context"
 
 
-const LanguageSelector = (props: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButtonElement>, HTMLButtonElement>) => {
+const LanguageSelector = (props: IconButtonProps) => {
 	const { i18n }                 = useTranslation()
 	const { setDisableAnimations } = useMain()
 
@@ -27,7 +25,9 @@ const LanguageSelector = (props: DetailedHTMLProps<ButtonHTMLAttributes<HTMLButt
 	}
 
 	return (
-		<IconButton {...props} className="block" id="language-toggle-button" onClick={languageToggle}>
+		<IconButton {...props} className="block"
+		            id="language-toggle-button"
+		            onClick={languageToggle}>
 			<IconCarbonLanguage/>
 		</IconButton>
 	)

@@ -4,9 +4,9 @@ import tw, { css } from "twin.macro"
 import theme from "../Utils/theme"
 import { isDark } from "../index"
 import { ButtonHTMLAttributes } from "react"
-import { motion } from "framer-motion"
+import { HTMLMotionProps, motion } from "framer-motion"
 
-export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface IconButtonProps extends HTMLMotionProps<"button"> {
 	dark?: boolean
 }
 

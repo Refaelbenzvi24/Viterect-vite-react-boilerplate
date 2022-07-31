@@ -7,7 +7,7 @@ import Error404ServerSide from '../components/UI/ErrorPages/404ServerSide'
 import Subtitle from '../components/UI/Typograpy/Subtitle'
 import Error500Page from "../components/UI/ErrorPages/500"
 import SpaceParticles from "../components/UI/ErrorPages/SpaceParticles"
-import { AnimatePresence, motion } from "framer-motion"
+import { motion } from "framer-motion"
 import { css } from "@emotion/css"
 import tw from "twin.macro"
 

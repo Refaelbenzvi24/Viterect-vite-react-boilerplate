@@ -11,26 +11,19 @@ interface NumberTooltipProps {
 }
 
 const NumberTooltip = (props: NumberTooltipProps): JSX.Element => {
-	const dir = i18n.dir()
+	const { number, id } = props
+	const dir            = i18n.dir()
 
-	const {
-		      number,
-		      id,
-	      } = props
 
 	if (number && number > 1000) {
 		return (
-			<Tooltip
-				className={`top-[5px] ${dir === 'ltr' ? 'left-[110%]' : 'right-[110%]'}`}
-				id={convertToElId(`${id}-tooltip`)}
-				tooltip={(
-					<NumberFormat
-						value={number}
-						displayType="text"
-						thousandSeparator
-					/>
-				)}
-			>
+			<Tooltip placement={dir === "ltr" ? "center-right" : "center-left"}
+			         id={convertToElId(`${id}-tooltip`)}
+			         tooltip={
+				         <NumberFormat value={number}
+				                       displayType="text"
+				                       thousandSeparator/>
+			         }>
 				<h2 className="text-4xl w-fit cursor-default" id={convertToElId(`${id}-number`)}>
 					{millify(number)}
 				</h2>

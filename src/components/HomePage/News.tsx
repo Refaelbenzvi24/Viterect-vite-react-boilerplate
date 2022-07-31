@@ -15,11 +15,20 @@ const News = ({ value }: NewsGetResult) => {
                         xl:grid-cols-4
                         md:grid-cols-3
                         sm:grid-cols-2
-                        xs:grid-cols-1">
+                        xs:grid-cols-1"
+			initial={{
+				y: 40,
+			}}
+			transition={{
+				duration: 0.8,
+			}}
+			animate={{
+				y: 0,
+			}}>
 			{
 				value && value.map((newsItem) => (
 					<Col className="p-2 grid justify-items-stretch" key={newsItem.name}>
-						<Card className="min-h-100 max-h-100 p-0 justify-self-center relative">
+						<Card width="100%" className="min-h-[25rem] max-h-[25rem] p-0 justify-self-center relative">
 							<a className="absolute w-full" href={newsItem.url}>
 								<img className={`relative overflow-hidden
 									${newsItem.image.thumbnail.contentUrl ? 'rounded-t min-h-[160px] max-h-[160px] w-full z-1 bg-auto' : 'min-h-[160px]'}`}
@@ -44,18 +53,16 @@ const News = ({ value }: NewsGetResult) => {
 							</Row>
 
 							<Row className="px-3 w-full absolute justify-between bottom-0 pb-3">
-								<Col>
-									<Row>
-										<img
-											className="w-5 h-5"
-											src={newsItem.provider[0]?.image?.thumbnail?.contentUrl}
-											alt=""
-										/>
-										<Subtitle className="relative px-2 text-sm break-all line-clamp-1">
-											{newsItem.provider[0].name}
-										</Subtitle>
-									</Row>
-								</Col>
+								<Row>
+									<img
+										className="w-5 h-5"
+										src={newsItem.provider[0]?.image?.thumbnail?.contentUrl}
+										alt=""
+									/>
+									<Subtitle className="relative px-2 text-sm break-all line-clamp-1">
+										{newsItem.provider[0].name}
+									</Subtitle>
+								</Row>
 
 								<Subtitle
 									className="relative px-2 text-sm text-gray-400 dark:text-true-gray-400 break-all line-clamp-1"

@@ -1,27 +1,31 @@
 import { useContext } from 'react'
-import Overlay from '../Overlay/Overlay'
-import type { ReactElementProps } from '../../../types'
-import { defaultMainData, MainContext } from '../Main/MainContext'
+import type { ReactDivProps } from '../../../types'
+import { defaultMainData } from '../Main/MainContext'
 import windowVariables from '../../../hooks/WindowVars'
+import { useMain } from "../../../context"
 
 
 const { sideBarOpts: defaultSideBarOptions } = defaultMainData
 const { shrinkPoint: defaultShrinkPoint }    = defaultSideBarOptions
 
-const SideBarLink = (props: ReactElementProps) => {
+const SideBarLink = (props: ReactDivProps) => {
+	const overlayEl = document.getElementById('portals-root')
+
 	const { children, ...restProps } = props
 
-	const { removeOverlay }                              = Overlay()
-	const { sideBarState, sideBarOpts, setSideBarState } = useContext(MainContext)
+	const { sideBarState, sideBarOpts, setSideBarState, setOverlayState } = useMain()
 
 	const { windowWidth } = windowVariables()
 
-	const { shrinkPoint } = { shrinkPoint: defaultShrinkPoint, ...sideBarOpts }
+	const { shrinkPoint } = {
+		shrinkPoint: defaultShrinkPoint,
+		...sideBarOpts
+	}
 
 	const action = () => {
 		if (sideBarState && shrinkPoint && shrinkPoint > windowWidth) {
 			setSideBarState(false)
-			removeOverlay()
+			setOverlayState(false)
 		}
 	}
 

@@ -1,7 +1,14 @@
 html,
 body,
 #root {
-	@apply content-center;
+	align-content: center;
+	height: 100%;
+}
+
+
+
+
+:root {
 	height: 100%;
 }
 

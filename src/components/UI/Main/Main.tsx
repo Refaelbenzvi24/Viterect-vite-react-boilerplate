@@ -1,71 +1,72 @@
-import type { ReactElementProps } from 'types'
-import i18n from 'i18next'
-import {
-	CSSProperties, useContext, useEffect, useState,
-} from 'react'
-import { MainContext } from './MainContext'
+import type { ReactDivProps } from 'types'
+import { useEffect } from 'react'
 import WindowVars from '../../../hooks/WindowVars'
 import MainProvider from './MainProvider'
-import clsx from 'clsx'
+import { useMain } from "../../../context"
+import { css } from "@emotion/css"
+import tw from "twin.macro"
+import clsx from "clsx"
+import theme from "../Utils/theme"
+import { marginTransition } from "../Utils/transitions"
+import Backdrop from "../Backdrop"
 
 
-const Main = (props: ReactElementProps) => {
-	const {
-		      sideBarState: sideBar,
-		      sideBarOpts,
-		      overlayState,
-		      setOverlayState,
-		      overlays,
-	      }                         = useContext(MainContext)
-	const [mainStyle, setMainStyle] = useState<CSSProperties>({})
-	const { windowWidth }           = WindowVars()
+interface MainProps extends ReactDivProps {
+	disableAnimations?: boolean
+	dark?: boolean
+}
 
-	const { children, className } = props
-	const { shrinkPoint }         = sideBarOpts
 
-	const dir = i18n.dir()
+const Main = (props: MainProps) => {
+	const { sideBarState: sideBar, sideBarOpts, overlayState, setSideBarState, setOverlayState } = useMain()
+
+	const overlaysRoot    = document.getElementById('portals-root')
+	const { windowWidth } = WindowVars()
+
+	const { children, className, dark } = props
+	const { shrinkPoint }               = sideBarOpts
 
 	useEffect(() => {
-		if (overlays.length > 0) {
+		if (overlaysRoot?.childNodes && overlaysRoot?.childNodes.length > 0) {
 			setOverlayState(true)
-		} else if (overlays.length === 0) {
+		} else if (overlaysRoot?.childNodes.length === 0) {
 			setOverlayState(false)
 		}
-	}, [overlays])
+	}, [])
 
-	const overlayToggle = () => {
-		if (overlays.length > 0) {
-			overlays[overlays.length - 1].onClick()
+
+	const overlayAction = () => {
+		if (sideBar) {
+			setSideBarState(false)
+			setOverlayState(false)
 		}
 	}
 
-	useEffect(() => {
-		if (shrinkPoint && sideBar && windowWidth > shrinkPoint) {
-			if (dir === 'ltr') {
-				setMainStyle({
-					marginLeft: `${sideBarOpts.width}px`,
-				})
-			} else {
-				setMainStyle({
-					marginRight: `${sideBarOpts.width}px`,
-				})
-			}
-		} else {
-			setMainStyle({})
-		}
-	}, [sideBar, dir])
+	const shouldApplyMargins = () => !!(shrinkPoint && sideBar && windowWidth > shrinkPoint)
+
 
 	return (
 		<MainProvider>
-			<div {...props} id="main" className={`h-full ${clsx(className)}`} style={mainStyle}>
+			<div {...props}
+			     id="main"
+			     className={css`
+				     ${tw`h-full`}
+				     ${[
+					     theme.transitions([marginTransition()]),
+					     theme.utils.conditionalMargins(shouldApplyMargins(), `${sideBarOpts.width as number}px`)
+				     ]}
+				     ${clsx(className)}
+			     `}>
 
-				<div id="overlay"
-				     role="presentation"
-				     className={`opacity transition-opacity ease-out-in duration-400 dark:bg-dark-800
-		                    ${overlayState ? 'fixed h-full w-full bg-dark-200 opacity-40 z-20' : 'opacity-0'}`}
-				     onClick={overlayToggle}/>
+
+				<Backdrop {...{ dark }}
+				          active={overlayState}
+				          id="overlay-background"
+				          role="presentation"
+				          onClick={overlayAction}/>
 
 				{children}
+
 			</div>
 		</MainProvider>
 	)

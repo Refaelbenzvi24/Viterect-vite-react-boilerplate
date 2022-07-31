@@ -14,7 +14,8 @@
 		"strict": true,
 		"target": "ESNext",
 		"useUnknownInCatchVariables": true,
+		"jsxImportSource": "@emotion/react",
 		"types": ["vite-plugin-pwa/client"]
 	},
-	"include": ["src", "vite.config.ts", "global.d.ts", "declare.d.ts"]
+	"include": ["src", "src/types", "vite.config.ts", "global.d.ts", "declare.d.ts"]
 }

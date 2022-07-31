@@ -9,7 +9,16 @@ export default () => {
 
 	return (
 		<QueryHandler status={status}>
-			<Row>
+			<Row
+				initial={{
+					opacity: 0.3,
+				}}
+				transition={{
+					duration: 1,
+				}}
+				animate={{
+					opacity: 1,
+				}}>
 
 				<Col className="w-full">
 

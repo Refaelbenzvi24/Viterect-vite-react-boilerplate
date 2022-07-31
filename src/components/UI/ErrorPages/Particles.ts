@@ -1,9 +1,10 @@
 // eslint-disable-next-line import/no-extraneous-dependencies -- eslint doesn't recognize tsparticles as a peer dependency
-import { ISourceOptions } from "tsparticles"
+import { ISourceOptions } from "tsparticles-engine";
 
 
 const particles: ISourceOptions = {
 	fpsLimit:      60,
+	autoPlay:      true,
 	particles:     {
 		number:  {
 			value:   160,

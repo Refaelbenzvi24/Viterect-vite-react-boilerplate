@@ -5,12 +5,12 @@ import Pages from 'vite-plugin-pages'
 import Icons from 'unplugin-icons/vite'
 import IconsResolver from 'unplugin-icons/resolver'
 import AutoImport from 'unplugin-auto-import/vite'
-import WindiCSS from 'vite-plugin-windicss'
 import { VitePWA } from 'vite-plugin-pwa'
 import Markdown from 'vite-plugin-react-md'
 import Inspect from 'vite-plugin-inspect'
 import TsconfigPaths from 'vite-tsconfig-paths'
 import istanbul from 'rollup-plugin-istanbul'
+import macrosPlugin from 'vite-plugin-babel-macros';
 import { extendRoute, onRouteGenerate } from './router.config'
 import highlightJs from 'highlight.js'
 
@@ -27,8 +27,11 @@ export default defineConfig({
 	plugins: [
 		// https://github.com/vitejs/vite/tree/main/packages/plugin-react#vitejsplugin-react-
 		React({
-			fastRefresh: process.env.NODE_ENV !== 'test'
+			fastRefresh: process.env.NODE_ENV !== 'test',
 		}),
+
+		// https://github.com/itsMapleLeaf/vite-plugin-babel-macros
+		macrosPlugin(),
 
 		// https://github.com/hannoeru/vite-plugin-pages
 		Pages({
@@ -75,9 +78,6 @@ export default defineConfig({
 			compiler:    'jsx',
 			autoInstall: true,
 		}),
-
-		// https://github.com/windicss/windicss
-		WindiCSS(),
 
 		// https://github.com/Leonewu/vite-plugin-react-md
 		Markdown({
@@ -139,10 +139,6 @@ export default defineConfig({
 			include: ['src/**/*.{ts,tsx}']
 		})
 	],
-
-	build: {
-		sourcemap:     process.env.SOURCE_MAP === 'true',
-	},
 
 	preview: {
 		open: false,

@@ -4,13 +4,11 @@ import { BrowserRouter as Router, } from 'react-router-dom'
 import { createRoot } from 'react-dom/client'
 
 import './setup'
-import './styles/cssLibraries'
+import './styles/main.css'
 
 import App from './App'
 import ReactQuery from './components/ReactQuery/reactQuery'
 import ProgressSpinner from './components/UI/Progress/ProgressSpinner'
-
-
 
 
 // eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
@@ -24,5 +22,5 @@ root.render(
 				<App/>
 			</Suspense>
 		</Router>
-	</ReactQuery>,
+	</ReactQuery>
 )

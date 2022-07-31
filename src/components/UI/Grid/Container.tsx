@@ -1,12 +1,10 @@
-import type { ReactElementProps } from 'types'
+import styled from "@emotion/styled"
+import tw from "twin.macro"
+import { motion } from "framer-motion"
 
 
-const Container = (props: ReactElementProps) => {
-	return (
-		<div {...props} className={`flex mx-auto ${props.className ? props.className : ''}`}>
-			{props.children}
-		</div>
-	)
-}
+const Container = styled(motion.div)(() => [
+	tw`flex mx-auto`
+])
 
 export default Container

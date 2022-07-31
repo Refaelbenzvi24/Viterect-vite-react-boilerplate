@@ -1,12 +1,12 @@
 import './404ServerSide.css'
-import Particles from 'react-tsparticles'
-import { ReactElementProps } from '../../../types'
+import { ReactDivProps } from '../../../types'
 import { useState, useEffect } from 'react'
 import clsx from 'clsx'
-import particles from "./Particles"
+import { HTMLMotionProps } from "framer-motion"
+import { motion } from "framer-motion"
 
 
-const ServerError403Page = (props: ReactElementProps) => {
+const ServerError403Page = (props: HTMLMotionProps<"div">) => {
 	const [visorContext, setVisorContext] = useState<CanvasRenderingContext2D>()
 
 	const drawVisor = () => {
@@ -36,9 +36,21 @@ const ServerError403Page = (props: ReactElementProps) => {
 		}
 	}, [])
 
+
 	return (
-		<div {...props} className={`error-404-ss ${clsx(props.className)}`}>
-			<Particles id="tsparticles" options={particles}/>
+		<motion.div {...props} className={`error-404-ss ${clsx(props.className)}`}
+		            initial={{
+			            opacity: 0,
+		            }}
+		            transition={{
+			            duration: 0.8,
+		            }}
+		            exit={{
+			            opacity: 0,
+		            }}
+		            animate={{
+			            opacity: 1,
+		            }}>
 			<div className="absolute w-full h-full overflow-hidden">
 				<div className="moon"/>
 				<div className="moon__crater moon__crater1"/>
@@ -52,7 +64,7 @@ const ServerError403Page = (props: ReactElementProps) => {
 				<div className="star star5"/>
 
 				<div className="absolute h-full">
-					<div className="error">
+					<div className="error_404">
 						<div className="error__title">404</div>
 						<div className="error__subtitle">Hmmm...</div>
 						<div className="error__description">It looks like one of the developers fell asleep</div>
@@ -90,7 +102,7 @@ const ServerError403Page = (props: ReactElementProps) => {
 					</div>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

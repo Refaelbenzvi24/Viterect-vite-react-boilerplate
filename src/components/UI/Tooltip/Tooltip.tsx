@@ -1,29 +1,164 @@
 import type { ReactElement } from 'react'
-
-import './Tooltip.css'
-import type { ReactElementProps } from 'types'
+import type { ReactDivProps } from 'types'
 import type { TFunctionResult } from 'i18next'
-import clsx from "clsx"
+import styled from "@emotion/styled"
+import tw from "twin.macro"
+import { isDark } from "../index"
+import theme from "../Utils/theme"
+import Portal from "../Portal"
+import { css } from "@emotion/css"
+import { useEffect, useRef, useState } from "react"
 
 
-interface TooltipProps extends ReactElementProps {
-	children: ReactElement;
-	tooltip: TFunctionResult | number | string;
+const defaultProps = {
+	placement: 'center-center',
+	offsetX:   15,
+	offsetY:   15
 }
+
+const getCoords = (elem: Element) => {
+	const box = elem.getBoundingClientRect()
+
+	const body  = document.body
+	const docEl = document.documentElement
+
+	const scrollTop  = docEl.scrollTop || body.scrollTop
+	const scrollLeft = docEl.scrollLeft || body.scrollLeft
+
+	const clientTop  = docEl.clientTop || body.clientTop
+	const clientLeft = docEl.clientLeft || body.clientLeft
+
+	const top  = box.top + scrollTop - clientTop
+	const left = box.left + scrollLeft - clientLeft
+
+	return { top: Math.round(top), left: Math.round(left) }
+}
+
+interface CalcPlacementProps {
+	placement: Placement
+	elementWidth: number
+	elementHeight: number
+	tooltipWidth: number
+	tooltipHeight: number
+	offsetX: number
+	offsetY: number
+}
+
+const calcPlacement = ({
+	placement,
+	elementWidth,
+	elementHeight,
+	tooltipWidth,
+	tooltipHeight,
+	offsetX,
+	offsetY
+}: CalcPlacementProps): { top: number, left: number } => {
+	let top            = 0, left = 0
+	const placementArr = placement.split('-')
+
+	switch (placementArr[0]) {
+	case 'top':
+		top = -(((elementHeight + tooltipHeight) / 2) + (offsetX))
+		break
+	case 'bottom':
+		top = (((elementHeight + tooltipHeight) / 2) + (offsetX))
+		break
+	}
+
+	switch (placementArr[1]) {
+	case 'left':
+		left = -(((elementWidth + tooltipWidth) / 2) + (offsetY))
+		break
+	case 'right':
+		left = (((elementWidth + tooltipWidth) / 2) + (offsetY))
+		break
+	}
+
+	return { left, top }
+}
+
+type Placement = `${'top' | 'bottom' | 'center'}-${'left' | 'right' | 'center'}`
+
+type TooltipProps = {
+	                    dark?: boolean
+	                    children: ReactElement
+	                    tooltip: TFunctionResult | number | string
+	                    placement?: Placement
+	                    offsetX?: number
+	                    offsetY?: number
+                    } & ReactDivProps & typeof defaultProps
 
 const Tooltip = (props: TooltipProps) => {
+	const { children, tooltip, placement, className, offsetY, offsetX, ...rest } = props
+	const dark                                                                   = props.dark || isDark()
+	const [visible, setVisible]                                                  = useState(false)
+	const [top, setTop]                                                          = useState<number>()
+	const [left, setLeft]                                                        = useState<number>()
+	const elementWrapper                                                         = useRef<HTMLDivElement>(null)
+	const tooltipElement                                                         = useRef<HTMLDivElement>(null)
+
+
+	useEffect(() => {
+		if (elementWrapper.current && tooltipElement.current) {
+			const { height, width }                              = elementWrapper.current.getBoundingClientRect()
+			const { width: tooltipWidth, height: tooltipHeight } = tooltipElement.current.getBoundingClientRect()
+			const { top, left }                                  = getCoords(elementWrapper.current)
+			const { top: topOffset, left: leftOffset }           = calcPlacement({
+				placement,
+				elementWidth:  width,
+				elementHeight: height,
+				tooltipWidth,
+				tooltipHeight,
+				offsetX,
+				offsetY
+			})
+
+
+			setTop(() => top + (height / 2) - (tooltipHeight / 2) + topOffset)
+			setLeft(() => left + (width / 2) - (tooltipWidth / 2) + leftOffset)
+		}
+	}, [visible])
+
 	return (
-		<div className="flex w-fit">
-			<div {...props} className="has-tooltip relative">
-				<span className={`transition-opacity duration-300 tooltip invisible inline-block absolute text-center
-								rounded shadow-xl text-semibold p-1 bg-gray-100 dark:bg-dark-200 text-blue-500 dark:text-white opacity-100
-								${clsx(props.className)}`}>
-					{props.tooltip}
-				</span>
-				{props.children}
+		<>
+			<Portal>
+				{
+					visible &&
+					<div ref={tooltipElement}
+					     className={css([
+						     tw`inline-block rounded shadow-2xl p-1`,
+
+						     css`
+							     background-color: ${theme.colors.gray_100};
+							     color: ${theme.colors.blue_500};
+						     `,
+
+						     dark && css`
+							     color: ${theme.colors.white};
+							     background-color: ${theme.colors.dark_200};
+						     `,
+
+						     css`
+							     position: absolute;
+							     z-index: ${theme.zIndex.tooltip};
+							     top: ${top}px;
+							     left: ${left}px;
+						     `
+					     ])}>
+						{tooltip}
+					</div>
+				}
+			</Portal>
+			<div ref={elementWrapper}
+			     className="w-fit"
+			     onMouseEnter={() => setVisible(true)}
+			     onMouseLeave={() => setVisible(false)}>
+				{children}
 			</div>
-		</div>
+		</>
 	)
 }
+
+Tooltip.defaultProps = defaultProps
 
 export default Tooltip

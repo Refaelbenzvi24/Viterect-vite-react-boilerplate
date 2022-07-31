@@ -1,12 +1,20 @@
-import type { ReactElementProps } from 'types'
+import styled from "@emotion/styled"
+import { motion } from "framer-motion"
+import { css } from "@emotion/react"
 
-
-const Col = (props: ReactElementProps) => {
-	return (
-		<div {...props} className={`flex flex-col ${props.className ? props.className : ''}`}>
-			{props.children}
-		</div>
-	)
+interface ColProps {
+	grid?: boolean
 }
+
+const Col = styled(motion.div)(({ grid }: ColProps) => [
+	css`
+		display: flex;
+		flex-direction: column;
+	`,
+
+	grid && css`
+		display: grid;
+	`
+])
 
 export default Col

@@ -1,5 +1,6 @@
 .fade-in {
 	opacity: 1;
+	transition-property: transform;
 	animation-name: fadeInOpacity;
 	animation-iteration-count: 1;
 	animation-timing-function: ease-in;

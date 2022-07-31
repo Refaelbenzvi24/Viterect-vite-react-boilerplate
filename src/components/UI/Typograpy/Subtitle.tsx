@@ -1,13 +1,19 @@
-import type { ReactElementProps } from '../../../types'
-import clsx from 'clsx'
+import styled from "@emotion/styled"
+import tw, { css } from "twin.macro"
+import { isDark } from "../index"
+import theme from "../Utils/theme"
 
 
-const Subtitle = (props: ReactElementProps) => {
-	return (
-		<span {...props} className={`text-gray-500 dark:text-true-gray-300 ${clsx(props.className)}`}>
-			{props.children}
-		</span>
-	)
-}
+const Subtitle = styled.p(({ dark }: { dark?: boolean }) => [
+	tw`flex flex-row`,
+
+	css`
+		color: ${theme.colors.gray_500};
+	`,
+
+	(dark || isDark()) && css`
+		color: ${theme.colors.gray_300};
+	`
+])
 
 export default Subtitle

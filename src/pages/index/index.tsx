@@ -5,10 +5,16 @@ import Cryptocurrencies from '../../components/HomePage/Cryptocurrencies'
 import coinRankingApi from '../../services/CoinRanking'
 import { Link } from 'react-router-dom'
 import { Coin } from '../../services/CoinRanking/types'
+import { motion } from "framer-motion"
+import Select from "../../components/UI/Form/Select"
+import { useState } from "react"
+import TextField from "../../components/UI/Form/TextField"
 
 
 export default () => {
-	const { t } = useTranslation()
+	const { t, i18n }                   = useTranslation()
+	const [selectValue, setSelectValue] = useState()
+	const [textFieldValue, setTextFieldValue] = useState("")
 
 	const {
 		      data,
@@ -20,12 +26,31 @@ export default () => {
 
 	return (
 		<QueryHandler status={status}>
-			<Row className="w-full px-4 pt-3">
+			<Row className="w-full px-4 pt-3"
+			     initial={{
+				     opacity: 0,
+			     }}
+			     transition={{
+				     duration: 1,
+			     }}
+			     animate={{
+				     opacity: 1,
+			     }}>
 				<Col className="w-full">
-
 					<Row className="w-full">
 						<Col className="w-full px-4">
-							<h1 className="text-5xl">{t('Global Crypto Stats')}</h1>
+							<motion.h1 className="text-5xl"
+							           initial={{
+								           y: -40,
+							           }}
+							           transition={{
+								           duration: 1.2,
+							           }}
+							           animate={{
+								           y: 0,
+							           }}>
+								{t('Global Crypto Stats')}
+							</motion.h1>
 
 							<CryptoStats stats={data?.data.data.stats}/>
 						</Col>
@@ -33,9 +58,19 @@ export default () => {
 
 					<Row className="w-full">
 						<Col className="w-full px-4">
-							<Row className="justify-between">
+							<Row className="justify-between"
+							     initial={{
+								     x: `${i18n.dir() === 'ltr' ? '50' : '-50'}`,
+							     }}
+							     transition={{
+								     duration: 1,
+							     }}
+							     animate={{
+								     x: 0,
+							     }}>
 								<Col>
-									<h1 className="mt-5 text-5xl">
+									<h1 className="mt-5 text-5xl"
+									>
 										{t('Top 10 Cryptocurrencies in the world')}
 									</h1>
 								</Col>

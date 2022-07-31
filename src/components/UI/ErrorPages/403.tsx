@@ -2,13 +2,12 @@ import { Link } from 'react-router-dom'
 import { useRef, useEffect } from 'react'
 import windowVars from '../../../hooks/WindowVars'
 import './403.css'
-import Particles from 'react-tsparticles'
-import { ReactElementProps } from '../../../types'
+import { ReactDivProps } from '../../../types'
 import clsx from 'clsx'
-import particles from "./Particles"
+import { HTMLMotionProps, motion } from "framer-motion"
 
 
-const Error403Page = (props: ReactElementProps) => {
+const Error403Page = (props: HTMLMotionProps<"div">) => {
 	const eyef = useRef(null)
 	const {
 		      windowHeight,
@@ -27,16 +26,27 @@ const Error403Page = (props: ReactElementProps) => {
 		root.style.setProperty('--mouse-y', y)
 	}, [pointerX, pointerY])
 
+
 	return (
-		<div {...props} className={`error-403 h-full pt-50 ${clsx(props.className)}`}>
-			<Particles id="tsparticles" options={particles}/>
-			<div className="z-1">
+		<motion.div {...props} className={`error-403 h-full pt-[12.5rem] ${clsx(props.className)}`}
+		            initial={{
+			            opacity: 0,
+		            }}
+		            transition={{
+			            duration: 0.8,
+		            }}
+		            exit={{
+			            opacity: 0,
+		            }}
+		            animate={{
+			            opacity: 1,
+		            }}>
+			<div className="flex flex-col z-1">
 				<svg
 					className="mx-auto"
 					xmlns="http://www.w3.org/2000/svg"
 					id="robot-error"
-					viewBox="0 0 260 118.9"
-				>
+					viewBox="0 0 260 118.9">
 					<defs>
 						<clipPath id="white-clip">
 							<circle id="white-eye" fill="#cacaca" cx="130" cy="65" r="20"/>
@@ -74,15 +84,17 @@ const Error403Page = (props: ReactElementProps) => {
 						<use xlinkHref="#tornillo" y="60"/>
 					</g>
 				</svg>
-				<div className="block relative">
+				<div className="block relative z-[1]">
 					<h1>You are not allowed to enter here</h1>
 					<h2>
-						Go
-						<Link className="cursor-pointer" to="/">Home!</Link>
+						Go&nbsp;
+						<Link className="cursor-pointer" to="/">
+							Home!
+						</Link>
 					</h2>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	)
 }
 

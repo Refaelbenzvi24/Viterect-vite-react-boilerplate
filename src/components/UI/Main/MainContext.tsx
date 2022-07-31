@@ -9,7 +9,6 @@ export const defaultMainData: MainDataType = {
 		shrinkPoint: 1300,
 	},
 	overlayState: false,
-	overlays:     [],
 }
 
 export const MainContext = createContext<MainContextType>({} as MainContextType)

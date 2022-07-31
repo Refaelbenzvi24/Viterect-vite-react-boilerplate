@@ -16,7 +16,7 @@ just clone and start to code! 😉
 - ![Alt text](https://api.iconify.design/logos:vitejs.svg) [Vite](https://github.com/vitejs/vite)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-reactjs.svg) [React](https://github.com/facebook/react)
 - ![Alt text](https://api.iconify.design/logos:esbuild.svg) [ESBuild](https://github.com/evanw/esbuild)
-- ![Alt text](.github/assets/file-icons_windi.svg) [Windi CSS](https://windicss.org/) - on-demand CSS utilities
+- ![Alt text](https://api.iconify.design/vscode-icons:file-type-tailwind.svg) [tailwindcss](https://github.com/tailwindlabs/tailwindcss) - on-demand CSS utilities
 - ![Alt text](.github/assets/logo-daisyui.svg) [DaisyUI](https://github.com/saadeghi/daisyui)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-apib2.svg) [axios](https://github.com/axios/axios)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-typescript-official.svg) [TypeScript](https://github.com/microsoft/TypeScript)

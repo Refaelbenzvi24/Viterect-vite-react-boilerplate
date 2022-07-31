@@ -1,7 +1,9 @@
-import { FC, ReactElement } from "react"
+import { FC, ReactElement, useContext } from "react"
 import ThemeProvider from "../components/UI/Theme/ThemeProvider"
 import MainProvider from "../components/UI/Main/MainProvider"
 import CombineComponents from "./CombineComponents"
+import { ThemeContext } from "../components/UI/Theme/ThemeContext"
+import { MainContext } from "../components/UI/Main/MainContext"
 
 
 export interface ProvidersProps {
@@ -22,5 +24,11 @@ const Providers = (props: ProvidersProps) => {
 		</AppContextProvider>
 	)
 }
+
+export const useTheme = () => useContext(ThemeContext)
+
+export const useMain = () => useContext(MainContext)
+
+export const useThemeValue = () => useTheme().theme
 
 export default Providers

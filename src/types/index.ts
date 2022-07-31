@@ -8,6 +8,6 @@ export interface ReactComponentProps {
 	dir?: 'ltr' | 'rtl'
 }
 
-export type ReactElementProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
+export type ReactDivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>
 
 export type StyleObject = { [key: string]: CSSProperties }

@@ -66,13 +66,13 @@
 
 .prose pre {
 	font-variant-ligatures: common-ligatures;
-	background-color: #1f2937;
+	background-color: #1f2937 !important;
 	overflow-x: auto;
 	font-size: .875em;
 	line-height: 1.7142857;
 	margin-top: 1.7142857em;
 	margin-bottom: 1.7142857em;
-	border-radius: 0.375rem;
+	border-radius: 0.375rem !important;
 	padding: 0.8571429em 1.1428571em;
 }
 
@@ -81,8 +81,8 @@
 }
 
 .dark .prose pre {
-	color: #f5f5f4;
-	background-color: #1c1917;
+	color: #f5f5f4 !important;
+	background-color: #1c1917 !important;
 }
 
 .prose p {
@@ -119,13 +119,13 @@
 }
 
 .prose hr {
-	border-color: #e7e5e4;
+	border-color: transparent;
 	margin-top: 3em;
 	margin-bottom: 3em;
 }
 
 .dark .prose hr {
-	color: #e7e5e4;
+	color: transparent;
 }
 
 .hljs {

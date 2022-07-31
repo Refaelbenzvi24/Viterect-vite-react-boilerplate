@@ -8,6 +8,7 @@ import theme from "../Utils/theme"
 import Portal from "../Portal"
 import { css } from "@emotion/css"
 import { useEffect, useRef, useState } from "react"
+import { motion } from "framer-motion"
 
 
 const defaultProps = {
@@ -124,7 +125,7 @@ const Tooltip = (props: TooltipProps) => {
 			<Portal>
 				{
 					visible &&
-					<div ref={tooltipElement}
+					<motion.div ref={tooltipElement}
 					     className={css([
 						     tw`inline-block rounded shadow-2xl p-1`,
 
@@ -146,7 +147,7 @@ const Tooltip = (props: TooltipProps) => {
 						     `
 					     ])}>
 						{tooltip}
-					</div>
+					</motion.div>
 				}
 			</Portal>
 			<div ref={elementWrapper}

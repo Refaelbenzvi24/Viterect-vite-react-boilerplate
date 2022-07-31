@@ -4,13 +4,14 @@ import theme from "../Utils/theme"
 import { css } from "@emotion/react"
 import { isDark } from "../index"
 import { ButtonHTMLAttributes } from "react"
+import { motion } from "framer-motion"
 
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	dark?: boolean
 }
 
-const Button = styled.button(({ dark }: ButtonProps) => [
+const Button = styled(motion.button)(({ dark }: ButtonProps) => [
 	tw`rounded-lg block px-4 py-2 mt-2 text-sm font-semibold cursor-pointer border-none bg-transparent`,
 	css`
 		color: ${theme.colors.gray_900};

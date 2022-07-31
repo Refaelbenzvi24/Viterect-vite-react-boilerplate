@@ -125,7 +125,7 @@ interface SelectProps extends Omit<Props, 'isRtl'> {
 }
 
 const SelectWithLabel = (props: SelectProps) => {
-	const { label, dir, placeholder, persistentLabel, error, value, helperText, ...restProps } = props
+	const { label, dir, placeholder, persistentLabel, onFocus, onBlur, error, value, helperText, ...restProps } = props
 
 	const [isFocused, setIsFocused] = useState(false)
 	const sectionRef                = useRef(null)
@@ -141,8 +141,14 @@ const SelectWithLabel = (props: SelectProps) => {
 			        {...restProps}
 			        isSearchable={false}
 			        placeholder={placeholder || !isFocused && (label)}
-			        onFocus={() => setIsFocused(true)}
-			        onBlur={() => setIsFocused(false)}
+			        onFocus={(event) => {
+				        setIsFocused(true)
+				        onFocus && onFocus(event)
+			        }}
+			        onBlur={(event) => {
+				        setIsFocused(false)
+				        onBlur && onBlur(event)
+			        }}
 			        isRtl={dir && dir === "rtl"}
 			        theme={produce(defaultTheme, draft => {
 				        if (isDark()) {

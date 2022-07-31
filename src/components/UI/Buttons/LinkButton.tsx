@@ -1,16 +1,13 @@
 import type { LinkProps } from 'react-router-dom'
 import { Link } from 'react-router-dom'
-import type { ReactElement } from 'react'
 import i18n from 'i18next'
 import clsx from 'clsx'
 import styled from "@emotion/styled"
 import tw, { css } from "twin.macro"
+import { motion } from "framer-motion"
 
 
-const Clickable = styled.div`
-`
-
-const LinkWrapper = styled.div(({ dir }: { dir?: string }) => [
+const LinkWrapper = styled(motion.div)(({ dir }: { dir?: string }) => [
 	tw`px-6 cursor-pointer block text-sm font-semibold dark:text-white
 	dark:hover:(bg-gray-100/[0.1]) dark:focus:bg-gray-600 dark:focus:text-gray-100 dark:hover:text-gray-200
 	hover:text-gray-500 focus:text-gray-400 hover:(bg-gray-100/[0.1]) focus:bg-gray-200 focus:outline-none`,

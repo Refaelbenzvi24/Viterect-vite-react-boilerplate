@@ -2,9 +2,10 @@ import styled from "@emotion/styled"
 import tw, { css } from "twin.macro"
 import { isDark } from "../index"
 import theme from "../Utils/theme"
+import { motion } from "framer-motion"
 
 
-const Subtitle = styled.p(({ dark }: { dark?: boolean }) => [
+const Subtitle = styled(motion.p)(({ dark }: { dark?: boolean }) => [
 	tw`flex flex-row`,
 
 	css`

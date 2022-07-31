@@ -4,12 +4,13 @@ import tw, { css } from "twin.macro"
 import theme from "../Utils/theme"
 import { isDark } from "../index"
 import { ButtonHTMLAttributes } from "react"
+import { motion } from "framer-motion"
 
 export interface IconButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 	dark?: boolean
 }
 
-const IconButton = styled.button(({ dark }: IconButtonProps) => [
+const IconButton = styled(motion.button)(({ dark }: IconButtonProps) => [
 	tw`flex cursor-pointer text-xl opacity-80 hover:opacity-100 border-none active:opacity-70`,
 	css`
 		background-color: transparent;

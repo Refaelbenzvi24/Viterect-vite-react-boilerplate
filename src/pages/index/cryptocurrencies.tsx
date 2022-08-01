@@ -6,12 +6,8 @@ import Cryptocurrencies from '../../components/HomePage/Cryptocurrencies'
 
 
 export default () => {
-	const {
-		      data,
-		      status,
-	      }      = coinRankingApi.coins()
-		.list(50)
-	const result = data?.data.data
+	const { data, status } = coinRankingApi.coins().list(50)
+	const result           = data?.data.data
 
 	return (
 		<QueryHandler status={status}>

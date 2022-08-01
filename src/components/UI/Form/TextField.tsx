@@ -7,8 +7,9 @@ import { isDark } from "../index"
 import HelperText from "./HelperText"
 import autoAnimate from '@formkit/auto-animate'
 import { useEffect, useRef } from "react"
-import Label from "./Label"
+import { css as classCss } from "@emotion/css"
 import ConditionalLabel from "./ConditionalLabel"
+import clsx from "clsx"
 
 
 export const TextFieldInput = styled(motion.input)(({ dark, centered }: { dark?: boolean, centered?: boolean }) => [
@@ -37,7 +38,6 @@ export const TextFieldInput = styled(motion.input)(({ dark, centered }: { dark?:
 ])
 
 
-
 interface TextFieldProps extends HTMLMotionProps<"input"> {
 	placeholder?: string
 	persistentLabel?: boolean
@@ -49,8 +49,10 @@ interface TextFieldProps extends HTMLMotionProps<"input"> {
 	label?: string
 }
 
+
+
 const TextField = (props: TextFieldProps) => {
-	const { height, className, label, persistentLabel, placeholder, centered, onChange, value, error, helperText, ...restProps } = props
+	const { height, label, className, persistentLabel, placeholder, centered, onChange, value, error, helperText, ...restProps } = props
 
 	const sectionRef = useRef(null)
 
@@ -64,7 +66,11 @@ const TextField = (props: TextFieldProps) => {
 			<ConditionalLabel {...{ label, persistentLabel, value }}/>
 
 			<TextFieldInput {...restProps}
-			                placeholder={placeholder || persistentLabel === false ? label : ''}
+			                className={`${classCss`
+				                ${(value && label) || (label && persistentLabel) ? tw`mt-0` : tw`mt-6`}
+				                ${helperText ? tw`mb-0` : tw`mb-6`}
+			                `} ${clsx(className)}`}
+			                placeholder={placeholder || (!persistentLabel ? label : '')}
 			                {...{ height, centered, onChange, value }}/>
 
 			{helperText && <HelperText {...{ error }}>{helperText}</HelperText>}

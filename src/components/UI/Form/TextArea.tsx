@@ -7,12 +7,13 @@ import { isDark } from "../index"
 import HelperText from "./HelperText"
 import autoAnimate from '@formkit/auto-animate'
 import { useEffect, useRef } from "react"
-import Label from "./Label"
 import ConditionalLabel from "./ConditionalLabel"
+import { css as classCss } from "@emotion/css"
+import clsx from "clsx"
 
 
 export const TextAreaInput = styled(motion.textarea)(({ dark, centered }: { dark?: boolean, centered?: boolean }) => [
-	tw`w-full p-2 border border-2 rounded-md shadow-sm  place-self-center`,
+	tw`w-full p-2 border border-2 rounded-md shadow-sm  place-self-center h-[45px] min-h-[45px]`,
 	centered && tw`text-center`,
 
 	css`
@@ -50,21 +51,40 @@ interface TextAreaProps extends HTMLMotionProps<"textarea"> {
 const TextArea = (props: TextAreaProps) => {
 	const { height, className, label, placeholder, persistentLabel, onChange, centered, value, error, helperText, ...restProps } = props
 
-	const sectionRef = useRef(null)
+	const sectionRef  = useRef(null)
+	const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+	const handleAutoGrow = () => {
+		if (textareaRef && textareaRef.current) {
+			textareaRef.current.style.height = "0px"
+			const scrollHeight               = textareaRef.current.scrollHeight + 5
+			textareaRef.current.style.height = scrollHeight + "px"
+		}
+	}
 
 	useEffect(() => {
 		sectionRef.current && autoAnimate(sectionRef.current)
 	}, [sectionRef])
+
+	useEffect(() => {
+		handleAutoGrow()
+	}, [value])
+
 
 	return (
 		<section ref={sectionRef}>
 			<ConditionalLabel {...{ label, persistentLabel, value }}/>
 
 			<TextAreaInput {...restProps}
-			               placeholder={placeholder || persistentLabel === false ? label : ''}
+			               ref={textareaRef}
+			               className={`${classCss`
+				                ${(value && label) || (label && persistentLabel) ? tw`mt-0` : tw`mt-6`}
+				                ${helperText ? tw`mb-0` : tw`mb-6`}
+			                `} ${clsx(className)}`}
+			               placeholder={placeholder || !persistentLabel ? label : ''}
 			               {...{ height, centered, onChange, value }}/>
 
-			{helperText && <HelperText {...{ error }}>{helperText}</HelperText>}
+			{!!helperText && <HelperText {...{ error }}>{helperText}</HelperText>}
 		</section>
 	)
 }

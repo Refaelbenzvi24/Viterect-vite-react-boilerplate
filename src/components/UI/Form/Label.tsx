@@ -6,7 +6,7 @@ import theme from "../Utils/theme"
 import { isDark } from "../index"
 
 
-const Label = styled(motion.label)(({ dark }: { dark?: boolean }) => [
+const Label = styled(motion.span)(({ dark }: { dark?: boolean }) => [
 	css`
 		color: ${theme.colors.gray_500};
 	`,
@@ -15,7 +15,7 @@ const Label = styled(motion.label)(({ dark }: { dark?: boolean }) => [
 		color: ${theme.colors.gray_300};
 	`,
 
-	tw`px-2 text-sm`,
+	tw`text-sm !w-fit px-[2px]`,
 ])
 
 export default Label

@@ -8,6 +8,7 @@ interface ConditionalLabelProps {
 }
 
 const ConditionalLabel = ({ label, persistentLabel, value }: ConditionalLabelProps) => {
+
 	if ((value && label) || (label && persistentLabel)) {
 		return <Label>{label}</Label>
 	}

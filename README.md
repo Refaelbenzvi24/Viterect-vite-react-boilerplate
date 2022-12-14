@@ -1,3 +1,7 @@
+<p align="center">
+  <img src=".github/assets/viterect-logo.png" alt="" width="300">
+</p>
+
 # Documentation
 
 [![Viterect](https://img.shields.io/endpoint?url=https://dashboard.cypress.io/badge/simple/rtddw4&style=flat&logo=cypress)](https://dashboard.cypress.io/projects/rtddw4/runs)
@@ -7,7 +11,8 @@
 ## Description
 
 This is a boilerplate/template I built from scratch with a lot of usefull tools configured and ready to use. <br/>
-So if you wanna start a new project and don't want to waste time on configuration and figure out how to set it all up, <br/>
+So if you wanna start a new project and don't want to waste time on configuration and figure out how to set it all
+up, <br/>
 just clone and start to code! 😉
 
 ## Features
@@ -16,7 +21,8 @@ just clone and start to code! 😉
 - ![Alt text](https://api.iconify.design/logos:vitejs.svg) [Vite](https://github.com/vitejs/vite)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-reactjs.svg) [React](https://github.com/facebook/react)
 - ![Alt text](https://api.iconify.design/logos:esbuild.svg) [ESBuild](https://github.com/evanw/esbuild)
-- ![Alt text](https://api.iconify.design/vscode-icons:file-type-tailwind.svg) [tailwindcss](https://github.com/tailwindlabs/tailwindcss) - on-demand CSS utilities
+- ![Alt text](https://api.iconify.design/vscode-icons:file-type-tailwind.svg) [tailwindcss](https://github.com/tailwindlabs/tailwindcss)
+  - on-demand CSS utilities
 - ![Alt text](.github/assets/logo-daisyui.svg) [DaisyUI](https://github.com/saadeghi/daisyui)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-apib2.svg) [axios](https://github.com/axios/axios)
 - ![Alt text](https://api.iconify.design/vscode-icons:file-type-typescript-official.svg) [TypeScript](https://github.com/microsoft/TypeScript)
